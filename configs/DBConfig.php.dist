@@ -1,0 +1,51 @@
+<?php
+
+class DBConfig
+{
+	// World Database - containts aowow tables and mangos data tables
+	public static $world = array(
+		'host'	=> 'localhost',
+		'user'	=> 'root',
+		'pass'	=> '',
+		'db'	=> 'aowow',
+		'prefix'=> 'aowow_',
+	);
+
+	// Characters Database
+	public static $characters = array(
+		'host'	=> 'localhost',
+		'user'	=> 'root',
+		'pass'	=> '',
+		'db'	=> 'characters',
+		'prefix'=> '',
+	);
+
+	// Realm Database
+	public static $realm = array(
+		'host'	=> 'localhost',
+		'user'	=> 'root',
+		'pass'	=> '',
+		'db'	=> 'realmd',
+		'prefix'=> '',
+	);
+
+	// Logs & Activity Database
+	public static $log = array(
+		'host'	=> 'localhost',
+		'user'	=> 'root',
+		'pass'	=> '',
+		'db'	=> 'mangos',
+		'prefix'=> '',
+	);
+
+	// Live World Database - the one used directly by the server
+	public static $liveworld = array(
+		'host'	=> 'localhost',
+		'user'	=> 'root',
+		'pass'	=> '',
+		'db'	=> 'mangos',
+		'prefix'=> '',
+	);
+}
+
+?>

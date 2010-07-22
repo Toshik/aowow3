@@ -1,0 +1,1 @@
+<div id="footer">	<small>		<a href="?server"><?php echo T('aboutus'); ?></a>|<a href="?rules"><?php echo T('server_rules'); ?></a>|<a href="?redirect=forum"><?php echo T('forum'); ?></a>	</small></div>

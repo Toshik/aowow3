@@ -1,0 +1,1 @@
+<noscript><div id="noscript-bg"></div><div id="noscript-text"><?php echo T('noscript_block'); ?></div></noscript>

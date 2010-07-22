@@ -1,0 +1,1 @@
+<div id="beyondfooter">	<h3><?php echo T('admin_panel'); ?></h3>	<a href="?mods-retreat"><?php echo T('mods_retreat'); ?></a>|<a href="?editors-lounge"><?php echo T('editors_lounge'); ?></a>	<br /><a href="?devs-corner"><?php echo T('devs_corner'); ?></a></div>
