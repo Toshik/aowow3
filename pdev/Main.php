@@ -40,8 +40,39 @@ class Main
 	public static $user = NULL;
 	public static $page = NULL;
 
+	public static $classes;
+	public static $races;
+
 	public static function Handle($query)
 	{
+		$version = file_exists('./version') ? intval(file_get_contents('./version')) : 0;
+
+		if(!defined('VERSION') || $version != VERSION)
+		{
+			require('phtml/maintenance.php');
+
+			// Launch migration system:
+			//  - Rebuild all php data files
+			//  - Rebuild all client files
+			//  - Drop cache
+			
+			Maintainer::AcquireLock();
+
+			Maintainer::BuildPHPFiles();
+			Maintainer::BuildClientFiles();
+			
+			global $_CONFIG;
+			$_CONFIG['VERSION'] = $version;
+			
+			Maintainer::SaveConfig();
+
+			Maintainer::ReleaseLock();
+
+			exit;
+		}
+
+		require_once('./cache/generated.php');
+
 		// Split query into parts
 		if(preg_match('/^(([\w\-]+)&)?([^&]*)&?/i', $query, $matches))
 		{
@@ -54,9 +85,8 @@ class Main
 					self::$locale = $loc;
 			}
 			self::$lang = self::$languages[self::$locale];
-			// Load terms...
-			if(file_exists($locale_file = './cache/locale.'.self::$lang.'.php'))
-				require_once($locale_file);
+			// Load localized data...
+			require_once('./cache/locale.'.self::$lang.'.php');
 			// Load user...
 			if(isset($_COOKIE['wh_o']) && isset($_COOKIE['auth']))
 			{

@@ -32,7 +32,10 @@ class DB
 		$interface = DbSimple_Generic::connect(self::_createConnectSyntax($options));
 
 		if(!$interface)
-			return;
+		{
+			echo 'Failed to connect to database.';
+			die;
+		}
 
 		$interface->setErrorHandler(array('DB', 'ErrorHandler'));
 		$interface->query('SET NAMES ?', 'utf8');

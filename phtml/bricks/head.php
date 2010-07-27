@@ -10,13 +10,15 @@ echo '<title>'.htmlspecialchars($this->full_title).'</title>';
 
 	<link rel="stylesheet" type="text/css" href="templates/<?php echo $this->template; ?>/css/locale_<?php echo $this->lang; ?>.css" />
 	<link rel="stylesheet" type="text/css" href="templates/<?php echo $this->template; ?>/css/global.css" />
+
+	<script src="cache/<?php echo CLIENTFILE_JQUERY_JS; ?>.js" type="text/javascript"></script>
 	<script src="templates/<?php echo $this->template; ?>/js/locale_<?php echo $this->lang; ?>.js" type="text/javascript"></script>
-	<script src="templates/<?php echo $this->template; ?>/js/global.js" type="text/javascript"></script>
+	<script src="cache/<?php echo CLIENTFILE_GLOBAL_JS; ?>.js" type="text/javascript"></script>
 
 <?php
 	foreach($this->css as $css)
 	{
-		echo '<link rel="stylesheet" type="text/css" href="templates/'.$this->template.'/css/'.str_replace('[LANG]', $this->lang, $css).'.css" />'."\n";
+		echo '<link rel="stylesheet" type="text/css" href="cache/'.str_replace('[LANG]', $this->lang, $css).'.css" />'."\n";
 	}
 
 	foreach($this->js as $js)

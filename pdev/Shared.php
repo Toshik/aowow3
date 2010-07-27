@@ -63,6 +63,12 @@ function endsWith($source, $with)
 	return false;
 }
 
+function AllLocales($name = 'name')
+{
+	$name = $name.'_loc';
+	return $name.implode(','.$name, Main::$locales);
+}
+
 enum(array( // GetType
 	'GET_INT',
 	'GET_INT_NULL',
@@ -99,8 +105,16 @@ function Get($getType, $key, $from = 'GET')
 }
 
 // Returns term's text for current locale
-function T($term)
+function T($term, $specialLocale = false)
 {
+	if($specialLocale !== false)
+	{
+		global $_LOCALIZEDTERMS;
+		return isset($_LOCALIZEDTERMS[$specialLocale][$term])
+			? $_LOCALIZEDTERMS[$specialLocale][$term]
+			: (isset($_LOCALIZEDTERMS[0][$term]) ? $_LOCALIZEDTERMS[0][$term] : '[term not exists]');
+	}
+
 	global $_TERMS;
 	return isset($_TERMS[$term]) ? $_TERMS[$term] : '[term not exists]';
 }

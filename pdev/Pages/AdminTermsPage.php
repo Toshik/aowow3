@@ -11,7 +11,7 @@ class AdminTermsPage extends GenericPage
 
 	public function finalize()
 	{
-		$terms = DB::World()->Select('SELECT textid, flags, content_loc'.implode(', content_loc', Main::$locales).', comments FROM ?_terms ORDER BY textid');
+		$terms = DB::World()->Select('SELECT textid, flags, '.AllLocales('content').', comments FROM ?_terms ORDER BY textid');
 
 		$files = array();
 		foreach(Main::$locales as $loc)
