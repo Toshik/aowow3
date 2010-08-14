@@ -14,6 +14,7 @@ class Main
 			INDEX_ID	=> 'MainPage',
 			'locale'	=> 'LocaleChangePage',
 			'account'	=> 'AccountPage',
+			'term-test'	=> 'TermTestPage',
 		),
 		/*'editors-lounge'	=> array(
 			''	=> array(array('EditorsLounge','HandleIndex'),	U_GROUP_EDITORS),
@@ -40,9 +41,6 @@ class Main
 	public static $user = NULL;
 	public static $page = NULL;
 
-	public static $classes;
-	public static $races;
-
 	public static function Handle($query)
 	{
 		$version = file_exists('./version') ? intval(file_get_contents('./version')) : 0;
@@ -60,10 +58,13 @@ class Main
 
 			Maintainer::BuildPHPFiles();
 			Maintainer::BuildClientFiles();
-			
-			global $_CONFIG;
-			$_CONFIG['VERSION'] = $version;
-			
+
+			if ($version > 0)
+			{
+				global $_CONFIG;
+				$_CONFIG['VERSION'] = $version;
+			}
+
 			Maintainer::SaveConfig();
 
 			Maintainer::ReleaseLock();

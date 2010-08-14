@@ -2,10 +2,15 @@
 
 class Maintainer
 {
+	// cached data
+	private static $localizedTerms = array();
+	private static $systemRaces = array();
+	private static $systemClasses = array();
+
 	public static function AcquireLock()
 	{
 		if(!file_exists('./cache/lock'))
-			file_put_contents('./cache/lock', '');
+			touch('./cache/lock');
 	}
 
 	public static function ReleaseLock()
@@ -17,7 +22,6 @@ class Maintainer
 	public static function BuildPHPFiles()
 	{
 		global $_LOCALIZEDTERMS;
-		$_LOCALIZEDTERMS = array();
 		foreach(Main::$locales as $loc)
 			$_LOCALIZEDTERMS[$loc] = array();
 
@@ -30,6 +34,7 @@ class Maintainer
 	private static function BuildLocalizedFiles()
 	{
 		global $_LOCALIZEDTERMS;
+
 		$terms = DB::World()->Select('SELECT textid, flags, '.AllLocales('content').', comments FROM ?_terms ORDER BY textid');
 
 		$files = array();
@@ -68,23 +73,26 @@ class Maintainer
 
 	private static function BuildNolocalizedFile()
 	{
-		$data = '<?php'."\n\n";
 		global $_LOCALIZEDTERMS;
 
+		$data = '<?php'."\n\n";
+
 		// Races
-		$races = DB::World()->Select('SELECT Id, nameSystem, '.AllLocales('nameMale').' FROM ?_races ORDER BY Id');
+		$races = DB::World()->Select('SELECT Id, side, nameSystem, '.AllLocales('nameMale').' FROM ?_races ORDER BY Id');
 		$data .= 'enum(array( // Races'."\n";
 		$ids = array();
 		foreach($races as $row)
 		{
-			$ids[] = $row['Id'];
+			$ids[] = $row['Id'].' => '.$row['side'];
+			self::$systemRaces[$row['Id']] = $row['nameSystem'];
+			// TODO: make them lower in the database
 			$data .= "\t".'\'RACE_'.strtoupper($row['nameSystem']).'\' => '.$row['Id'].','."\n";
 
 			foreach(Main::$locales as $loc)
 				$_LOCALIZEDTERMS[$loc]['race_'.$row['Id']] = $row['nameMale_loc'.$loc];
 		}
 		$data .= '));'."\n";
-		$data .= 'Main::$races = array('.implode(', ', $ids).');'."\n\n";
+		$data .= 'WoW::$races = array('.implode(', ', $ids).');'."\n\n";
 
 		// Classes
 		$classes = DB::World()->Select('SELECT Id, nameSystem, '.AllLocales('nameMale').' FROM ?_classes ORDER BY Id');
@@ -93,13 +101,15 @@ class Maintainer
 		foreach($classes as $row)
 		{
 			$ids[] = $row['Id'];
+			self::$systemClasses[$row['Id']] = $row['nameSystem'];
+			// TODO: make them lower in the database
 			$data .= "\t".'\'CLASS_'.strtoupper($row['nameSystem']).'\' => '.$row['Id'].','."\n";
 
 			foreach(Main::$locales as $loc)
 				$_LOCALIZEDTERMS[$loc]['class_'.$row['Id']] = $row['nameMale_loc'.$loc];
 		}
 		$data .= '));'."\n";
-		$data .= 'Main::$classes = array('.implode(', ', $ids).');'."\n\n";
+		$data .= 'WoW::$classes = array('.implode(', ', $ids).');'."\n\n";
 
 		$data .= '?>';
 		file_put_contents('./cache/generated.php', $data);
@@ -110,6 +120,14 @@ class Maintainer
 		self::BuildJQueryJs();
 		self::BuildGlobalJs();
 		self::BuildLocalizedJs();
+		self::BuildSingleJs('CLIENTFILE_HOME_JS', 'home');
+		self::BuildSingleJs('CLIENTFILE_BASIC_JS', 'basic');
+
+		self::BuildSingleCss('CLIENTFILE_BASIC_CSS', 'basic');
+		self::BuildSingleCss('CLIENTFILE_HOME_CSS', 'home');
+		self::BuildSingleCss('CLIENTFILE_GLOBAL_CSS', 'global');
+		foreach(Main::$locales as $loc)
+			self::BuildSingleCss('CLIENTFILE_LOCALE_'.$loc.'_CSS', 'locale', $loc);
 	}
 	
 	private static function BuildGlobalJs()
@@ -118,13 +136,30 @@ class Maintainer
 			unlink($a);
 
 		$data = '';
+
+		$data .= 'g_staticUrl=".";';
+
+		// g_file_races
+		$tmp = array();
+		foreach (self::$systemRaces as $id => $name)
+			$tmp[] = $id.':"'.$name.'"';
+		$data .= 'var g_file_races={'.implode(',', $tmp).'};';
+
+		// g_file_classes
+		$tmp = array();
+		foreach (self::$systemClasses as $id => $name)
+			$tmp[] = $id.':"'.$name.'"';
+		$data .= 'var g_file_classes={'.implode(',', $tmp).'};';
+
 		$data .= file_get_contents('./js/Defines.js');
 		$data .= file_get_contents('./js/Util.js');
 		//$data .= file_get_contents('./js/Ads.js');
+		$data .= file_get_contents('./js/Ads_PH.js');
 		//$data .= file_get_contents('./js/Announcements.js');
 		//$data .= file_get_contents('./js/ContactTool.js');
 		//$data .= file_get_contents('./js/Draggable.js');
 		//$data .= file_get_contents('./js/Facebook.js');
+		$data .= file_get_contents('./js/Facebook_PH.js');
 		$data .= file_get_contents('./js/Icon.js');
 		$data .= file_get_contents('./js/Lightbox.js');
 		$data .= file_get_contents('./js/Listview.js');
@@ -167,56 +202,157 @@ class Maintainer
 
 	private static function BuildLocalizedJs()
 	{
-		global $_LOCALIZEDTERMS;
-
-		$result = DB::World()->Select('SELECT classId, '.AllLocales().', `order` FROM ?_talenttab');
+		$result = DB::World()->Select('SELECT classId, '.AllLocales().', petType, icon, `order` FROM ?_talent_tab');
 		$talent_tabs = array();
 		foreach($result as $row)
 		{
-			if(!isset($talent_tabs[$row['classId']]))
-				$talent_tabs[$row['classId']] = array();
-
-			$talent_tabs[$row['classId']][$row['order']] = array();
-
+			$orderOrPetType = $row['classId'] ? $row['order'] : $row['petType'];
+			$talent_tabs[$row['classId']][$orderOrPetType]['icon'] = $row['icon'];
 			foreach(Main::$locales as $loc)
-				$talent_tabs[$row['classId']][$row['order']][$loc] = $row['name_loc'.$loc];
+				$talent_tabs[$row['classId']][$orderOrPetType][$loc] = $row['name_loc'.$loc];
 		}
+		
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_pet_food');
+		$pet_food_types = array();
+		foreach($result as $row)
+		{
+			$pet_food_types[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$pet_food_types[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		// TODO: reuse pet_family table for other needs
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_pet_family WHERE petType >= 0');
+		$pet_families = array();
+		foreach($result as $row)
+		{
+			$pet_families[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$pet_families[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_item_class');
+		$item_classes = array();
+		foreach($result as $row)
+		{
+			$item_classes[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$item_classes[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_creature_type');
+		$creature_types = array();
+		foreach($result as $row)
+		{
+			$creature_types[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$creature_types[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_quest_info');
+		$quest_info = array();
+		foreach($result as $row)
+		{
+			$quest_info[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$quest_info[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_areatable');
+		$area_table = array();
+		foreach($result as $row)
+		{
+			$area_table[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$area_table[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_quest_sort');
+		$quest_sort = array();
+		foreach($result as $row)
+		{
+			$quest_sort[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$quest_sort[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_spell_school');
+		$schools = array();
+		foreach($result as $row)
+		{
+			$schools[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$schools[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_skill_line');
+		$skill_line = array();
+		foreach($result as $row)
+		{
+			$skill_line[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$skill_line[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().', parent FROM ?_faction');
+		$factions = array();
+		$faction_categories = array();
+		foreach($result as $row)
+		{
+			$factions[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$factions[$row['Id']][$loc] = $row['name_loc'.$loc];
+
+			$faction_categories[$row['parent']] = null;
+		}
+		foreach($faction_categories as $id => $null)
+			$faction_categories[$id] = &$factions[$id];
+
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_achievement_category');
+		$achievement_category = array();
+		foreach($result as $row)
+		{
+			$achievement_category[$row['Id']] = array();
+			foreach(Main::$locales as $loc)
+				$achievement_category[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
 		unset($result);
 
 		$files = array();
 		foreach(Main::$locales as $loc)
 		{
-			$files[$loc] .= self::ProcessJs(file_get_contents('./js/LocalizedMenu.js'), true, $loc);
-			$files[$loc] .= self::ProcessJs(file_get_contents('./js/LocalizedStatic.js'), true, $loc);
+			$files[$loc] .= file_get_contents('./js/LocalizedStatic.js');
+
+			// g_item_classes
+			$tmp = array();
+			foreach($item_classes as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_item_classes={'.implode(',', $tmp).'};';
+
 			// g_contact_reasons
-			$files[$loc] .= 'var g_contact_reasons={'."\n";
-			$data = array();
+			$tmp = array();
 			foreach(ContactTool::$reasons as $id => $term)
-				$data[] = $id.': "'.jsEscape(T($term, $loc)).'"';
-			$files[$loc] .= implode(',', $data);
-			$files[$loc] .= '};';
+				$tmp[] = $id.': "'.jsEscape(T($term, $loc)).'"';
+			$files[$loc] .= 'var g_contact_reasons={'.implode(',', $tmp).'};';
 
 			// g_chr_classes
-			$files[$loc] .= 'var g_chr_classes={'."\n";
-			$data = array();
-			foreach(Main::$classes as $id)
-				$data[] = $id.': "'.jsEscape(T('class_'.$id, $loc)).'"';
-			$files[$loc] .= implode(',', $data);
-			$files[$loc] .= '};';
+			$tmp = array();
+			foreach(WoW::$classes as $id)
+				$tmp[] = $id.': "'.jsEscape(T('class_'.$id, $loc)).'"';
+			$files[$loc] .= 'var g_chr_classes={'.implode(',', $tmp).'};';
 
 			// g_chr_races
-			$files[$loc] .= 'var g_chr_races={'."\n";
-			$data = array();
-			foreach(Main::$races as $id)
-				$data[] = $id.': "'.jsEscape(T('race_'.$id, $loc)).'"';
-			$files[$loc] .= implode(',', $data);
-			$files[$loc] .= '};';
+			$tmp = array();
+			foreach(WoW::$races as $id => $side)
+				$tmp[] = $id.': "'.jsEscape(T('race_'.$id, $loc)).'"';
+			$files[$loc] .= 'var g_chr_races={'.implode(',', $tmp).'};';
 
-			// var g_chr_specs
-			$files[$loc] .= 'var g_chr_specs={'."\n";
+			// g_chr_specs
+			$files[$loc] .= 'var g_chr_specs={';
 			$files[$loc] .= '0:"'.jsEscape(T('talents_hybrid')).'",';
 
-			foreach(Main::$classes as $classId)
+			foreach(WoW::$classes as $classId)
 			{
 				$files[$loc] .= $classId.':["';
 				$names = array();
@@ -227,6 +363,132 @@ class Maintainer
 			}
 
 			$files[$loc] .= '"-1":"'.jsEscape(T('talents_untalented')).'"';
+			$files[$loc] .= '};';
+
+			// g_pet_types
+			$tmp = array();
+			foreach($talent_tabs[0] as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_pet_types={'.implode(',', $tmp).'};';
+			
+			// g_pet_foods
+			$tmp = array();
+			foreach($pet_food_types as $id => $names)
+				$tmp[] = (1 << ($id-1)).':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_pet_foods={'.implode(',', $tmp).'};';
+
+			// g_pet_families
+			$tmp = array();
+			foreach($pet_families as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_pet_families={'.implode(',', $tmp).'};';
+
+			// g_npc_types
+			$tmp = array();
+			foreach($creature_types as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_npc_types={'.implode(',', $tmp).'};';
+
+			// g_quest_types
+			$tmp = array();
+			foreach($quest_info as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_quest_types={'.implode(',', $tmp).'};';
+
+			// g_quest_sorts
+			$tmp = array();
+			foreach($quest_sort as $id => $names)
+				$tmp[] = '"-'.$id.'":"'.jsEscape($names[$loc]).'"';
+			foreach($area_table as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_quest_sorts={'.implode(',', $tmp).'};';
+
+			// g_spell_resistances
+			$tmp = array();
+			foreach($schools as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_spell_resistances={'.implode(',', $tmp).'};';
+
+			// g_spell_skills
+			$tmp = array();
+			foreach($skill_line as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_spell_skills={'.implode(',', $tmp).'};';
+
+			// g_faction_categories
+			$tmp = array();
+			foreach($faction_categories as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names != null ? $names[$loc] : T('other')).'"';
+			$files[$loc] .= 'var g_faction_categories={'.implode(',', $tmp).'};';
+
+			// g_achievement_categories
+			$tmp = array();
+			foreach($achievement_category as $id => $names)
+				$tmp[] = $id.':"'.jsEscape($names[$loc]).'"';
+			$files[$loc] .= 'var g_achievement_categories={'.implode(',', $tmp).'};';
+
+			// MENU
+
+			// mn_classes
+			$tmp = array();
+			foreach(WoW::$classes as $id)
+				$tmp[] = '['.$id.', "'.T('class_'.$id).'",,,{className: "c'.$id.'",tinyIcon:"class_'.self::$systemClasses[$id].'"}]';
+			$files[$loc] .= 'var mn_classes=['.implode(',', $tmp).'];';
+
+			// mn_races
+			$tmp = $tmp2 = array();
+			foreach(WoW::$races as $id => $side)
+				$tmp[$side][] = '['.$id.', "'.T('race_'.$id).'",,,{className: "r'.$id.'",tinyIcon:"race_'.self::$systemRaces[$id].'_female"}]';
+
+			foreach ($tmp as $side => $races)
+			{
+				// put side label in the beginning of $races
+				array_unshift($races, '[,"'.T(WoW::$sides[$side]).'",,,{tinyIcon:"side_'.WoW::$sides[$side].'"}]');
+				// merge two arrays
+				$tmp2 = array_merge($tmp2, $races);
+			}
+			$files[$loc] .= 'var mn_races=['.implode(',', $tmp2).'];';
+
+			// mn_itemSets
+			$tmp = array();
+			$tmp[] = '[, "'.T('byclass', $loc).'"]';
+			foreach(WoW::$classes as $id)
+				$tmp[] = '['.$id.', "'.T('class_'.$id).'",,,{className: "c'.$id.'",tinyIcon:"class_'.self::$systemClasses[$id].'"}]';
+			$files[$loc] .= 'var mn_itemSets=['.implode(',', $tmp).'];';
+
+			// mn_npcs
+			$tmp = array();
+			foreach($creature_types as $id => $names)
+				$tmp[] = '['.$id.', "'.jsEscape($names[$loc]).'"]';
+			$files[$loc] .= 'var mn_npcs = ['.implode(',', $tmp).'];';
+
+			// mn_pets
+			$tmp = array();
+			foreach($talent_tabs[0] as $id => $names)
+			{
+				$talent_tabs[0][$id]['iconname'] = DB::World()->SelectCell('SELECT icon FROM ?_spell_icon WHERE id = ?d', $names['icon']);
+				$tmp[] = '['.$id.',"'.jsEscape($names[$loc]).'",,,{tinyIcon:"'.$talent_tabs[0][$id]['iconname'].'"}]';
+			}
+			$files[$loc] .= 'var mn_pets=['.implode(',', $tmp).'];';
+
+			// main menu file
+			$files[$loc] .= file_get_contents('./js/LocalizedMenu.js');
+
+			// LANG
+
+			$files[$loc] .= 'var LANG={';
+
+			//$files[$loc] .= file_get_contents('./js/LangContactTool.js');
+			//$files[$loc] .= file_get_contents('./js/LangFilters.js');
+			$files[$loc] .= file_get_contents('./js/LangForums.js');
+			//$files[$loc] .= file_get_contents('./js/LangProfiler.js');
+			//$files[$loc] .= file_get_contents('./js/LangShowOnMap.js');
+			//$files[$loc] .= file_get_contents('./js/LangSummary.js');
+			$files[$loc] .= file_get_contents('./js/LangTalentCalc.js');
+
+			// must be last
+			$files[$loc] .= file_get_contents('./js/LangBasic.js');
+
 			$files[$loc] .= '};';
 		}
 
@@ -246,17 +508,56 @@ class Maintainer
 		}
 	}
 
-	private static function ProcessJs($script, $replace, $locale = false)
+	private static function BuildSingleJs($contant_name, $file_name, $locale = false)
 	{
-		if($replace)
-		{
-			$script = preg_replace_callback('/({term:([\w\d]+)})/',
-				create_function('$matches', 'return jsEscape(T($matches[2], '.($locale === false ? 'false' : $locale).'));'),
-				$script);
-			$script = preg_replace_callback('/({constant:([\w\d]+)})/',
-				create_function('$matches', 'return jsEscape(constant($matches[2]));'),
-				$script);
-		}
+		global $_CONFIG;
+
+		if (defined($contant_name) && file_exists($a = './cache/'.constant($contant_name).'.js'))
+			unlink($a);
+
+		$contents = self::ProcessJs(file_get_contents('./js/'.$file_name.'.js'), true, $locale);
+		$md5 = md5($contents);
+		$_CONFIG[$contant_name] = $md5;
+		file_put_contents('./cache/'.$md5.'.js', $contents);
+	}
+
+	private static function BuildSingleCss($contant_name, $file_name, $locale = false)
+	{
+		global $_CONFIG;
+
+		if (defined($contant_name) && file_exists($a = './cache/'.constant($contant_name).'.js'))
+			unlink($a);
+
+		$contents = self::ProcessContent(file_get_contents('./css/'.$file_name.'.css'), $locale);
+		// ...
+		$contents = strtr($contents, array(
+			"\r" => '',
+			"\n" => '',
+		));
+		$md5 = md5($contents);
+		$_CONFIG[$contant_name] = $md5;
+		file_put_contents('./cache/'.$md5.'.css', $contents);
+	}
+
+	private static function ProcessContent($content, $locale = false)
+	{
+		$content = preg_replace_callback('/({term:([\w\d]+)})/i',
+			create_function('$matches', 'return jsEscape(T($matches[2], '.($locale === false ? 'false' : $locale).'));'),
+			$content);
+		$content = preg_replace_callback('/({constant:([\w\d]+)})/i',
+			create_function('$matches', 'return jsEscape(constant($matches[2]));'),
+			$content);
+
+		$content = str_replace('{lang}', Main::$languages[intval($locale)], $content);
+		$content = str_replace('{locale}', intval($locale), $content);
+
+		return $content;
+	}
+
+	private static function ProcessJs($script, $process_content, $locale = false)
+	{
+		if($process_content)
+			$script = self::ProcessContent($script, $locale);
 
 		$packer = new JavaScriptPacker($script, 'None', true, false);
 		return $packer->pack();

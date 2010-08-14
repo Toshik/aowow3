@@ -1,0 +1,283 @@
+.forums-landing {
+width:936px;
+text-align:center;
+margin:0 auto;
+}
+
+.forums-landing-preamble {
+padding-bottom:12px;
+text-align:left;
+}
+
+.forums-landing-header {
+text-align:center;
+font-size:16px;
+font-weight:bolder;
+letter-spacing:2px;
+background-color:#141414;
+border:1px solid #101010;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+margin:24px 0 6px;
+padding:6px 8px;
+}
+
+.forums-landing-box {
+width:312px;
+height:112px;
+zoom:1;
+display:inline;
+position:relative;
+margin:0;
+}
+
+.forums-landing-box-text {
+position:absolute;
+left:118px;
+top:48px;
+width:180px;
+height:40px;
+text-align:left;
+}
+
+.forums-landing-box-link {
+display:block;
+position:absolute;
+top:6px;
+left:6px;
+width:300px;
+height:100px;
+}
+
+.forums-landing-subbox {
+display:none;
+position:absolute;
+top:0;
+left:0;
+width:312px;
+height:112px;
+text-align:center;
+background-color:rgba(36,36,36,0.75);
+}
+
+.forums-landing-subbox-center {
+width:240px;
+height:100px;
+position:absolute;
+left:36px;
+top:8px;
+}
+
+.forums-landing-subbox-link {
+position:absolute;
+width:48px;
+height:48px;
+}
+
+.forums-poll a {
+font-size:11px;
+}
+
+.forums-poll-voted {
+font-style:italic;
+}
+
+.forums-notice {
+color:#ddd;
+margin-bottom:10px;
+text-align:center;
+background-color:#141414;
+border:1px solid #101010;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+padding:8px;
+}
+
+.forums-notice b {
+color:#FFF;
+}
+
+.forums-topicsubject {
+font-family:Verdana,sans-serif;
+display:block;
+float:left;
+margin-right:9px;
+}
+
+.forums-topicsubject:visited,.forums-topicpages a:visited {
+color:#8e770e;
+}
+
+.forums-topicsubject span {
+display:block;
+}
+
+.forums-topicpages {
+padding-top:2px;
+float:left;
+font-size:11px;
+white-space:nowrap;
+}
+
+.forums-topicpages a {
+padding:0 2px 0 3px;
+}
+
+.forums-band-top {
+padding-bottom:10px;
+}
+
+.forums-band-bottom {
+padding-top:10px;
+}
+
+.forums-band-top p,.forums-band-bottom p {
+padding-top:6px;
+margin:0;
+}
+
+.forums-band-top p a,.forums-band-bottom p a {
+float:left;
+font-size:12px;
+font-weight:700;
+margin-right:16px;
+}
+
+.forums-band-top select {
+float:left;
+margin:-3px 16px 0 0;
+}
+
+.forums-post-wrapper {
+padding:0 6px 6px;
+}
+
+.forums-post-container {
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+}
+
+.forums-post-container0 {
+background-color:#242424;
+}
+
+.forums-post-container0 .forums-post-sig {
+border-top:1px solid #404040;
+}
+
+.forums-post-container0 .forums-post-userinfo {
+border-left:1px solid #404040;
+}
+
+.forums-post-container1 {
+background-color:#292929;
+}
+
+.forums-post-container1 .forums-post-sig {
+border-top:1px solid #454545;
+}
+
+.forums-post-container1 .forums-post-userinfo {
+border-left:1px solid #454545;
+}
+
+.forums-post {
+margin-right:200px;
+line-height:1.3em;
+padding:0 10px 20px;
+}
+
+.forums-post-blog {
+margin-right:0!important;
+}
+
+.forums-post,.forums-post ol li div,.forums-post li div {
+color:#ddd;
+}
+
+.forums-post-dateline {
+font-size:11px;
+color:#bbb;
+margin:0;
+padding:8px 2px 16px;
+}
+
+.forums-post-dateline var {
+font-style:normal;
+}
+
+.forums-post-dateline var a.q0 {
+color:#bbb!important;
+font-weight:400;
+text-decoration:none;
+}
+
+.forums-post-dateline var a.q0:hover {
+text-decoration:underline;
+}
+
+.forums-post-dateline em {
+color:#ddd;
+font-style:normal;
+float:right;
+}
+
+.forums-post-dateline em span,.forums-post-dateline em span a {
+padding-left:6px;
+}
+
+.forums-post-sig {
+margin-top:16px;
+padding-top:4px;
+font-size:12px;
+}
+
+.forums-post-body {
+overflow:auto;
+padding-bottom:2px;
+}
+
+.forums-post-userinfo {
+float:right;
+width:180px;
+padding-left:10px;
+color:#FFF;
+margin:10px 0 10px 10px;
+}
+
+.forums-post-userinfo p p a {
+font-weight:400;
+}
+
+.forums-post-userinfo p {
+font-size:11px;
+margin:0;
+padding:3px 0 0 3px;
+}
+
+.forums-post-userinfo p p {
+line-height:1.4em;
+padding:10px 0 0;
+}
+
+.listview-mode2 .comment-editbox {
+width:98.5%!important;
+}
+
+.forums-search {
+position:absolute;
+}
+
+.forums-search input {
+position:relative;
+left:0;
+top:-3px;
+}
+
+.forums-topicsubject span .icon-bell,.forums-post-dateline var a,.forums-post-userinfo a {
+font-weight:700;
+}
+

@@ -1,0 +1,620 @@
+.profiler .ad-medrect {
+float:right;
+margin:0 0 10px 10px;
+}
+
+.profiler-charlookup {
+position:relative;
+height:22px;
+width:124px;
+display:inline-block;
+}
+
+.profiler-charlookup input {
+border:1px solid #a7a6aa;
+height:18px;
+width:120px;
+padding-left:2px;
+font-size:13px;
+font-family:Arial,sans-serif;
+background:#FFF;
+color:#000;
+}
+
+.profiler-charlookup-go {
+position:absolute;
+top:0;
+right:-12px;
+z-index:1;
+width:22px;
+height:22px;
+background:url(images/Profiler/lookup.gif) left top no-repeat;
+display:block;
+}
+
+.profiler-charlookup-go:hover {
+background-position:left bottom;
+}
+
+input.search-character {
+background:#FFF url(images/enus/character.gif) .2em center no-repeat!important;
+}
+
+.profiler-header {
+height:69px;
+background:url(images/Profiler/character-header-bg.gif) repeat-x left top;
+border-bottom:1px solid #505050;
+position:relative;
+margin-bottom:13px;
+padding-right:8px;
+}
+
+.profiler-header .iconlarge,.profiler-header .iconlargepremium {
+position:absolute;
+left:2px;
+top:-1px;
+}
+
+.profiler-header-line1,.profiler-header-line2,.profiler-header-line3 {
+position:absolute;
+left:74px;
+}
+
+.profiler-header-line1 {
+top:0;
+font-size:15px;
+line-height:1.1em;
+color:#EEE;
+}
+
+.profiler-header-line1 a {
+color:#EEE;
+}
+
+.profiler-header-line1 b {
+font-size:20px;
+font-weight:400;
+color:#FFF;
+}
+
+.profiler-header-line2 {
+top:25px;
+color:#ddd;
+}
+
+.profiler-header-line2 var {
+font-size:12px;
+font-family:Verdana,sans-serif;
+color:#CCC;
+font-style:normal;
+}
+
+.profiler-header-line2 a {
+font-size:14px;
+}
+
+.profiler-header-line3 {
+top:48px;
+font-size:11px;
+color:#EEE;
+}
+
+.profiler-header-line3 span {
+display:block;
+float:left;
+}
+
+a.profiler-header-editlink {
+float:left;
+margin-left:16px;
+font-size:11px;
+font-weight:700;
+text-decoration:underline;
+}
+
+.profiler-message {
+color:#ddd;
+margin-bottom:10px;
+text-align:center;
+border:1px solid #101010;
+background:url(images/icons/ajax.gif) no-repeat 3px 3px #141414;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+padding:8px;
+}
+
+.profiler-tablinks {
+position:relative;
+z-index:1;
+}
+
+.profiler-tablinks a {
+padding-top:5px;
+padding-bottom:5px;
+}
+
+.profiler-tablinks-figureprint {
+z-index:1;
+float:right;
+font-size:13px;
+background:url(images/icons/star.png) no-repeat left center;
+padding:5px 5px 5px 21px;
+}
+
+.profiler-tablinks-armory {
+z-index:1;
+float:right;
+font-size:13px;
+background:url(images/icons/link.gif) no-repeat left center;
+margin-left:6px;
+padding:5px 5px 5px 19px;
+}
+
+.profiler-tablinks-help {
+z-index:1;
+float:right;
+font-size:13px;
+background:url(images/icons/help.gif) no-repeat left center;
+margin-left:6px;
+padding:5px 5px 5px 21px;
+}
+
+.profiler-tablinks-print {
+z-index:1;
+float:right;
+font-size:13px;
+background:url(images/icons/print.gif) no-repeat left center;
+padding:5px 5px 5px 21px;
+}
+
+.profiler-tabs {
+border-bottom:1px solid #404040;
+margin-bottom:10px;
+}
+
+.profiler-infobox-skill {
+line-height:1em;
+}
+
+.profiler-infobox-raids {
+line-height:normal;
+width:100%;
+}
+
+.profiler-infobox-raids ul li {
+padding-left:0;
+}
+
+.profiler-infobox-raids td {
+padding:4px 6px 4px 0;
+}
+
+.profiler-infobox-raids th {
+padding:0;
+}
+
+.profiler-infobox-raids-header th,.profiler-infobox-raids-header td {
+font-size:11px;
+font-weight:700;
+padding-top:0;
+padding-bottom:0;
+}
+
+.profiler-infobox-raids-header th {
+text-align:left;
+}
+
+.profiler-infobox-raids-header td {
+text-align:center;
+padding-right:4px;
+}
+
+.profiler-model {
+position:absolute;
+top:6px;
+left:50px;
+height:345px;
+width:275px;
+z-index:10;
+}
+
+.profiler-search {
+position:absolute;
+top:0;
+left:0;
+z-index:20;
+}
+
+.profiler-search input {
+width:235px;
+}
+
+.profiler-inventory {
+background-color:#141414;
+border:1px solid #101010;
+width:369px;
+height:408px;
+position:relative;
+margin-bottom:10px;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+}
+
+.profiler-inventory-inner {
+padding:3px;
+}
+
+.profiler-inventory-inner .button-red {
+position:absolute;
+float:none;
+right:0;
+bottom:-25px;
+}
+
+.profiler-inventory-left,.profiler-inventory-right,.profiler-inventory-bottom {
+position:absolute;
+}
+
+.profiler-inventory-left {
+top:3px;
+left:3px;
+}
+
+.profiler-inventory-right {
+top:3px;
+right:3px;
+}
+
+.profiler-inventory-bottom {
+bottom:3px;
+left:119px;
+}
+
+.profiler-inventory-bars {
+float:left;
+width:25%;
+}
+
+.profiler-inventory-resists {
+float:right;
+}
+
+.profiler-inventory-stats {
+border-collapse:collapse;
+border:0;
+width:100%;
+}
+
+.profiler-inventory-stats td {
+vertical-align:top;
+padding:0;
+}
+
+.profiler-inventory-stats p {
+background-color:#141414;
+border:1px solid #101010;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+margin:0 10px 0 0;
+padding:0 10px 10px;
+}
+
+.profiler-inventory-stats small {
+display:block;
+font-size:11px;
+padding:0 7px;
+}
+
+.profiler-inventory-stats h3 {
+display:block;
+font-weight:700;
+font-size:14px;
+text-align:center;
+margin:0;
+padding:8px 0;
+}
+
+.profiler-inventory-stats a {
+display:block;
+color:#FFF;
+text-decoration:none;
+padding:2px 3px;
+}
+
+.profiler-inventory-stats em {
+float:left;
+display:block;
+font-style:normal;
+width:70%;
+color:#ddd;
+white-space:nowrap;
+overflow:hidden;
+}
+
+.profiler-inventory-stats var {
+float:right;
+display:block;
+width:30%;
+font-style:normal;
+text-align:right;
+white-space:nowrap;
+font-weight:700;
+}
+
+.progressbar-health {
+border-top:1px solid #3aca01;
+border-bottom:1px solid #2b9401;
+background-color:#207001;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+}
+
+.progressbar-mana {
+border-top:1px solid #3472bf;
+border-bottom:1px solid #235a9d;
+background-color:#174a89;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+}
+
+.progressbar-rage {
+border-top:1px solid #e60f00;
+border-bottom:1px solid #b10c00;
+background-color:#930900;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+}
+
+.progressbar-energy {
+border-top:1px solid #e6e200;
+border-bottom:1px solid #b1ae00;
+background-color:#939000;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+}
+
+.progressbar-runic {
+border-top:1px solid #30cfeb;
+border-bottom:1px solid #30aac0;
+background-color:#3095a7;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+}
+
+.profiler-talents-specs {
+width:946px;
+padding-bottom:10px;
+margin:0 auto;
+}
+
+a.profiler-talents-button,a.profiler-pets-button {
+float:left;
+display:block;
+margin-right:10px;
+background-color:#404040;
+border:1px solid #202020;
+text-decoration:none;
+color:#FFF;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+padding:3px 8px 3px 5px;
+}
+
+a.profiler-talents-button:hover,a.profiler-pets-button:hover {
+background-color:#484848;
+text-decoration:underline;
+color:#FFF;
+border-color:#181818;
+}
+
+a.profiler-talents-button span,a.profiler-pets-button span {
+display:block;
+background:no-repeat left center;
+padding:3px 0 3px 18px;
+}
+
+a.profiler-talents-button small,a.profiler-pets-button small {
+color:#CCC;
+}
+
+.profiler-talents-specs a.selected,.profiler-pets-specs a.selected {
+background-color:#505050;
+text-decoration:none!important;
+}
+
+a.profiler-pets-button {
+height:26px;
+}
+
+a.profiler-pets-button span {
+padding:5px 0 5px 28px;
+}
+
+.profiler-pets-model {
+width:360px;
+height:364px;
+position:absolute;
+background-color:#181818;
+border:1px solid #383838;
+margin-top:43px;
+}
+
+.talentcalc-pet .talentcalc-main,.talentcalc-pet .talentcalc-lower {
+margin-left:370px;
+}
+
+.profiler-reputation h2 {
+clear:none;
+}
+
+h2 .disclosure-on,h2 .disclosure-off {
+font-weight:400;
+}
+
+.profiler-reputation th,.profiler-reputation td {
+padding:2px 0 0;
+}
+
+.profiler-reputation th {
+width:250px;
+text-align:left;
+vertical-align:middle;
+font-weight:400;
+}
+
+.profiler-reputation td {
+width:200px;
+}
+
+.profiler-achievements-source {
+margin-bottom:10px;
+}
+
+.profiler-achievements-summary {
+width:600px;
+float:left;
+background-color:#141414;
+border:1px solid #101010;
+margin-bottom:10px;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+}
+
+.profiler-achievements-summary-points span {
+display:block;
+position:absolute;
+right:8px;
+top:8px;
+}
+
+.profiler-achievements-summary-inner {
+font-size:12px;
+padding:6px;
+}
+
+.profiler-achievements-summary a {
+display:block;
+color:#FFF;
+}
+
+.profiler-achievements-summary a.selected {
+background-color:#282828;
+}
+
+.profiler-achievements-summary var {
+display:block;
+font-style:normal;
+padding:5px;
+}
+
+.profiler-achievements-summary em {
+font-style:normal;
+}
+
+a.profiler-achievements-total {
+width:188px;
+margin-top:6px;
+margin-right:11px;
+float:left;
+}
+
+a.profiler-achievements-total-right {
+width:190px;
+margin-top:6px;
+float:left;
+}
+
+.profiler-picker {
+font-size:13px;
+width:780px;
+height:554px;
+background-color:#303030;
+border:10px solid #303030;
+border-bottom:0;
+}
+
+.profiler-picker .listview {
+border:0;
+}
+
+.profiler-picker .listview-band-top {
+background-color:#303030;
+}
+
+.profiler-exclusion label {
+width:49%;
+display:inline-block;
+text-align:center;
+}
+
+.profiler-exclusion label b {
+padding:0 4px;
+}
+
+.moneyschoolarc,.moneyschoolfir,.moneyschoolfro,.moneyschoolhol,.moneyschoolnat,.moneyschoolsha {
+padding-left:18px;
+background:no-repeat left center;
+}
+
+.moneyschoolarc {
+background-image:url(images/icons/resist-arcane.gif);
+}
+
+.moneyschoolfir {
+background-image:url(images/icons/resist-fire.gif);
+}
+
+.moneyschoolfro {
+background-image:url(images/icons/resist-frost.gif);
+}
+
+.moneyschoolhol {
+background-image:url(images/icons/resist-holy.gif);
+}
+
+.moneyschoolnat {
+background-image:url(images/icons/resist-nature.gif);
+}
+
+.moneyschoolsha {
+background-image:url(images/icons/resist-shadow.gif);
+}
+
+.infobox {
+border-color:#101010;
+}
+
+.profiler-header a,.profiler-infobox-skill a,.profiler-achievements-summary a.selected:hover em {
+text-decoration:none;
+}
+
+.profiler-header a:hover,.profiler-inventory-stats a:hover em,.profiler-inventory-stats a:hover span,.profiler-achievements-summary a:hover em {
+text-decoration:underline;
+}
+
+.profiler-header-line3 span a,.profiler-message b,a.profiler-talents-button:hover small,a.profiler-pets-button:hover small,.profiler-talents-specs a.selected small,.profiler-pets-specs a.selected small {
+color:#FFF;
+}
+
+.profiler-infobox-badges .iconsmall,.profiler-inventory-bottom .iconmedium {
+float:left;
+}
+
+.profiler-model-outer,.profiler-achievements-summary-points {
+position:relative;
+}
+
+.profiler-inventory-stats a:hover,.profiler-achievements-summary a:hover {
+background-color:#222;
+}
+

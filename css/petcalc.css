@@ -1,0 +1,53 @@
+#pc-classes {
+width:946px;
+padding-bottom:10px;
+margin:0 auto;
+}
+
+#pc-classes-inner {
+width:736px;
+margin:0 auto;
+}
+
+#pc-classes p {
+font-size:32px;
+text-align:center;
+margin:0 0 16px;
+padding:0;
+}
+
+#pc-classes .iconmedium {
+float:left;
+margin-right:2px;
+margin-bottom:2px;
+opacity:.6666;
+filter:alpha(opacity=66);
+}
+
+#pc-classes.choose {
+position:relative;
+padding:0;
+}
+
+#pc-classes.choose #pc-classes-outer {
+width:614px;
+}
+
+#pc-classes.choose #pc-classes-inner {
+position:absolute;
+left:54px;
+top:150px;
+width:506px;
+}
+
+#pc-itself.choose .talentcalc-main {
+width:614px;
+height:554px!important;
+margin-left:0;
+}
+
+#pc-classes .iconmedium-gold-selected,#pc-classes.choose .iconmedium {
+opacity:1;
+filter:alpha(opacity=100);
+}
+

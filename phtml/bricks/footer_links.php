@@ -1,1 +1,1 @@
-<div id="footer">	<small>		<a href="?server"><?php echo T('aboutus'); ?></a>|<a href="?rules"><?php echo T('server_rules'); ?></a>|<a href="?redirect=forum"><?php echo T('forum'); ?></a>	</small></div>
+<div class="footer"><div class="footer-links linklist"><a href="?server"><?php echo T('aboutus'); ?></a>|<a href="?rules"><?php echo T('server_rules'); ?></a>|<a href="?redirect=forum"><?php echo T('forum'); ?></a>|<a href="#" id="footer-links-language"></a><?php /* <div class="footer-copy">...</div> */ ?></div></div>

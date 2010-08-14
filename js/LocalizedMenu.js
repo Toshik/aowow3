@@ -1,81 +1,3 @@
-var mn_classes = [
-	[6, "Death Knight", , , {
-		className: "c6",
-		tinyIcon: "class_deathknight"
-	}],
-	[11, "Druid", , , {
-		className: "c11",
-		tinyIcon: "class_druid"
-	}],
-	[3, "Hunter", , , {
-		className: "c3",
-		tinyIcon: "class_hunter"
-	}],
-	[8, "Mage", , , {
-		className: "c8",
-		tinyIcon: "class_mage"
-	}],
-	[2, "Paladin", , , {
-		className: "c2",
-		tinyIcon: "class_paladin"
-	}],
-	[5, "Priest", , , {
-		className: "c5",
-		tinyIcon: "class_priest"
-	}],
-	[4, "Rogue", , , {
-		className: "c4",
-		tinyIcon: "class_rogue"
-	}],
-	[7, "Shaman", , , {
-		className: "c7",
-		tinyIcon: "class_shaman"
-	}],
-	[9, "Warlock", , , {
-		className: "c9",
-		tinyIcon: "class_warlock"
-	}],
-	[1, "Warrior", , , {
-		className: "c1",
-		tinyIcon: "class_warrior"
-	}]];
-var mn_races = [
-	[, "Alliance", , , {
-		tinyIcon: "side_alliance"
-	}],
-	[11, "Draenei", , , {
-		tinyIcon: "race_draenei_female"
-	}],
-	[3, "Dwarf", , , {
-		tinyIcon: "race_dwarf_female"
-	}],
-	[7, "Gnome", , , {
-		tinyIcon: "race_gnome_female"
-	}],
-	[1, "Human", , , {
-		tinyIcon: "race_human_female"
-	}],
-	[4, "Night Elf", , , {
-		tinyIcon: "race_nightelf_female"
-	}],
-	[, "Horde", , , {
-		tinyIcon: "side_horde"
-	}],
-	[10, "Blood Elf", , , {
-		tinyIcon: "race_bloodelf_female"
-	}],
-	[2, "Orc", , , {
-		tinyIcon: "race_orc_female"
-	}],
-	[6, "Tauren", , , {
-		tinyIcon: "race_tauren_female"
-	}],
-	[8, "Troll", , , {
-		tinyIcon: "race_troll_female"
-	}],
-	[5, "Undead", , , {
-		tinyIcon: "race_scourge_female"
-	}]];
 var mn_items = [
 	[2, "Weapons", , [
 		[, "One-Handed", "/items=2?filter=ty=15:13:0:4:7"],
@@ -177,61 +99,61 @@ var mn_items = [
 		[4, "Scrolls"],
 		[8, "Other"]]],
 	[16, "Glyphs", , [
-		[6, "Death Knight", , [
+		[6, "{term:class_6}", , [
 			[1, "Major", "/items=16.6?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.6?filter=cr=132;crs=2;crv=0"]], {
 			className: "c6",
 			tinyIcon: "class_deathknight"
 		}],
-		[11, "Druid", , [
+		[11, "{term:class_11}", , [
 			[1, "Major", "/items=16.11?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.11?filter=cr=132;crs=2;crv=0"]], {
 			className: "c11",
 			tinyIcon: "class_druid"
 		}],
-		[3, "Hunter", , [
+		[3, "{term:class_3}", , [
 			[1, "Major", "/items=16.3?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.3?filter=cr=132;crs=2;crv=0"]], {
 			className: "c3",
 			tinyIcon: "class_hunter"
 		}],
-		[8, "Mage", , [
+		[8, "{term:class_8}", , [
 			[1, "Major", "/items=16.8?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.8?filter=cr=132;crs=2;crv=0"]], {
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
-		[2, "Paladin", , [
+		[2, "{term:class_2}", , [
 			[1, "Major", "/items=16.2?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.2?filter=cr=132;crs=2;crv=0"]], {
 			className: "c2",
 			tinyIcon: "class_paladin"
 		}],
-		[5, "Priest", , [
+		[5, "{term:class_5}", , [
 			[1, "Major", "/items=16.5?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.5?filter=cr=132;crs=2;crv=0"]], {
 			className: "c5",
 			tinyIcon: "class_priest"
 		}],
-		[4, "Rogue", , [
+		[4, "{term:class_4}", , [
 			[1, "Major", "/items=16.4?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.4?filter=cr=132;crs=2;crv=0"]], {
 			className: "c4",
 			tinyIcon: "class_rogue"
 		}],
-		[7, "Shaman", , [
+		[7, "{term:class_7}", , [
 			[1, "Major", "/items=16.7?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.7?filter=cr=132;crs=2;crv=0"]], {
 			className: "c7",
 			tinyIcon: "class_shaman"
 		}],
-		[9, "Warlock", , [
+		[9, "{term:class_9}", , [
 			[1, "Major", "/items=16.9?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.9?filter=cr=132;crs=2;crv=0"]], {
 			className: "c9",
 			tinyIcon: "class_warlock"
 		}],
-		[1, "Warrior", , [
+		[1, "{term:class_1}", , [
 			[1, "Major", "/items=16.1?filter=cr=132;crs=1;crv=0"],
 			[2, "Minor", "/items=16.1?filter=cr=132;crs=2;crv=0"]], {
 			className: "c1",
@@ -335,59 +257,6 @@ var mn_items = [
 	[10, "Currency"],
 	[12, "Quest"],
 	[13, "Keys"]];
-var mn_itemSets = [
-	[, "By Class"],
-	[6, "Death Knight", , , {
-		className: "c6",
-		tinyIcon: "class_deathknight"
-	}],
-	[11, "Druid", , , {
-		className: "c11",
-		tinyIcon: "class_druid"
-	}],
-	[3, "Hunter", , , {
-		className: "c3",
-		tinyIcon: "class_hunter"
-	}],
-	[8, "Mage", , , {
-		className: "c8",
-		tinyIcon: "class_mage"
-	}],
-	[2, "Paladin", , , {
-		className: "c2",
-		tinyIcon: "class_paladin"
-	}],
-	[5, "Priest", , , {
-		className: "c5",
-		tinyIcon: "class_priest"
-	}],
-	[4, "Rogue", , , {
-		className: "c4",
-		tinyIcon: "class_rogue"
-	}],
-	[7, "Shaman", , , {
-		className: "c7",
-		tinyIcon: "class_shaman"
-	}],
-	[9, "Warlock", , , {
-		className: "c9",
-		tinyIcon: "class_warlock"
-	}],
-	[1, "Warrior", , , {
-		className: "c1",
-		tinyIcon: "class_warrior"
-	}]];
-var mn_npcs = [
-	[1, "Beasts"],
-	[8, "Critters"],
-	[3, "Demons"],
-	[2, "Dragonkin"],
-	[4, "Elementals"],
-	[5, "Giants"],
-	[7, "Humanoids"],
-	[9, "Mechanicals"],
-	[6, "Undead"],
-	[10, "Uncategorized"]];
 var mn_objects = [
 	[9, "Books"],
 	[3, "Containers"],
@@ -503,16 +372,16 @@ var mn_quests = [
 		[4384, "Strand of the Ancients"],
 		[3277, "Warsong Gulch"]]],
 	[4, "Classes", , [
-		[-372, "Death Knight"],
-		[-263, "Druid"],
-		[-261, "Hunter"],
-		[-161, "Mage"],
-		[-141, "Paladin"],
-		[-262, "Priest"],
-		[-162, "Rogue"],
-		[-82, "Shaman"],
-		[-61, "Warlock"],
-		[-81, "Warrior"]]],
+		[-372, "{term:class_6}"],
+		[-263, "{term:class_11}"],
+		[-261, "{term:class_3}"],
+		[-161, "{term:class_8}"],
+		[-141, "{term:class_2}"],
+		[-262, "{term:class_5}"],
+		[-162, "{term:class_4}"],
+		[-82, "{term:class_7}"],
+		[-61, "{term:class_9}"],
+		[-81, "{term:class_1}"]]],
 	[2, "Dungeons", , [
 		[4494, "Ahn'kahet: The Old Kingdom"],
 		[3790, "Auchenai Crypts"],
@@ -683,7 +552,7 @@ var mn_skills = [
 var mn_spells = [
 	[, "Abilities & Talents"],
 	[7, "Abilities", , [
-		[6, "Death Knight", , [
+		[6, "{term:class_6}", , [
 			[770, "Blood", , , {
 				tinyIcon: "Spell_Deathknight_BloodPresence"
 			}],
@@ -697,7 +566,7 @@ var mn_spells = [
 			className: "c6",
 			tinyIcon: "class_deathknight"
 		}],
-		[11, "Druid", , [
+		[11, "{term:class_11}", , [
 			[574, "Balance", , , {
 				tinyIcon: "Spell_Nature_StarFall"
 			}],
@@ -710,7 +579,7 @@ var mn_spells = [
 			className: "c11",
 			tinyIcon: "class_druid"
 		}],
-		[3, "Hunter", , [
+		[3, "{term:class_3}", , [
 			[50, "Beast Mastery", , , {
 				tinyIcon: "Ability_Hunter_BeastTaming"
 			}],
@@ -723,7 +592,7 @@ var mn_spells = [
 			className: "c3",
 			tinyIcon: "class_hunter"
 		}],
-		[8, "Mage", , [
+		[8, "{term:class_8}", , [
 			[237, "Arcane", , , {
 				tinyIcon: "Spell_Holy_MagicalSentry"
 			}],
@@ -736,7 +605,7 @@ var mn_spells = [
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
-		[2, "Paladin", , [
+		[2, "{term:class_2}", , [
 			[594, "Holy", , , {
 				tinyIcon: "Spell_Holy_HolyBolt"
 			}],
@@ -749,7 +618,7 @@ var mn_spells = [
 			className: "c2",
 			tinyIcon: "class_paladin"
 		}],
-		[5, "Priest", , [
+		[5, "{term:class_5}", , [
 			[613, "Discipline", , , {
 				tinyIcon: "Spell_Holy_WordFortitude"
 			}],
@@ -762,7 +631,7 @@ var mn_spells = [
 			className: "c5",
 			tinyIcon: "class_priest"
 		}],
-		[4, "Rogue", , [
+		[4, "{term:class_4}", , [
 			[253, "Assassination", , , {
 				tinyIcon: "Ability_Rogue_Eviscerate"
 			}],
@@ -778,7 +647,7 @@ var mn_spells = [
 			className: "c4",
 			tinyIcon: "class_rogue"
 		}],
-		[7, "Shaman", , [
+		[7, "{term:class_7}", , [
 			[375, "Elemental Combat", , , {
 				tinyIcon: "Spell_Nature_Lightning"
 			}],
@@ -791,7 +660,7 @@ var mn_spells = [
 			className: "c7",
 			tinyIcon: "class_shaman"
 		}],
-		[9, "Warlock", , [
+		[9, "{term:class_9}", , [
 			[355, "Affliction", , , {
 				tinyIcon: "Spell_Shadow_DeathCoil"
 			}],
@@ -804,7 +673,7 @@ var mn_spells = [
 			className: "c9",
 			tinyIcon: "class_warlock"
 		}],
-		[1, "Warrior", , [
+		[1, "{term:class_1}", , [
 			[26, "Arms", , , {
 				tinyIcon: "Ability_Rogue_Eviscerate"
 			}],
@@ -818,7 +687,7 @@ var mn_spells = [
 			tinyIcon: "class_warrior"
 		}]]],
 	[-2, "Talents", , [
-		[6, "Death Knight", , [
+		[6, "{term:class_6}", , [
 			[770, "Blood", , , {
 				tinyIcon: "Spell_Deathknight_BloodPresence"
 			}],
@@ -831,7 +700,7 @@ var mn_spells = [
 			className: "c6",
 			tinyIcon: "class_deathknight"
 		}],
-		[11, "Druid", , [
+		[11, "{term:class_11}", , [
 			[574, "Balance", , , {
 				tinyIcon: "Spell_Nature_StarFall"
 			}],
@@ -844,7 +713,7 @@ var mn_spells = [
 			className: "c11",
 			tinyIcon: "class_druid"
 		}],
-		[3, "Hunter", , [
+		[3, "{term:class_3}", , [
 			[50, "Beast Mastery", , , {
 				tinyIcon: "Ability_Hunter_BeastTaming"
 			}],
@@ -857,7 +726,7 @@ var mn_spells = [
 			className: "c3",
 			tinyIcon: "class_hunter"
 		}],
-		[8, "Mage", , [
+		[8, "{term:class_8}", , [
 			[237, "Arcane", , , {
 				tinyIcon: "Spell_Holy_MagicalSentry"
 			}],
@@ -870,7 +739,7 @@ var mn_spells = [
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
-		[2, "Paladin", , [
+		[2, "{term:class_2}", , [
 			[594, "Holy", , , {
 				tinyIcon: "Spell_Holy_HolyBolt"
 			}],
@@ -883,7 +752,7 @@ var mn_spells = [
 			className: "c2",
 			tinyIcon: "class_paladin"
 		}],
-		[5, "Priest", , [
+		[5, "{term:class_5}", , [
 			[613, "Discipline", , , {
 				tinyIcon: "Spell_Holy_WordFortitude"
 			}],
@@ -896,7 +765,7 @@ var mn_spells = [
 			className: "c5",
 			tinyIcon: "class_priest"
 		}],
-		[4, "Rogue", , [
+		[4, "{term:class_4}", , [
 			[253, "Assassination", , , {
 				tinyIcon: "Ability_Rogue_Eviscerate"
 			}],
@@ -909,7 +778,7 @@ var mn_spells = [
 			className: "c4",
 			tinyIcon: "class_rogue"
 		}],
-		[7, "Shaman", , [
+		[7, "{term:class_7}", , [
 			[375, "Elemental Combat", , , {
 				tinyIcon: "Spell_Nature_Lightning"
 			}],
@@ -922,7 +791,7 @@ var mn_spells = [
 			className: "c7",
 			tinyIcon: "class_shaman"
 		}],
-		[9, "Warlock", , [
+		[9, "{term:class_9}", , [
 			[355, "Affliction", , , {
 				tinyIcon: "Spell_Shadow_DeathCoil"
 			}],
@@ -935,7 +804,7 @@ var mn_spells = [
 			className: "c9",
 			tinyIcon: "class_warlock"
 		}],
-		[1, "Warrior", , [
+		[1, "{term:class_1}", , [
 			[26, "Arms", , , {
 				tinyIcon: "Ability_Rogue_Eviscerate"
 			}],
@@ -949,9 +818,9 @@ var mn_spells = [
 			tinyIcon: "class_warrior"
 		}]]],
 	[-3, "Pet Abilities", , [
-		[, "Death Knight"],
+		[, "{term:class_6}"],
 		[782, "Ghoul"],
-		[, "Hunter"],
+		[, "{term:class_3}"],
 		[270, "Generic"],
 		[653, "Bat"],
 		[210, "Bear"],
@@ -985,7 +854,7 @@ var mn_spells = [
 		[656, "Wind Serpent"],
 		[208, "Wolf"],
 		[784, "Worm"],
-		[, "Warlock"],
+		[, "{term:class_9}"],
 		[761, "Felguard"],
 		[189, "Felhunter"],
 		[188, "Imp"],
@@ -1091,9 +960,9 @@ var mn_zones = [
 		[2, "Wrath of the Lich King"]]]];
 var mn_factions = [
 	[1118, "Classic", , [
-		[469, "Alliance"],
+		[469, "{term:alliance}"],
 		[891, "Alliance Forces"],
-		[67, "Horde"],
+		[67, "{term:horde}"],
 		[892, "Horde Forces"],
 		[169, "Steamwheedle Cartel"]]],
 	[980, "The Burning Crusade", , [
@@ -1103,16 +972,6 @@ var mn_factions = [
 		[1052, "Horde Expedition"],
 		[1117, "Sholazar Basin"]]],
 	[0, "Other"]];
-var mn_pets = [
-	[2, "Cunning", , , {
-		tinyIcon: "Ability_Hunter_CombatExperience"
-	}],
-	[0, "Ferocity", , , {
-		tinyIcon: "Ability_Druid_Swipe"
-	}],
-	[1, "Tenacity", , , {
-		tinyIcon: "Ability_Hunter_Pet_Bear"
-	}]];
 var mn_achievements = [
 	[92, "General"],
 	[96, "Quests", , [
@@ -1201,43 +1060,43 @@ var mn_statistics = [
 		[153, "Battlegrounds"],
 		[154, "World"]]]];
 var mn_talentCalc = [
-	[6, "Death Knight", "/talent#j", , {
+	[6, "{term:class_6}", "/talent#j", , {
 		className: "c6",
 		tinyIcon: "class_deathknight"
 	}],
-	[11, "Druid", "/talent#0", , {
+	[11, "{term:class_11}", "/talent#0", , {
 		className: "c11",
 		tinyIcon: "class_druid"
 	}],
-	[3, "Hunter", "/talent#c", , {
+	[3, "{term:class_3}", "/talent#c", , {
 		className: "c3",
 		tinyIcon: "class_hunter"
 	}],
-	[8, "Mage", "/talent#o", , {
+	[8, "{term:class_8}", "/talent#o", , {
 		className: "c8",
 		tinyIcon: "class_mage"
 	}],
-	[2, "Paladin", "/talent#s", , {
+	[2, "{term:class_2}", "/talent#s", , {
 		className: "c2",
 		tinyIcon: "class_paladin"
 	}],
-	[5, "Priest", "/talent#b", , {
+	[5, "{term:class_5}", "/talent#b", , {
 		className: "c5",
 		tinyIcon: "class_priest"
 	}],
-	[4, "Rogue", "/talent#f", , {
+	[4, "{term:class_4}", "/talent#f", , {
 		className: "c4",
 		tinyIcon: "class_rogue"
 	}],
-	[7, "Shaman", "/talent#h", , {
+	[7, "{term:class_7}", "/talent#h", , {
 		className: "c7",
 		tinyIcon: "class_shaman"
 	}],
-	[9, "Warlock", "/talent#I", , {
+	[9, "{term:class_9}", "/talent#I", , {
 		className: "c9",
 		tinyIcon: "class_warlock"
 	}],
-	[1, "Warrior", "/talent#L", , {
+	[1, "{term:class_1}", "/talent#L", , {
 		className: "c1",
 		tinyIcon: "class_warrior"
 	}]];
@@ -1433,106 +1292,106 @@ var mn_tools = [
 var mn_forums = [
 	[, "World of Warcraft"],
 	[0, "WoW General", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/general.png"
+		icon: "images/forums/icons/general.png"
 	}],
 	[16, "WoW Help", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/wowhelp.png"
+		icon: "images/forums/icons/wowhelp.png"
 	}],
 	[21, "Cataclysm", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/cata.png"
+		icon: "images/forums/icons/cata.png"
 	}],
 	[-2, "Classes", "", [
-		[18, "Death Knight", , , {
+		[18, "{term:class_6}", , , {
 			className: "c6",
 			tinyIcon: "class_deathknight"
 		}],
-		[3, "Druid", , , {
+		[3, "{term:class_11}", , , {
 			className: "c11",
 			tinyIcon: "class_druid"
 		}],
-		[4, "Hunter", , , {
+		[4, "{term:class_3}", , , {
 			className: "c3",
 			tinyIcon: "class_hunter"
 		}],
-		[6, "Mage", , , {
+		[6, "{term:class_8}", , , {
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
-		[7, "Paladin", , , {
+		[7, "{term:class_2}", , , {
 			className: "c2",
 			tinyIcon: "class_paladin"
 		}],
-		[8, "Priest", , , {
+		[8, "{term:class_5}", , , {
 			className: "c5",
 			tinyIcon: "class_priest"
 		}],
-		[5, "Rogue", , , {
+		[5, "{term:class_4}", , , {
 			className: "c4",
 			tinyIcon: "class_rogue"
 		}],
-		[9, "Shaman", , , {
+		[9, "{term:class_7}", , , {
 			className: "c7",
 			tinyIcon: "class_shaman"
 		}],
-		[10, "Warlock", , , {
+		[10, "{term:class_9}", , , {
 			className: "c9",
 			tinyIcon: "class_warlock"
 		}],
-		[11, "Warrior", , , {
+		[11, "{term:class_1}", , , {
 			className: "c1",
 			tinyIcon: "class_warrior"
 		}]], {
-		icon: "https://static.wowhead.com/images/forums/icons/classes.png"
+		icon: "images/forums/icons/classes.png"
 	}],
 	[14, "Dungeons & Raids", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/raids.png"
+		icon: "images/forums/icons/raids.png"
 	}],
 	[15, "PvP", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/pvp.png"
+		icon: "images/forums/icons/pvp.png"
 	}],
 	[13, "Professions", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/professions.png"
+		icon: "images/forums/icons/professions.png"
 	}],
 	[12, "UI & Macros", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/ui.png"
+		icon: "images/forums/icons/ui.png"
 	}],
 	[19, "Lore & Roleplaying", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/lore.png"
+		icon: "images/forums/icons/lore.png"
 	}],
 	[17, "Guild Recruitment", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/recruitment.png"
+		icon: "images/forums/icons/recruitment.png"
 	}],
 	[20, "Theorycrafting", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/theorycrafting.png"
+		icon: "images/forums/icons/theorycrafting.png"
 	}],
 	[, "Other"],
 	[1, "Wowhead Feedback", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/feedback.png"
+		icon: "images/forums/icons/feedback.png"
 	}],
 	[22, "WoW Official Magazine", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/magazine.png"
+		icon: "images/forums/icons/magazine.png"
 	}],
 	[23, "StarCraft II", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/sc2.png"
+		icon: "images/forums/icons/sc2.png"
 	}],
 	[24, "Diablo III", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/diablo3.png"
+		icon: "images/forums/icons/diablo3.png"
 	}],
 	[2, "Off-Topic", , , {
-		icon: "https://static.wowhead.com/images/forums/icons/offtopic.png"
+		icon: "images/forums/icons/offtopic.png"
 	}],
 	[, "Private"],
 	[1337, "Wowhead Dev", null, null, {
 		requiredAccess: 50,
-		icon: "https://static.wowhead.com/images/forums/icons/dev.png"
+		icon: "images/forums/icons/dev.png"
 	}],
 	[101, "Wowhead Staff", null, null, {
 		requiredAccess: 1726,
-		icon: "https://static.wowhead.com/images/forums/icons/staff.png"
+		icon: "images/forums/icons/staff.png"
 	}],
 	[100, "Test", null, null, {
 		requiredAccess: 50,
-		icon: "https://static.wowhead.com/images/forums/icons/test.png"
+		icon: "images/forums/icons/test.png"
 	}]];
 var mn_community = [
 	[3, "Forums", "/forums", mn_forums],
@@ -1541,10 +1400,10 @@ var mn_community = [
 	[4, "IRC Channel", "/irc"],
 	[, "Social"],
 	[6, "Facebook Page", "http://facebook.com/Wowhead", null, {
-		icon: "https://static.wowhead.com/images/icons/facebook.gif"
+		icon: "images/icons/facebook.gif"
 	}],
 	[5, "Twitter Page", "http://twitter.com/Wowhead", null, {
-		icon: "https://static.wowhead.com/images/icons/twitter.gif"
+		icon: "images/icons/twitter.gif"
 	}]];
 var mn_more = [
 	[, "All About Wowhead"],

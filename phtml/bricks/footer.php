@@ -1,11 +1,14 @@
 <?php $this->brick('footer_links.php'); ?>
-</div>
-</div>
 
-<!--[if lte IE 6]></td><th class="ie6layout-th"></th></tr></table><![endif]-->
+</div><?php /* wrapper */ ?>
+</div><?php /* layout-inner */ ?>
+</div><?php /* layout */ ?>
+
+<?php /* Staff Bar Here */ ?>
+
 <?php $this->brick('noscript.php'); ?>
 
-<script type="text/javascript">DomContentLoaded.now()</script>
+<?php /* <script type="text/javascript">DomContentLoaded.now()</script> */ ?>
 
 </body>
 </html>

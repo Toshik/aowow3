@@ -1,0 +1,189 @@
+.blog-header {
+background:url(images/blog/header-bg.gif) repeat-x;
+}
+
+.blog-header,.blog-header a {
+height:125px;
+}
+
+.blog-header a,.blog-header span,.blog-header ins {
+display:block;
+}
+
+.blog-header span span,.blog-header span ins {
+position:absolute;
+background-repeat:no-repeat;
+}
+
+span.blog-header-logo,span.blog-header-left,span.blog-header-right {
+width:1px;
+height:1px;
+position:relative;
+}
+
+span.blog-header-logo {
+margin:0 auto;
+}
+
+span.blog-header-logo span {
+width:384px;
+height:125px;
+left:-192px;
+top:0;
+background-image:url(images/blog/header-logo.jpg);
+}
+
+span.blog-header-logo ins {
+width:174px;
+height:16px;
+left:-87px;
+top:-16px;
+background-image:url(images/blog/header-logo-over.png);
+}
+
+span.blog-header-left {
+float:left;
+}
+
+span.blog-header-left span {
+width:192px;
+height:120px;
+left:0;
+top:-1px;
+background-image:url(images/blog/header-malgayne.jpg);
+}
+
+span.blog-header-left ins {
+width:120px;
+height:134px;
+left:-20px;
+top:-23px;
+background-image:url(images/blog/header-malgayne-over.png);
+}
+
+span.blog-header-right {
+float:right;
+}
+
+span.blog-header-right span {
+width:226px;
+height:125px;
+left:-225px;
+top:-1px;
+background-image:url(images/blog/header-miyari.jpg);
+}
+
+span.blog-header-right ins {
+width:180px;
+height:155px;
+left:-160px;
+top:-21px;
+background-image:url(images/blog/header-miyari-over.png);
+}
+
+.blog-sidebar-outer {
+float:right;
+position:relative;
+width:1px;
+}
+
+#blog-sidebar {
+position:absolute;
+width:320px;
+left:-320px;
+top:10px;
+background-color:#141414;
+border:1px solid #101010;
+-webkit-border-radius:8px;
+-moz-border-radius:8px;
+border-radius:8px;
+}
+
+.blog-sidebar-inner {
+padding:10px;
+}
+
+.blog-sidebar-archives li div {
+padding:4px 0;
+}
+
+.blog-outer {
+background:url(images/blog/watermark.jpg) no-repeat center top;
+padding-top:10px;
+min-height:600px;
+}
+
+.blog-wrapper {
+margin-right:330px;
+}
+
+.blog-wrapper h1 {
+font-size:20px;
+padding-top:32px;
+clear:both;
+}
+
+.blog-wrapper h1.first {
+padding-top:0;
+}
+
+.blog-entry-facebook-like {
+float:right;
+margin-top:22px;
+height:23px;
+}
+
+.blog-entry-footer {
+margin-top:1.5em;
+}
+
+.blog-entry-tags {
+font-size:11px;
+margin-bottom:12px;
+}
+
+a.blog-entry-button {
+float:left;
+display:block;
+font-weight:700;
+margin-right:7px;
+background-color:#404040;
+border:1px solid #202020;
+text-decoration:none;
+color:#FFF;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+padding:6px 8px;
+}
+
+a.blog-entry-button:hover,a.blog-entry-button.open {
+background-color:#484848;
+text-decoration:underline;
+color:#FFF;
+border-color:#181818;
+}
+
+a.blog-entry-button small {
+color:#CCC;
+}
+
+a.blog-entry-button:hover small {
+color:#FFF;
+}
+
+a.blog-entry-permalink {
+padding-left:25px;
+background:#404040 url(images/icons/link.gif) 7px center no-repeat;
+}
+
+a.blog-entry-comments {
+padding-left:29px;
+background:#404040 url(images/icons/bubble.gif) 7px center no-repeat;
+}
+
+a.blog-entry-share {
+padding-left:29px;
+background:#404040 url(images/icons/share.gif) 8px center no-repeat;
+}
+

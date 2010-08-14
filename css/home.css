@@ -1,0 +1,149 @@
+.home-wrapper {
+text-align:center;
+padding-top:25px;
+}
+
+.home-wrapper h1 {
+position:absolute;
+left:-2323px;
+top:-2323px;
+}
+
+.home-logo {
+display:block;
+cursor:default;
+width:261px;
+height:119px;
+background:url(images/logos/home.gif) no-repeat;
+margin:0 auto 20px;
+}
+
+.home-menu {
+padding-bottom:10px;
+}
+
+.home-search form {
+display:block;
+position:relative;
+width:425px;
+margin:0 auto;
+}
+
+.home-search input {
+width:100%;
+font-size:20px;
+color:#000;
+outline:0;
+border:1px solid #adadad;
+background:#FFF url(images/ui/form/input-textbox-bg.gif) repeat-x;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+margin:0;
+padding:3px;
+}
+
+.home-search a {
+display:block;
+position:absolute;
+right:-3px;
+top:4px;
+width:24px;
+height:24px;
+background:url(images/header/search.gif) 4px 4px no-repeat;
+}
+
+.home-oneliner {
+padding-top:50px;
+color:#ccc;
+line-height:1.75em;
+font-size:12px;
+margin:0;
+}
+
+.home-featuredbox {
+position:relative;
+text-align:left;
+width:415px;
+height:191px;
+background:no-repeat;
+-webkit-border-radius:8px;
+-moz-border-radius:8px;
+border-radius:8px;
+margin:40px auto 10px;
+}
+
+.home-featuredbox-extended {
+width:515px;
+}
+
+.home-featuredbox-links a {
+position:absolute;
+display:block;
+z-index:1;
+}
+
+.home-featuredbox-links a:hover {
+background-color:#FFF!important;
+opacity:.075!important;
+filter:alpha(opacity=7.5)!important;
+-webkit-border-radius:6px;
+-moz-border-radius:6px;
+border-radius:6px;
+}
+
+.home-featuredbox-inner {
+position:absolute;
+left:0;
+top:0;
+z-index:2;
+margin:0;
+padding:30px 0 0 26px;
+}
+
+.home-featured-box li {
+line-height:2em;
+}
+
+.toplinks {
+background:#000;
+position:absolute;
+line-height:normal;
+height:auto;
+overflow:visible;
+right:0;
+top:0;
+padding:5px 2px;
+}
+
+body,html {
+height:100%;
+}
+
+a.home-sitetoggler-beta,a.home-sitetoggler-beta span {
+display:block;
+width:176px;
+height:131px;
+position:absolute;
+left:0;
+top:0;
+}
+
+a.home-sitetoggler-beta {
+background:url(images/home/special/cata/corner-beta.png) no-repeat;
+z-index:10;
+}
+
+a.home-sitetoggler-beta span {
+background:url(images/home/special/cata/corner-beta.png) no-repeat 0 -131px;
+opacity:0;
+filter:alpha(opacity=0);
+-webkit-transition:opacity .1s linear;
+-moz-transition:opacity .1s linear;
+transition:opacity .1s linear;
+}
+
+a.home-sitetoggler-beta:hover span {
+opacity:1;
+}
+

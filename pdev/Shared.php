@@ -63,6 +63,19 @@ function endsWith($source, $with)
 	return false;
 }
 
+function urlize($input)
+{
+	$input = str_replace(' / ', '-', $input);
+	$input = str_replace("'", '', $input);
+	$input = trim($input);
+	$input = preg_replace('/[^a-z0-9_]/ig', '-', $input);
+	$input = str_replace('--', '-', $input);
+	$input = str_replace('--', '-', $input);
+	$input = trim($input, '-');
+	$input = strtolower($input);
+	return $input;
+}
+
 function AllLocales($name = 'name')
 {
 	$name = $name.'_loc';

@@ -32,39 +32,13 @@ var vi_siteurls = {
 var vi_sitevalidation = {
 	1: /^http:\/\/www\.youtube\.com\/watch\?v=([^& ]{11})/
 };
-var g_file_races = {
-	10: "bloodelf",
-	11: "draenei",
-	3: "dwarf",
-	7: "gnome",
-	1: "human",
-	4: "nightelf",
-	2: "orc",
-	6: "tauren",
-	8: "troll",
-	5: "scourge",
-	9: "goblin",
-	22: "worgen"
-};
-var g_file_classes = {
-	6: "deathknight",
-	11: "druid",
-	3: "hunter",
-	8: "mage",
-	2: "paladin",
-	5: "priest",
-	4: "rogue",
-	7: "shaman",
-	9: "warlock",
-	1: "warrior"
-};
 var g_file_genders = {
-	0: "male",
-	1: "female"
+	{constant:MALE}: "male",
+	{constant:FEMALE}: "female"
 };
 var g_file_factions = {
-	1: "alliance",
-	2: "horde"
+	{constant:ALLIANCE}: "alliance",
+	{constant:HORDE}: "horde"
 };
 var g_file_gems = {
 	1: "meta",
@@ -92,6 +66,8 @@ var g_npcs = {},
 	g_classes = {},
 	g_races = {},
 	g_skills = {};
+
+// TODO: move to php
 var g_types = {
 	1: "npc",
 	2: "object",

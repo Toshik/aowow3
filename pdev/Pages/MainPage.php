@@ -19,6 +19,9 @@ class MainPage extends GenericPage
 		$this->newstext = MarkupText::LoadFromDB(MARKUPTEXT_NEWSTEXT);
 		$this->newstext->parse(U_GROUP_ALL);
 
+		$this->addJS(CLIENTFILE_HOME_JS);
+		$this->addCSS(CLIENTFILE_HOME_CSS);
+
 		// need load title here
 	}
 

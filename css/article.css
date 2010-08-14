@@ -1,0 +1,267 @@
+.article-header {
+position:relative;
+background:repeat-x;
+margin-bottom:10px;
+}
+
+.article-header,.article-header a {
+height:125px;
+}
+
+.article-header var,.article-header span,.article-header a {
+background:no-repeat;
+display:block;
+}
+
+.article-header var,.article-header span {
+position:absolute;
+}
+
+.article-header-patch33 {
+background-image:url(images/guide/3.3/header-bg.gif);
+background-color:#14344d;
+}
+
+.article-header-patch33 a {
+background-image:url(images/guide/3.3/header-art.jpg);
+}
+
+.article-header-patch33 var {
+width:505px;
+height:28px;
+left:46px;
+top:-28px;
+background-image:url(images/guide/3.3/header-extras.png);
+}
+
+.article-header-cataclysm-default {
+background-image:url(images/guide/cataclysm/header-default-bg.gif);
+background-color:#392014;
+}
+
+.article-header-cataclysm-default a {
+background-image:url(images/guide/cataclysm/header-default-art.jpg);
+}
+
+.article-header-cataclysm-default var {
+width:149px;
+height:172px;
+left:493px;
+top:-23px;
+background-image:url(images/guide/cataclysm/header-default-extras.png);
+}
+
+.article-header-cataclysm-faq {
+background-image:url(images/guide/cataclysm/header-faq-bg.gif);
+background-color:#553506;
+}
+
+.article-header-cataclysm-faq a {
+background-image:url(images/guide/cataclysm/header-faq-art.jpg);
+}
+
+.article-header-cataclysm-faq var {
+width:396px;
+height:23px;
+left:26px;
+top:-23px;
+background-image:url(images/guide/cataclysm/header-faq-extras.png);
+}
+
+.article-header-cataclysm-general {
+background-image:url(images/guide/cataclysm/header-general-bg.gif);
+background-color:#511b05;
+}
+
+.article-header-cataclysm-general a {
+background-image:url(images/guide/cataclysm/header-general-art.jpg);
+}
+
+.article-header-cataclysm-prelaunch {
+background-image:url(images/guide/cataclysm/header-prelaunch-bg.gif);
+background-color:#bab3d4;
+}
+
+.article-header-cataclysm-prelaunch a {
+background-image:url(images/guide/cataclysm/header-prelaunch-art.jpg);
+}
+
+.article-header-cataclysm-races {
+background-image:url(images/guide/cataclysm/header-races-bg.gif);
+background-color:#a3b599;
+}
+
+.article-header-cataclysm-races a {
+background-image:url(images/guide/cataclysm/header-races-art.jpg);
+}
+
+.article-header-cataclysm-races var {
+width:379px;
+height:37px;
+left:375px;
+top:-37px;
+background-image:url(images/guide/cataclysm/header-races-extras.png);
+}
+
+.article-header-cataclysm-world {
+background-image:url(images/guide/cataclysm/header-world-bg.gif);
+background-color:#acf4f1;
+}
+
+.article-header-cataclysm-world a {
+background-image:url(images/guide/cataclysm/header-world-art.jpg);
+}
+
+.article-header-cataclysm-pve {
+background-image:url(images/guide/cataclysm/header-pve-bg.gif);
+background-color:#0f1f29;
+}
+
+.article-header-cataclysm-pve a {
+background-image:url(images/guide/cataclysm/header-pve-art.jpg);
+}
+
+.article-header-cataclysm-links {
+background-image:url(images/guide/cataclysm/header-links-bg.gif);
+background-color:#016992;
+}
+
+.article-header-cataclysm-links a {
+background-image:url(images/guide/cataclysm/header-links-art.jpg);
+}
+
+.article-header-midsummerfirefestival {
+background-image:url(images/guide/midsummer-fire-festival/header-bg.gif);
+background-color:#6ea187;
+}
+
+.article-header-midsummerfirefestival a {
+background-image:url(images/guide/midsummer-fire-festival/header-art.jpg);
+}
+
+.article-header-midsummerfirefestival var {
+width:32px;
+height:22px;
+left:59px;
+top:-22px;
+background-image:url(images/guide/midsummer-fire-festival/header-flag.png);
+}
+
+.article-header-midsummerfirefestival span {
+width:185px;
+height:35px;
+left:463px;
+top:-35px;
+background-image:url(images/guide/midsummer-fire-festival/header-pavilion.png);
+}
+
+.article-header-childrensweek {
+background-image:url(images/guide/childrens-week/header-bg.gif);
+background-color:#3a2c1b;
+}
+
+.article-header-childrensweek a {
+background-image:url(images/guide/childrens-week/header-art.jpg);
+}
+
+.article-header-childrensweek var {
+width:240px;
+height:35px;
+left:538px;
+top:-35px;
+background-image:url(images/guide/childrens-week/header-kids.png);
+}
+
+.article-header-noblegarden {
+background-image:url(images/guide/noblegarden/header-bg.gif);
+background-color:#423c00;
+}
+
+.article-header-noblegarden a {
+background-image:url(images/guide/noblegarden/header-art.jpg);
+}
+
+.article-header-lunarfestival {
+background-image:url(images/guide/lunar-festival/header-bg.gif);
+background-color:#05a8d3;
+}
+
+.article-header-lunarfestival a {
+background-image:url(images/guide/lunar-festival/header-art.jpg);
+}
+
+.article-header-lunarfestival var {
+width:103px;
+height:27px;
+left:492px;
+top:-27px;
+background-image:url(images/guide/lunar-festival/header-nightelf.png);
+}
+
+.article-header-lunarfestival span {
+width:87px;
+height:43px;
+left:692px;
+top:-43px;
+background-image:url(images/guide/lunar-festival/header-tauren.png);
+}
+
+.article-header-loveisintheair {
+background-image:url(images/guide/love-is-in-the-air/header-bg.gif);
+background-color:#401c07;
+}
+
+.article-header-loveisintheair a {
+background-image:url(images/guide/love-is-in-the-air/header-art.jpg);
+}
+
+.article-header-loveisintheair var {
+width:157px;
+height:46px;
+left:601px;
+top:-46px;
+background-image:url(images/guide/love-is-in-the-air/header-cupid.png);
+}
+
+.article-header-loveisintheair span {
+width:51px;
+height:31px;
+left:653px;
+top:120px;
+background-image:url(images/guide/love-is-in-the-air/header-cupid2.png);
+}
+
+.article-header-winterveil {
+background-image:url(images/guide/winter-veil/header-bg.gif);
+background-color:#abf0ff;
+}
+
+.article-header-winterveil a {
+background-image:url(images/guide/winter-veil/header-art.jpg);
+}
+
+.article-header-winterveil var {
+width:119px;
+height:48px;
+left:408px;
+top:-48px;
+background-image:url(images/guide/winter-veil/header-antlers.png);
+}
+
+.article-header-winterveil span {
+width:72px;
+height:34px;
+left:707px;
+top:-34px;
+background-image:url(images/guide/winter-veil/header-hat.png);
+}
+
+.article-header-pilgrimsbounty {
+background-image:url(images/guide/pilgrims-bounty/header-bg.gif);
+background-color:#36390e;
+}
+
+.article-header-pilgrimsbounty a {
+background-image:url(images/guide/pilgrims-bounty/header-art.jpg);
+}
+

@@ -1,0 +1,135 @@
+.listview-quicksearch input.search-within-results {
+background:#FFF url(images/{lang}/searchwithinresults.gif) .2em center no-repeat;
+}
+
+.listview-quicksearch input.search-within-results2 {
+background:#FFF url(images/{lang}/searchwithinresults2.gif) .2em center no-repeat;
+}
+
+div.modelviewer-quality div {
+float:left;
+width:61px;
+height:22px;
+margin-right:10px;
+background:url(images/{lang}/modelviewer-picshures.gif) left center no-repeat;
+}
+
+div.modelviewer-model div {
+margin-left:40px;
+margin-right:10px;
+float:left;
+width:50px;
+height:22px;
+background:url(images/{lang}/modelviewer-picshures.gif) -506px center no-repeat;
+}
+
+a.modelviewer-help span {
+display:block;
+width:52px;
+height:22px;
+background:url(images/{lang}/modelviewer-picshures.gif) -100px center no-repeat;
+}
+
+a:hover.modelviewer-help span {
+background-position:-200px center;
+}
+
+a.modelviewer-close span {
+display:block;
+width:66px;
+height:22px;
+background:url(images/{lang}/modelviewer-picshures.gif) -300px center no-repeat;
+}
+
+a:hover.modelviewer-close span {
+background-position:-400px center;
+}
+
+a.screenshotviewer-prev b {
+display:block;
+width:88px;
+height:22px;
+background:url(images/{lang}/screenshotviewer-picshures.gif?2) -200px center no-repeat;
+}
+
+a.screenshotviewer-next b {
+display:block;
+width:53px;
+height:22px;
+background:url(images/{lang}/screenshotviewer-picshures.gif?2) -300px center no-repeat;
+}
+
+a.mapviewer-cover {
+left:325px;
+}
+
+a.dialog-yes span {
+display:block;
+width:49px;
+height:22px;
+background:url(images/{lang}/dialog-picshures.gif?2) 0 center no-repeat;
+}
+
+a.dialog-no span {
+display:block;
+width:42px;
+height:22px;
+background:url(images/{lang}/dialog-picshures.gif?2) -200px center no-repeat;
+}
+
+a:hover.dialog-no span {
+background-position:-300px center;
+}
+
+a.screenshotviewer-cover span,a.mapviewer-cover,a.mapviewer-cover span {
+width:66px;
+height:22px;
+}
+
+a.screenshotviewer-cover b,a.mapviewer-cover b {
+display:block;
+width:66px;
+height:22px;
+background:url(images/{lang}/screenshotviewer-picshures.gif?2) -100px center no-repeat;
+}
+
+a.screenshotviewer-original span,a.dialog-original span {
+display:block;
+width:93px;
+height:22px;
+background:url(images/{lang}/screenshotviewer-picshures.gif?2) -400px center no-repeat;
+}
+
+a:hover.screenshotviewer-original span,a:hover.contacttool-okay span,a:hover.dialog-okay span,a:hover.dialog-original span {
+background-position:-500px center;
+}
+
+a.screenshotviewer-close span,a.mapviewer-close span,a.dialog-close span {
+display:block;
+width:66px;
+height:22px;
+background:url(images/{lang}/screenshotviewer-picshures.gif?2) 0 center no-repeat;
+}
+
+a:hover.screenshotviewer-close span,a:hover.mapviewer-close span,a:hover.dialog-yes span,a:hover.dialog-close span {
+background-position:-100px center;
+}
+
+a.contacttool-okay span,a.dialog-okay span {
+display:block;
+width:40px;
+height:22px;
+background:url(images/{lang}/dialog-picshures.gif?2) -400px center no-repeat;
+}
+
+a.contacttool-cancel span,a.dialog-cancel span {
+display:block;
+width:77px;
+height:22px;
+background:url(images/{lang}/dialog-picshures.gif?2) -600px center no-repeat;
+}
+
+a:hover.contacttool-cancel span,a:hover.dialog-cancel span {
+background-position:-700px center;
+}
+
