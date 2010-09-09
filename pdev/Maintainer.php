@@ -551,6 +551,8 @@ class Maintainer
 		$content = str_replace('{lang}', Main::$languages[intval($locale)], $content);
 		$content = str_replace('{locale}', intval($locale), $content);
 
+		$content = preg_replace('/("|\'|\()images\//i', '$1../images/', $content);
+
 		return $content;
 	}
 
