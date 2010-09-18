@@ -2,7 +2,7 @@
 
 require_once('pdev/Shared.php');
 
-define('INDEX_ID', 'index');
+define('INDEX_ID', '#index');
 
 class Main
 {
@@ -40,6 +40,8 @@ class Main
 	public static $lang;
 	public static $user = NULL;
 	public static $page = NULL;
+	
+	public static $gathered = array();
 
 	public static function Handle($query)
 	{
@@ -88,30 +90,7 @@ class Main
 			self::$lang = self::$languages[self::$locale];
 			// Load localized data...
 			require_once('./cache/locale.'.self::$lang.'.php');
-			// Load user...
-			if(isset($_COOKIE['wh_o']) && isset($_COOKIE['auth']))
-			{
-				$user_id = wn_destroy($_COOKIE['wh_o'], WN_KEY_WEBUSERID);
-				$user_pw = wn_sdestroy($_COOKIE['auth'], WN_KEY_WEBUSERAUTH);
-				if($user_id && $user_pw)
-				{
-					$us = new User($user_id);
-					switch($us->Auth($user_pw))
-					{
-						case AUTH_OK:
-							self::$user = &$us;
-							break;
-						case AUTH_WRONGPASS:
-						case AUTH_IPLOCKED:
-							$us = NULL;
-							break;
-						case AUTH_BANNED:
-							// need display cool page
-							return;
-					}
-				}
-			}
-
+			
 			// Now actually handle the page...
 			$category = $matches[2];
 			$actual_query = $matches[3];
@@ -125,24 +104,63 @@ class Main
 				$actual_query = '';
 			}
 
-			//echo "category=$category, query=$actual_query";
-
 			if(empty($category))
 				$category = INDEX_ID;
 			if(empty($actual_query))
 				$actual_query = INDEX_ID;
 
-			self::$page = NULL;
 			if(isset(self::$pageMap[$category][$actual_query]))
-			{
 				$pageName = self::$pageMap[$category][$actual_query];
-				eval('self::$page = new '.$pageName.'();');
-			}
 			else
 				self::Display404Page();
 
-			if(!self::$page->finalized)
-				self::$page->finalize();
+			if (!class_exists($pageName, true))
+				exit('Error in page map: '.$pageName.' not found.');
+
+			$special_roles = implements_interface($pageName, 'IRestrictedPage');
+
+			// Load user...
+			if ($special_roles || !implements_interface($pageName, 'INotUserSensitive'))
+			{
+				if(isset($_COOKIE['wh_o']) && isset($_COOKIE['auth']))
+				{
+					$user_id = wn_destroy($_COOKIE['wh_o'], WN_KEY_WEBUSERID);
+					$user_pw = wn_sdestroy($_COOKIE['auth'], WN_KEY_WEBUSERAUTH);
+					if($user_id && $user_pw)
+					{
+						$us = new User($user_id);
+						switch($us->Auth($user_pw))
+						{
+							case AUTH_OK:
+								self::$user = &$us;
+								break;
+							case AUTH_WRONGPASS:
+							case AUTH_IPLOCKED:
+								$us = NULL;
+								break;
+							case AUTH_BANNED:
+								// TODO: need display cool page
+								exit;
+						}
+					}
+				}
+			}
+
+			if ($special_roles)
+			{
+				$roles = $pageName::GetRequiredRoleMask();
+				if (!self::$user->HasRoles($roles))
+					exit; // TODO: display proper page
+			}
+
+			$cache = implements_interface($pageName, 'ICacheable');
+
+			self::$page = Cache::Get($pageName);
+
+			self::$page->finalize();
+
+			if ($cache)
+				self::$page->SaveCache();
 		}
 	}
 
@@ -152,18 +170,21 @@ class Main
 		self::$page = NULL;
 		self::$page = new Error404Page();
 		self::$page->finalize();
+		exit;
 	}
 	public static function DisplayCachedPage($cached_object)
 	{
 		self::$page = NULL;
 		self::$page = unserialize($cached_object);
 		self::$page->finalize();
+		exit;
 	}
 	public static function LocalRedirection($relative_url)
 	{
 		self::$page = NULL;
 		self::$page = new RedirectPage($relative_url);
 		self::$page->finalize();
+		exit;
 	}
 	/*public static function HandleDBError()
 	{

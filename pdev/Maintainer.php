@@ -3,7 +3,6 @@
 class Maintainer
 {
 	// cached data
-	private static $localizedTerms = array();
 	private static $systemRaces = array();
 	private static $systemClasses = array();
 

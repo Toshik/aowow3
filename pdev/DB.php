@@ -18,12 +18,12 @@ class DB
 	private static $optionsCache = array();
 	private static $connectionCache = array();
 
-	private function _createConnectSyntax(&$options)
+	private static function _createConnectSyntax(&$options)
 	{
 		return 'mysql://'.$options->user.':'.$options->pass.'@'.$options->host.'/'.$options->db;
 	}
 
-	public function connect($idx)
+	public static function connect($idx)
 	{
 		if(self::isConnected($idx))
 			return;
@@ -45,7 +45,7 @@ class DB
 		self::$connectionCache[$idx] = true;
 	}
 
-	public function ErrorHandler($message, $data)
+	public static function ErrorHandler($message, $data)
 	{
 		/*if($_SESSION['roles'] & ROLEMASK_DEV)
 			print_r($data);
@@ -56,9 +56,9 @@ class DB
 		echo "</pre>";
 	}
 
-	public function GetDB($idx) { return self::$interfaceCache[$idx]; }
-	public function isConnected($idx) { return isset(self::$connectionCache[$idx]); }
-	private function SafeGetDB($idx)
+	public static function GetDB($idx) { return self::$interfaceCache[$idx]; }
+	public static function isConnected($idx) { return isset(self::$connectionCache[$idx]); }
+	private static function SafeGetDB($idx)
 	{
 		if(!self::isConnected($idx))
 			self::connect($idx);
@@ -66,13 +66,13 @@ class DB
 		return self::GetDB($idx);
 	}
 
-	public function Characters()	{ return self::SafeGetDB(DB_CHARACTERS); }
-	public function Realm()			{ return self::SafeGetDB(DB_REALM); }
-	public function World()			{ return self::SafeGetDB(DB_WORLD); }
-	public function LiveWorld()		{ return self::SafeGetDB(DB_LIVEWORLD); }
-	public function Logs()			{ return self::SafeGetDB(DB_LOGS); }
+	public static function Characters()		{ return self::SafeGetDB(DB_CHARACTERS); }
+	public static function Realm()			{ return self::SafeGetDB(DB_REALM); }
+	public static function World()			{ return self::SafeGetDB(DB_WORLD); }
+	public static function LiveWorld()		{ return self::SafeGetDB(DB_LIVEWORLD); }
+	public static function Logs()			{ return self::SafeGetDB(DB_LOGS); }
 
-	public function load()
+	public static function load()
 	{
 		self::$optionsCache[DB_CHARACTERS]	= (object)DBConfig::$characters;
 		self::$optionsCache[DB_WORLD]		= (object)DBConfig::$world;

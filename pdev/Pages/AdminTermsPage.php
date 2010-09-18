@@ -2,7 +2,7 @@
 
 require_once('pdev/AdminEnums.php');
 
-class AdminTermsPage extends GenericPage
+class AdminTermsPage extends GenericPage implements IRestrictedPage
 {
 	public function __construct()
 	{
@@ -36,6 +36,10 @@ class AdminTermsPage extends GenericPage
 			$files[$loc] .= ");\n\n?>";
 			file_put_contents('./cache/locale.'.Main::$languages[$loc].'.php', $files[$loc]);
 		}
+	}
+
+	static function GetRequiredRoleMask() {
+		return U_GROUP_EDITORS;
 	}
 }
 

@@ -63,6 +63,12 @@ function endsWith($source, $with)
 	return false;
 }
 
+
+function implements_interface($class, $interface)
+{
+	return in_array($interface, class_implements($class));
+}
+
 function urlize($input)
 {
 	$input = str_replace(' / ', '-', $input);
@@ -80,6 +86,29 @@ function AllLocales($name = 'name')
 {
 	$name = $name.'_loc';
 	return $name.implode(','.$name, Main::$locales);
+}
+
+// fixed http://www.php.net/manual/en/function.array-merge-recursive.php#93905
+function array_merge_replace_recursive()
+{
+    $params = &func_get_args();
+
+    // First array is used as the base, everything else overwrites on it
+    $return = array_shift($params);
+
+    // Merge all arrays on the first array
+    foreach ($params as $array)
+	{
+        foreach ($array as $key => $value)
+		{
+			if (isset($return[$key]) && is_array($value) && is_array($return[$key]))
+				$return[$key] = array_merge_replace_recursive($return[$key], $value);
+			else
+				$return[$key] = $value;
+        }
+    }
+
+    return $return;
 }
 
 enum(array( // GetType

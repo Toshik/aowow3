@@ -76,7 +76,7 @@ class User
 		}
 	}
 
-	public function IsInGroup($group)
+	public function HasRoles($group)
 	{
 		return ($this->roles & $group) != 0;
 	}
