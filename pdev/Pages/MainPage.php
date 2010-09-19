@@ -10,9 +10,8 @@ class MainPage extends GenericPage
 	{
 		parent::__create();
 
-		require_once('pdev/MarkupText.php');
+		__autoload('MarkupText');
 		$this->oneliner = Cache::Get('MarkupText', MARKUPTEXT_ONELINER);
-		
 		$this->newstext = Cache::Get('MarkupText', MARKUPTEXT_NEWSTEXT);
 
 		$this->titles = DB::World()->SelectCol('SELECT text FROM ?_index_titles');

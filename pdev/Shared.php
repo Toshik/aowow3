@@ -4,17 +4,20 @@
 
 function __autoload($cn)
 {
-	if(endsWith($cn, 'Page'))
-		$filename = 'pdev/Pages/'.$cn.'.php';
-	else
-		$filename = 'pdev/'.$cn.'.php';
+	$filename = 'pdev/'.$cn.'.php';
+
+	if (!file_exists($filename))
+	{
+		if(endsWith($cn, 'Page'))
+			$filename = 'pdev/Pages/'.$cn.'.php';
+	}
 
 	require_once($filename);
 }
 
 function enum($arr)
 {
-	$i = 0;
+	$i = -1;
 	foreach($arr as $key => $value)
 	{
 		if(is_numeric($key))
