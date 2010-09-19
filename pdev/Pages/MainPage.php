@@ -1,12 +1,12 @@
 <?php
 
-class MainPage extends GenericPage
+class MainPage extends GenericPage implements ICacheable_File
 {
 	var $oneliner;
 	var $newstext;
 	var $titles;
 
-	public function __create()
+	public function __create($id)
 	{
 		parent::__create();
 
@@ -38,12 +38,17 @@ class MainPage extends GenericPage
 
 	function __sleep()
 	{
-		return array(
+		return array_merge(parent::__sleep(), array(
 			'oneliner',
 			'newstext',
 			'titles'
-		);
+		));
 	}
+
+	static function GetCacheLifeTime() { return 30*DAY; }
+	function GetCacheHash($id) { return 0; }
+	static function GetCacheFolder() { return 'static'; }
+	static function GetCacheFileName() { return 'mainpage'; }
 }
 
 ?>

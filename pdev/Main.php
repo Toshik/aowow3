@@ -1,6 +1,7 @@
 <?php
 
 require_once('pdev/Shared.php');
+__autoload('Cache');
 
 define('INDEX_ID', '#index');
 
@@ -26,7 +27,7 @@ class Main
 		0 => 'enus',
 		8 => 'ruru',
 	);
-
+	
 	public static $roles = array(
 		U_MODERATOR			=> 'role_moderator',
 		U_GAMEMASTER		=> 'role_gamemaster',
@@ -112,7 +113,7 @@ class Main
 			if(isset(self::$pageMap[$category][$actual_query]))
 				$pageName = self::$pageMap[$category][$actual_query];
 			else
-				self::Display404Page();
+				self::page_404();
 
 			if (!class_exists($pageName, true))
 				exit('Error in page map: '.$pageName.' not found.');
@@ -150,47 +151,29 @@ class Main
 			{
 				$roles = $pageName::GetRequiredRoleMask();
 				if (!self::$user->HasRoles($roles))
-					exit; // TODO: display proper page
+					self::page_404();
 			}
 
-			$cache = implements_interface($pageName, 'ICacheable');
-
 			self::$page = Cache::Get($pageName);
-
 			self::$page->finalize();
-
-			if ($cache)
-				self::$page->SaveCache();
 		}
 	}
-
+	
 	// Basic page handlers.
-	public static function Display404Page()
+	public static function page_404()
 	{
 		self::$page = NULL;
 		self::$page = new Error404Page();
 		self::$page->finalize();
 		exit;
 	}
-	public static function DisplayCachedPage($cached_object)
+
+	public static function page_redirect($relative_url, $local = true)
 	{
-		self::$page = NULL;
-		self::$page = unserialize($cached_object);
-		self::$page->finalize();
-		exit;
-	}
-	public static function LocalRedirection($relative_url)
-	{
-		self::$page = NULL;
 		self::$page = new RedirectPage($relative_url);
 		self::$page->finalize();
 		exit;
 	}
-	/*public static function HandleDBError()
-	{
-		self::$page = new Page();
-		self::$page->display('dberror');
-	}*/
 }
 
 ?>
