@@ -18,8 +18,8 @@ class LocaleChangePage extends GenericPage implements INotUserSensitive
 			$this->locale = $newloc;
 			SetCookie('wh_l', $newloc, time() + YEAR);
 		}
-
-		//header('Location: '.(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '.'));
+		
+		Main::page_redirect(isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '.');
 	}
 }
 

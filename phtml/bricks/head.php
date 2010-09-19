@@ -19,6 +19,7 @@
 <script type="text/javascript"><?php
 
 	echo '$.extend(window, {g_serverTime: new Date("'.jsTime().'")});';
+	echo 'Locale.set('.$this->locale.');';
 
 	// locale ??
 	//echo 'g_locale={id:'.$this->locale.',name:"'.$this->lang.'"};';

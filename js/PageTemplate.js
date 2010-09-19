@@ -158,13 +158,11 @@ function () {
 		})
 	}
 	function v() {
-		var G = "http://";
-		var J = location.pathname + location.search + location.hash;
 		var F = Locale.getId();
 		var I = [];
 		var H;
 		$.each(Locale.getAllByName(), function (K, M) {
-			var L = [M.id, M.description, G + M.domain + J];
+			var L = [M.id, M.description, "?locale=" + M.id];
 			if (M.id == F) {
 				L.checked = true;
 				H = M

@@ -30,7 +30,7 @@ var Locale = {
 			domain: "es.wowhead.com",
 			description: "Espa" + String.fromCharCode(241) + "ol"
 		},
-		7: {
+		8: {
 			id: LOCALE_RURU,
 			name: "ruru",
 			domain: "ru.wowhead.com",
