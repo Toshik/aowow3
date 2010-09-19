@@ -6,8 +6,6 @@ class RedirectPage extends GenericPage
 
 	public function __construct($relative_url)
 	{
-		parent::__construct();
-
 		$this->url = $relative_url;
 	}
 
