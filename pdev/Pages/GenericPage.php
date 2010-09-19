@@ -79,6 +79,11 @@ abstract class GenericPage
 
 	function __create()
 	{
+		$this->initDynamicData();
+	}
+
+	function initDynamicData()
+	{
 		$this->locale = Main::$locale;
 		$this->lang = Main::$lang;
 		if(Main::$user)
@@ -107,6 +112,11 @@ abstract class GenericPage
 			'full_title',
 			'icon'
 		);
+	}
+
+	function __wakeup()
+	{
+		$this->initDynamicData();
 	}
 }
 

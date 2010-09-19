@@ -10,6 +10,7 @@ padding:10px;
 
 .talentcalc-sidebar-inner {
 width:300px;
+position:relative;
 }
 
 .talentcalc-sidebar-controls {
@@ -25,7 +26,6 @@ margin-right:10px;
 a.talentcalc-button-help {
 position:absolute;
 right:10px;
-top:10px;
 }
 
 .talentcalc-sidebar-controls2 {
@@ -68,11 +68,17 @@ width:103px;
 padding-top:13px;
 }
 
+.talentcalc-wrapper {
+float:left;
+width:614px;
+}
+
 .talentcalc-upper {
 background-color:#141414;
 border:1px solid #101010;
 font-size:14px;
 margin-bottom:10px;
+width:596px;
 -webkit-border-radius:4px;
 -moz-border-radius:4px;
 border-radius:4px;
@@ -85,6 +91,10 @@ color:#DDD;
 
 .talentcalc-upper b {
 color:#FFF;
+}
+
+.talentcalc-upper-class {
+float:left;
 }
 
 .talentcalc-upper-reqlevel {
@@ -137,7 +147,7 @@ position:relative;
 }
 
 .talentcalc-masteries .mastery-glow {
-background:url(images/TalentCalc/summary-glow.png) center -24px no-repeat;
+background:url(/images/TalentCalc/summary-glow.png) center -24px no-repeat;
 }
 
 .talentcalc-masteries .mastery-icon {
@@ -157,7 +167,7 @@ margin:20px auto;
 width:56px;
 height:56px;
 display:block;
-background:url(images/Icon/round/mask.gif);
+background:url(/images/Icon/round/mask.gif);
 z-index:5;
 }
 
@@ -168,7 +178,7 @@ width:68px;
 height:68px;
 display:block;
 position:absolute;
-background:url(images/Icon/round/large.png);
+background:url(/images/Icon/round/large.png);
 z-index:10;
 }
 
@@ -179,7 +189,7 @@ display:block;
 position:absolute;
 right:-6px;
 bottom:-2px;
-background:url(images/TalentCalc/roles.png) top left;
+background:url(/images/TalentCalc/roles.png) top left;
 z-index:15;
 }
 
@@ -238,7 +248,7 @@ left:410px;
 }
 
 .talentcalc-treenames p {
-background:url(images/TalentCalc/summary-glow.png) center 64px;
+background:url(/images/TalentCalc/summary-glow.png) center 64px;
 border:1px solid #141414;
 font-size:14px;
 color:#DDD;
@@ -283,7 +293,7 @@ height:20px;
 margin-top:2px;
 opacity:.3333;
 filter:alpha(opacity=33);
-background:url(images/icons/delete.gif) no-repeat 2px 2px;
+background:url(/images/icons/delete.gif) no-repeat 2px 2px;
 }
 
 .talentcalc-treenames p a:hover {
@@ -299,7 +309,7 @@ z-index:5;
 }
 
 .talentcalc-treenames .iconmedium del {
-background-image:url(images/TalentCalc/icon-border-header.png);
+background-image:url(/images/TalentCalc/icon-border-header.png);
 background-position:center;
 }
 
@@ -308,7 +318,7 @@ float:right;
 width:16px;
 height:16px;
 margin-top:4px;
-background:url(images/TalentCalc/roles-header.png) top left;
+background:url(/images/TalentCalc/roles-header.png) top left;
 }
 
 .talentcalc-treenames .mastery .iconmedium del {
@@ -360,7 +370,7 @@ overflow:hidden;
 }
 
 .talentcalc-main .mastery {
-background:url(images/TalentCalc/mastery-tree-glow.png);
+background:url(/images/TalentCalc/mastery-tree-glow.png);
 }
 
 .iconmedium div.icon-border {
@@ -370,7 +380,7 @@ left:1px;
 top:1px;
 width:42px;
 height:42px;
-background:url(images/TalentCalc/border.gif) no-repeat;
+background:url(/images/TalentCalc/border.gif) no-repeat;
 }
 
 .iconmedium div.icon-bubble {
@@ -380,7 +390,7 @@ width:22px;
 height:23px;
 left:30px;
 top:29px;
-background:url(images/TalentCalc/bubble.png) no-repeat;
+background:url(/images/TalentCalc/bubble.png) no-repeat;
 visibility:hidden;
 font-family:Verdana,sans-serif;
 font-size:12px;
@@ -390,7 +400,7 @@ padding:4px 0 0;
 }
 
 .iconmedium a.bubbly {
-background-image:url(images/TalentCalc/icon-medium-hilite.png);
+background-image:url(/images/TalentCalc/icon-medium-hilite.png);
 }
 
 .talentcalc-arrow-anchor {
@@ -416,35 +426,35 @@ height:auto;
 }
 
 .talentcalc-arrow-leftdown td {
-background-image:url(images/TalentCalc/arrows/leftdown.png);
+background-image:url(/images/TalentCalc/arrows/leftdown.png);
 }
 
 .talentcalc-arrow-leftdown2 td {
-background-image:url(images/TalentCalc/arrows/leftdown2.png);
+background-image:url(/images/TalentCalc/arrows/leftdown2.png);
 }
 
 .talentcalc-arrow-rightdown td {
-background-image:url(images/TalentCalc/arrows/rightdown.png);
+background-image:url(/images/TalentCalc/arrows/rightdown.png);
 }
 
 .talentcalc-arrow-rightdown2 td {
-background-image:url(images/TalentCalc/arrows/rightdown2.png);
+background-image:url(/images/TalentCalc/arrows/rightdown2.png);
 }
 
 .talentcalc-arrow-right td {
-background-image:url(images/TalentCalc/arrows/right.png);
+background-image:url(/images/TalentCalc/arrows/right.png);
 }
 
 .talentcalc-arrow-right2 td {
-background-image:url(images/TalentCalc/arrows/right2.png);
+background-image:url(/images/TalentCalc/arrows/right2.png);
 }
 
 .talentcalc-arrow-left td {
-background-image:url(images/TalentCalc/arrows/left.png);
+background-image:url(/images/TalentCalc/arrows/left.png);
 }
 
 .talentcalc-arrow-left2 td {
-background-image:url(images/TalentCalc/arrows/left2.png);
+background-image:url(/images/TalentCalc/arrows/left2.png);
 }
 
 .talentcalc-glyphpicker {
@@ -476,10 +486,6 @@ width:946px;
 text-decoration:none;
 }
 
-.talentcalc-wrapper,.talentcalc-upper-class {
-float:left;
-}
-
 .talentcalc-masteries .mastery-icon .role2,.talentcalc-treenames .role2 {
 background-position:bottom left;
 }
@@ -493,10 +499,10 @@ background-position:bottom right;
 }
 
 .talentcalc-arrow-down td,.talentcalc-arrow-leftdown th,.talentcalc-arrow-rightdown th {
-background-image:url(images/TalentCalc/arrows/down.png);
+background-image:url(/images/TalentCalc/arrows/down.png);
 }
 
 .talentcalc-arrow-down2 td,.talentcalc-arrow-leftdown2 th,.talentcalc-arrow-rightdown2 th {
-background-image:url(images/TalentCalc/arrows/down2.png);
+background-image:url(/images/TalentCalc/arrows/down2.png);
 }
 

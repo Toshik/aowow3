@@ -1,5 +1,5 @@
 .blog-header {
-background:url(images/blog/header-bg.gif) repeat-x;
+background:url(/images/blog/header-bg.gif) repeat-x;
 }
 
 .blog-header,.blog-header a {
@@ -30,7 +30,7 @@ width:384px;
 height:125px;
 left:-192px;
 top:0;
-background-image:url(images/blog/header-logo.jpg);
+background-image:url(/images/blog/header-logo.jpg);
 }
 
 span.blog-header-logo ins {
@@ -38,7 +38,7 @@ width:174px;
 height:16px;
 left:-87px;
 top:-16px;
-background-image:url(images/blog/header-logo-over.png);
+background-image:url(/images/blog/header-logo-over.png);
 }
 
 span.blog-header-left {
@@ -50,7 +50,7 @@ width:192px;
 height:120px;
 left:0;
 top:-1px;
-background-image:url(images/blog/header-malgayne.jpg);
+background-image:url(/images/blog/header-malgayne.jpg);
 }
 
 span.blog-header-left ins {
@@ -58,7 +58,7 @@ width:120px;
 height:134px;
 left:-20px;
 top:-23px;
-background-image:url(images/blog/header-malgayne-over.png);
+background-image:url(/images/blog/header-malgayne-over.png);
 }
 
 span.blog-header-right {
@@ -70,7 +70,7 @@ width:226px;
 height:125px;
 left:-225px;
 top:-1px;
-background-image:url(images/blog/header-miyari.jpg);
+background-image:url(/images/blog/header-miyari.jpg);
 }
 
 span.blog-header-right ins {
@@ -78,7 +78,7 @@ width:180px;
 height:155px;
 left:-160px;
 top:-21px;
-background-image:url(images/blog/header-miyari-over.png);
+background-image:url(/images/blog/header-miyari-over.png);
 }
 
 .blog-sidebar-outer {
@@ -108,7 +108,7 @@ padding:4px 0;
 }
 
 .blog-outer {
-background:url(images/blog/watermark.jpg) no-repeat center top;
+background:url(/images/blog/watermark.jpg) no-repeat center top;
 padding-top:10px;
 min-height:600px;
 }
@@ -174,16 +174,16 @@ color:#FFF;
 
 a.blog-entry-permalink {
 padding-left:25px;
-background:#404040 url(images/icons/link.gif) 7px center no-repeat;
+background:#404040 url(/images/icons/link.gif) 7px center no-repeat;
 }
 
 a.blog-entry-comments {
 padding-left:29px;
-background:#404040 url(images/icons/bubble.gif) 7px center no-repeat;
+background:#404040 url(/images/icons/bubble.gif) 7px center no-repeat;
 }
 
 a.blog-entry-share {
 padding-left:29px;
-background:#404040 url(images/icons/share.gif) 8px center no-repeat;
+background:#404040 url(/images/icons/share.gif) 8px center no-repeat;
 }
 

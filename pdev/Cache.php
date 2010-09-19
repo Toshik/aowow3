@@ -44,6 +44,8 @@ class Cache
 		if (is_callable(array($obj, '__create'), true))
 			$obj->__create($id);
 
+		self::Set($obj, $objectName, id);
+
 		return $obj;
 	}
 	static function GetCacheData($objectName, $id = false)

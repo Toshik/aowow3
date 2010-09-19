@@ -1,6 +1,6 @@
 <?php
 
-class RedirectPage extends GenericPage
+class RedirectPage extends GenericPage implements INotUserSensitive
 {
 	var $url;
 

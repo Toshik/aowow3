@@ -26,7 +26,10 @@
 
 if($this->user)
 {
-	//echo 'g_user={id:'.$this->user['id'].',name:"'.jsEscape($this->user['name']).'",character:"'.jsEscape($this->user['character_name']).'",';
+	//g_user = { id: 193196, name: 'Tourlip', roles: 512, permissions: 3, email: 'a553r7fa1l3d@gmail.com', cookies: {} };
+
+	echo 'g_user={id:'.$this->user->id.',name:"'.jsEscape($this->user->name).'",roles:'.$this->user->roles
+		.',permissions:1,email:"'.jsEscape($this->user->email).'", cookies: {} };';
 	//echo 'roles:'.$this->user['roles'].',permissions:'.$this->user['perms'].'};';
 }
 else

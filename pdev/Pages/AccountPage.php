@@ -30,14 +30,14 @@ class AccountPage extends GenericPage
 	var $type;
 	var $acct_error;
 
-	public function __construct()
+	function __create()
 	{
-		parent::__construct();
+		parent::__create();
 
 		$this->type = Get(GET_STRING, 'account');
 
 		if(!in_array($this->type, array('dashboard','', 'signin','signup', 'signin_do','signup_do', 'signout')))
-			Main::Display404Page();
+			Main::page_404();
 
 		switch($this->type)
 		{
@@ -69,7 +69,7 @@ class AccountPage extends GenericPage
 				if($this->user)
 					$this->logout();
 				else
-					Main::LocalRedirection('.');
+					Main::page_redirect('.');
 				break;
 			case '':
 			case 'dashboard':
@@ -276,12 +276,12 @@ class AccountPage extends GenericPage
 			case 'signin_do':
 			case 'signup_do':
 				if($next = Get(GET_STRING, 'b'))
-					Main::LocalRedirection('?'.wn_sdestroy($next, WN_KEY_BACKURL));
+					Main::page_redirect('?'.wn_sdestroy($next, WN_KEY_BACKURL));
 				else
-					Main::LocalRedirection('?account=dashboard');
+					Main::page_redirect('?account=dashboard');
 				break;
 			case 'signout':
-				Main::LocalRedirection('.');
+				Main::page_redirect('.');
 				break;
 			default:
 				// Existance and correctness checked in constructor.

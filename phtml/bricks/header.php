@@ -5,9 +5,10 @@
 </head>
 
 <body>
-<div id="layers"></div>
-<!--[if lte IE 6]><table id="ie6layout"><tr><th class="ie6layout-th"></th><td id="ie6layout-td"><div id="ie6layout-div"></div><![endif]-->
-<div id="layout">
+
+<div class="layout nosidebar" id="layout">
+<div class="layout-inner">
+
 	<div id="header">
 		<div id="header-logo">
 			<a href="."></a>
@@ -15,30 +16,35 @@
 		</div>
 	</div>
 
-	<?php $this->brick('toplinks.php'); ?>
+	<div class="header">
+		<h1><?php echo $this->full_title; ?></h1>
+		<a href="/" class="header-logo"></a>
+	</div>
 
-	<div id="wrapper" class="nosidebar">
-		<div id="toptabs">
-			<div id="toptabs-inner">
-				<div id="toptabs-right"></div>
-				<div id="ptewhjkst46"></div>
-				<div class="clear"></div>
-			</div>
+	<div class="wrapper" id="wrapper">
+
+		<div class="wrapper-center" id="wrapper-center"></div>
+		<div class="wrapper-right" id="wrapper-right"></div>
+
+		<?php $this->brick('toplinks.php'); ?>
+
+		<div class="toptabs" id="toptabs"></div>
+
+		<div class="topbar" id="topbar">
+			<div class="topbar-search"><form action="/search"><input name="q" value="" /></form></div>
+			<div class="topbar-buttons"></div>
 		</div>
 
-		<div id="topbar-right"><div><form action="."><a href="javascript:;"></a><input name="search" size="35" value="" id="oh2345v5ks" /></form></div></div>
-		<div id="topbar"><span id="kbl34h6b43" class="menu-buttons"></span><div class="clear"></div></div>
-
-<?php echo '<script type="text/javascript">';
+<?php
+	echo '<script type="text/javascript">';
 	// Tab
-	//if($this->tab >= 0)
-		echo 'g_initHeader('.$this->tab.');';
-	if($this->path)
-		echo 'g_initPath('.$this->path.');';
+	//echo 'g_initHeader('.$this->tab.');';
+	//if($this->path)
+		//echo 'g_initPath('.$this->path.');';
 
 
 	// Live search
-	echo 'LiveSearch.attach(ge("oh2345v5ks"));';
+	//echo 'LiveSearch.attach(ge("oh2345v5ks"));';
 
 	echo '</script>';
 ?>

@@ -15,8 +15,8 @@
 		<h1><?php echo htmlspecialchars($this->full_title); ?></h1>
 
 		<div class="home-logo" id="home-logo"></div>
-		<div class="home-menu" id="home-menu"></div>
 		<div class="home-search" id="home-search"><form method="GET" action="?"><input type="text" name="q" /></form></div>
+		<div class="home-menu" id="home-menu"></div>
 
 		<p class="home-oneliner text" id="home-oneliner"><?php echo $this->oneliner->toHTML(); ?></p>
 

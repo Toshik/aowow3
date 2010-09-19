@@ -1,3 +1,45 @@
+.profiler-home form {
+font-size:18px;
+margin:0 auto;
+}
+
+.profiler-home table {
+margin:0 auto;
+}
+
+.profiler-home input,.profiler-home select {
+font-size:18px;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+padding:4px;
+}
+
+.profiler-home input[type=text],.profiler-home select {
+color:#000;
+outline:0;
+border:1px solid #adadad;
+background:#FFF url(/images/ui/form/input-textbox-bg.gif) repeat-x;
+margin:0;
+}
+
+.profiler-home input[type=submit] {
+font-weight:700;
+}
+
+.profiler-tip {
+position:absolute;
+right:0;
+width:270px;
+font-size:13px;
+background-color:#181818;
+border:1px solid #282828;
+-webkit-border-radius:3px;
+-moz-border-radius:3px;
+border-radius:3px;
+padding:8px;
+}
+
 .profiler .ad-medrect {
 float:right;
 margin:0 0 10px 10px;
@@ -28,7 +70,7 @@ right:-12px;
 z-index:1;
 width:22px;
 height:22px;
-background:url(images/Profiler/lookup.gif) left top no-repeat;
+background:url(/images/Profiler/lookup.gif) left top no-repeat;
 display:block;
 }
 
@@ -37,12 +79,12 @@ background-position:left bottom;
 }
 
 input.search-character {
-background:#FFF url(images/enus/character.gif) .2em center no-repeat!important;
+background:#FFF url(/images/enus/character.gif) .2em center no-repeat!important;
 }
 
 .profiler-header {
 height:69px;
-background:url(images/Profiler/character-header-bg.gif) repeat-x left top;
+background:url(/images/Profiler/character-header-bg.gif) repeat-x left top;
 border-bottom:1px solid #505050;
 position:relative;
 margin-bottom:13px;
@@ -117,7 +159,7 @@ color:#ddd;
 margin-bottom:10px;
 text-align:center;
 border:1px solid #101010;
-background:url(images/icons/ajax.gif) no-repeat 3px 3px #141414;
+background:url(/images/icons/ajax.gif) no-repeat 3px 3px #141414;
 -webkit-border-radius:6px;
 -moz-border-radius:6px;
 border-radius:6px;
@@ -138,7 +180,7 @@ padding-bottom:5px;
 z-index:1;
 float:right;
 font-size:13px;
-background:url(images/icons/star.png) no-repeat left center;
+background:url(/images/icons/star.png) no-repeat left center;
 padding:5px 5px 5px 21px;
 }
 
@@ -146,7 +188,7 @@ padding:5px 5px 5px 21px;
 z-index:1;
 float:right;
 font-size:13px;
-background:url(images/icons/link.gif) no-repeat left center;
+background:url(/images/icons/link.gif) no-repeat left center;
 margin-left:6px;
 padding:5px 5px 5px 19px;
 }
@@ -155,7 +197,7 @@ padding:5px 5px 5px 19px;
 z-index:1;
 float:right;
 font-size:13px;
-background:url(images/icons/help.gif) no-repeat left center;
+background:url(/images/icons/help.gif) no-repeat left center;
 margin-left:6px;
 padding:5px 5px 5px 21px;
 }
@@ -164,7 +206,7 @@ padding:5px 5px 5px 21px;
 z-index:1;
 float:right;
 font-size:13px;
-background:url(images/icons/print.gif) no-repeat left center;
+background:url(/images/icons/print.gif) no-repeat left center;
 padding:5px 5px 5px 21px;
 }
 
@@ -567,31 +609,35 @@ background:no-repeat left center;
 }
 
 .moneyschoolarc {
-background-image:url(images/icons/resist-arcane.gif);
+background-image:url(/images/icons/resist-arcane.gif);
 }
 
 .moneyschoolfir {
-background-image:url(images/icons/resist-fire.gif);
+background-image:url(/images/icons/resist-fire.gif);
 }
 
 .moneyschoolfro {
-background-image:url(images/icons/resist-frost.gif);
+background-image:url(/images/icons/resist-frost.gif);
 }
 
 .moneyschoolhol {
-background-image:url(images/icons/resist-holy.gif);
+background-image:url(/images/icons/resist-holy.gif);
 }
 
 .moneyschoolnat {
-background-image:url(images/icons/resist-nature.gif);
+background-image:url(/images/icons/resist-nature.gif);
 }
 
 .moneyschoolsha {
-background-image:url(images/icons/resist-shadow.gif);
+background-image:url(/images/icons/resist-shadow.gif);
 }
 
 .infobox {
 border-color:#101010;
+}
+
+.profiler-home,.profiler-model-outer,.profiler-achievements-summary-points {
+position:relative;
 }
 
 .profiler-header a,.profiler-infobox-skill a,.profiler-achievements-summary a.selected:hover em {
@@ -608,10 +654,6 @@ color:#FFF;
 
 .profiler-infobox-badges .iconsmall,.profiler-inventory-bottom .iconmedium {
 float:left;
-}
-
-.profiler-model-outer,.profiler-achievements-summary-points {
-position:relative;
 }
 
 .profiler-inventory-stats a:hover,.profiler-achievements-summary a:hover {

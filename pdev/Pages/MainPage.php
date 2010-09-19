@@ -34,6 +34,7 @@ class MainPage extends GenericPage implements ICacheable_File
 
 	function __wakeup()
 	{
+		parent::__wakeup();
 	}
 
 	function __sleep()

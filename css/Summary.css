@@ -97,7 +97,7 @@ font-size:12px;
 div.summary-group-controls {
 height:13px;
 white-space:nowrap;
-background:url(images/Summary/group-controls.gif) repeat-x;
+background:url(/images/Summary/group-controls.gif) repeat-x;
 margin:1px;
 }
 
@@ -111,7 +111,7 @@ a.summary-group-dropdown span {
 display:block;
 width:10px;
 height:6px;
-background:url(images/Summary/group-controls.gif) 0 -13px no-repeat;
+background:url(/images/Summary/group-controls.gif) 0 -13px no-repeat;
 }
 
 a.summary-group-dropdown:hover span {
@@ -128,7 +128,7 @@ a.summary-group-focus span {
 display:block;
 width:13px;
 height:8px;
-background:url(images/Summary/group-controls.gif) -37px -13px no-repeat;
+background:url(/images/Summary/group-controls.gif) -37px -13px no-repeat;
 }
 
 a.summary-group-focus:hover span,a.summary-group-focus span.selected {
@@ -145,7 +145,7 @@ a.summary-group-delete span {
 display:block;
 width:10px;
 height:9px;
-background:url(images/Summary/group-controls.gif) -10px -13px no-repeat;
+background:url(/images/Summary/group-controls.gif) -10px -13px no-repeat;
 }
 
 a.summary-group-delete:hover span {
@@ -164,7 +164,7 @@ a.summary-group-drag span {
 display:block;
 width:17px;
 height:6px;
-background:url(images/Summary/group-controls.gif) -20px -13px no-repeat;
+background:url(/images/Summary/group-controls.gif) -20px -13px no-repeat;
 }
 
 .grid td {

@@ -71,13 +71,13 @@ function () {
 		if (!F.length) {
 			return
 		}
-		F.attr("href", "/user=" + g_user.name);
+		F.attr("href", "?user=" + g_user.name);
 		var J = [];
-		var I = ["user-page", LANG.userpage, "/user=" + g_user.name, null, {
+		var I = ["user-page", LANG.userpage, "?user=" + g_user.name, null, {
 			checkedUrl: new RegExp("user=" + g_user.name + "$", "i")
 		}];
 		J.push(I);
-		var G = ["settings", LANG.settings, "https://" + window.location.hostname + "/account", null, {
+		var G = ["settings", LANG.settings, "?account", null, {
 			icon: g_staticUrl + "/images/icons/cog.gif",
 			checkedUrl: /account/i
 		}];
@@ -86,13 +86,13 @@ function () {
 		h(J);
 		var H;
 		if (!g_user.premium) {
-			H = ["premium-upgarde", LANG.premiumupgrade, "/premium", null, {
+			H = ["premium-upgarde", LANG.premiumupgrade, "?premium", null, {
 				className: "q7",
 				checkedUrl: /premium/i
 			}];
 			J.push(H)
 		}
-		J.push(["sign-out", LANG.signout, "/account=signout"]);
+		J.push(["sign-out", LANG.signout, "?account=signout"]);
 		Menu.add(F, J);
 		F.addClass("hassubmenu")
 	}
@@ -100,7 +100,7 @@ function () {
 		if (!g_user.characters || !g_user.characters.length) {
 			return
 		}
-		var F = ["characters", LANG.tab_characters, "/user=" + g_user.name + "#characters", null, {
+		var F = ["characters", LANG.tab_characters, "?user=" + g_user.name + "#characters", null, {
 			onBeforeShow: C
 		}];
 		G.push(F)
@@ -109,7 +109,7 @@ function () {
 		if (!g_user.profiles || !g_user.profiles.length) {
 			return
 		}
-		var G = ["profiles", LANG.tab_profiles, "/user=" + g_user.name + "#profiles", null, {
+		var G = ["profiles", LANG.tab_profiles, "?user=" + g_user.name + "#profiles", null, {
 			onBeforeShow: e
 		}];
 		F.push(G)

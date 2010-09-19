@@ -116,13 +116,13 @@ left:10px;
 top:-25px;
 width:324px;
 height:213px;
-background:url(images/premium/user-badge.png) no-repeat;
+background:url(/images/premium/user-badge.png) no-repeat;
 }
 
 .premium-feature-icon-small {
 width:74px;
 height:22px;
-background:url(images/premium/premium-small.png) center right no-repeat;
+background:url(/images/premium/premium-small.png) center right no-repeat;
 padding-right:74px;
 }
 
@@ -181,7 +181,7 @@ a.announcement-close {
 display:block;
 width:16px;
 height:16px;
-background:url(images/icons/delete.gif) center center no-repeat;
+background:url(/images/icons/delete.gif) center center no-repeat;
 float:right;
 }
 
@@ -313,6 +313,10 @@ padding-top:4px;
 font-style:italic;
 color:#9d9d9d;
 font-size:11px;
+}
+
+.comment-lastedit a {
+color:#9d9d9d;
 }
 
 .comment-links {
@@ -472,19 +476,19 @@ background-repeat:no-repeat;
 .iconsmall del {
 width:26px;
 height:26px;
-background-image:url(images/Icon/small/border/default.png);
+background-image:url(/images/Icon/small/border/default.png);
 }
 
 .iconmedium del {
 width:44px;
 height:44px;
-background-image:url(images/Icon/medium/border/default.png);
+background-image:url(/images/Icon/medium/border/default.png);
 }
 
 .iconlarge del {
 width:68px;
 height:68px;
-background-image:url(images/Icon/large/border/default.png);
+background-image:url(/images/Icon/large/border/default.png);
 }
 
 .iconsmall var,.iconmedium var {
@@ -505,23 +509,23 @@ z-index:20;
 .iconsmall a {
 width:20px;
 height:20px;
-background:url(images/Icon/small/hilite/default.png) no-repeat 20px 0;
+background:url(/images/Icon/small/hilite/default.png) no-repeat 20px 0;
 }
 
 .iconmedium a {
 width:38px;
 height:38px;
-background:url(images/Icon/medium/hilite/default.png) no-repeat 38px 0;
+background:url(/images/Icon/medium/hilite/default.png) no-repeat 38px 0;
 }
 
 .iconlarge a {
 width:62px;
 height:62px;
-background:url(images/Icon/large/hilite/default.png) no-repeat 62px 0;
+background:url(/images/Icon/large/hilite/default.png) no-repeat 62px 0;
 }
 
 .iconsmall-socket-meta-empty ins,.iconsmall-socket-yellow-empty ins,.iconsmall-socket-red-empty ins,.iconsmall-socket-blue-empty ins,.iconsmall-socket-prismatic-empty ins {
-background-image:url(images/Icon/small/socket/background.jpg);
+background-image:url(/images/Icon/small/socket/background.jpg);
 }
 
 .iconsmall-socket-red-empty ins {
@@ -533,7 +537,7 @@ background-position:-54px 0;
 }
 
 .iconmedium-socket-meta-empty ins,.iconmedium-socket-yellow-empty ins,.iconmedium-socket-red-empty ins,.iconmedium-socket-blue-empty ins,.iconmedium-socket-prismatic-empty ins {
-background-image:url(images/Icon/medium/socket/background.jpg);
+background-image:url(/images/Icon/medium/socket/background.jpg);
 }
 
 .iconmedium-socket-blue-empty ins {
@@ -545,131 +549,131 @@ background-position:-144px 0;
 }
 
 .iconsmall-socket-meta del {
-background-image:url(images/Icon/small/socket/meta1.png);
+background-image:url(/images/Icon/small/socket/meta1.png);
 }
 
 .iconsmall-socket-meta-empty del {
-background-image:url(images/Icon/small/socket/meta0.png);
+background-image:url(/images/Icon/small/socket/meta0.png);
 }
 
 .iconsmall-socket-red del {
-background-image:url(images/Icon/small/socket/red1.png);
+background-image:url(/images/Icon/small/socket/red1.png);
 }
 
 .iconsmall-socket-red-empty del {
-background-image:url(images/Icon/small/socket/red0.png);
+background-image:url(/images/Icon/small/socket/red0.png);
 }
 
 .iconsmall-socket-yellow del {
-background-image:url(images/Icon/small/socket/yellow1.png);
+background-image:url(/images/Icon/small/socket/yellow1.png);
 }
 
 .iconsmall-socket-yellow-empty del {
-background-image:url(images/Icon/small/socket/yellow0.png);
+background-image:url(/images/Icon/small/socket/yellow0.png);
 }
 
 .iconsmall-socket-blue del {
-background-image:url(images/Icon/small/socket/blue1.png);
+background-image:url(/images/Icon/small/socket/blue1.png);
 }
 
 .iconsmall-socket-blue-empty del {
-background-image:url(images/Icon/small/socket/blue0.png);
+background-image:url(/images/Icon/small/socket/blue0.png);
 }
 
 .iconsmall-socket-prismatic del {
-background-image:url(images/Icon/small/socket/prismatic1.png);
+background-image:url(/images/Icon/small/socket/prismatic1.png);
 }
 
 .iconsmall-socket-prismatic-empty del {
-background-image:url(images/Icon/small/socket/prismatic0.png);
+background-image:url(/images/Icon/small/socket/prismatic0.png);
 }
 
 .iconmedium-socket-meta del {
-background-image:url(images/Icon/medium/socket/meta1.png);
+background-image:url(/images/Icon/medium/socket/meta1.png);
 }
 
 .iconmedium-socket-meta-empty del {
-background-image:url(images/Icon/medium/socket/meta0.png);
+background-image:url(/images/Icon/medium/socket/meta0.png);
 }
 
 .iconmedium-socket-red del {
-background-image:url(images/Icon/medium/socket/red1.png);
+background-image:url(/images/Icon/medium/socket/red1.png);
 }
 
 .iconmedium-socket-red-empty del {
-background-image:url(images/Icon/medium/socket/red0.png);
+background-image:url(/images/Icon/medium/socket/red0.png);
 }
 
 .iconmedium-socket-yellow del {
-background-image:url(images/Icon/medium/socket/yellow1.png);
+background-image:url(/images/Icon/medium/socket/yellow1.png);
 }
 
 .iconmedium-socket-yellow-empty del {
-background-image:url(images/Icon/medium/socket/yellow0.png);
+background-image:url(/images/Icon/medium/socket/yellow0.png);
 }
 
 .iconmedium-socket-blue del {
-background-image:url(images/Icon/medium/socket/blue1.png);
+background-image:url(/images/Icon/medium/socket/blue1.png);
 }
 
 .iconmedium-socket-blue-empty del {
-background-image:url(images/Icon/medium/socket/blue0.png);
+background-image:url(/images/Icon/medium/socket/blue0.png);
 }
 
 .iconmedium-socket-prismatic del {
-background-image:url(images/Icon/medium/socket/prismatic1.png);
+background-image:url(/images/Icon/medium/socket/prismatic1.png);
 }
 
 .iconmedium-socket-prismatic-empty del {
-background-image:url(images/Icon/medium/socket/prismatic0.png);
+background-image:url(/images/Icon/medium/socket/prismatic0.png);
 }
 
 .iconsmall-socket-meta var {
-background-image:url(images/Icon/small/socket/anim-meta.gif);
+background-image:url(/images/Icon/small/socket/anim-meta.gif);
 }
 
 .iconsmall-socket-yellow var {
-background-image:url(images/Icon/small/socket/anim-yellow.gif);
+background-image:url(/images/Icon/small/socket/anim-yellow.gif);
 }
 
 .iconsmall-socket-red var {
-background-image:url(images/Icon/small/socket/anim-red.gif);
+background-image:url(/images/Icon/small/socket/anim-red.gif);
 }
 
 .iconsmall-socket-blue var {
-background-image:url(images/Icon/small/socket/anim-blue.gif);
+background-image:url(/images/Icon/small/socket/anim-blue.gif);
 }
 
 .iconsmall-socket-prismatic var {
-background-image:url(images/Icon/small/socket/anim-prismatic.gif);
+background-image:url(/images/Icon/small/socket/anim-prismatic.gif);
 }
 
 .iconmedium-socket-meta var {
-background-image:url(images/Icon/medium/socket/anim-meta.gif);
+background-image:url(/images/Icon/medium/socket/anim-meta.gif);
 }
 
 .iconmedium-socket-yellow var {
-background-image:url(images/Icon/medium/socket/anim-yellow.gif);
+background-image:url(/images/Icon/medium/socket/anim-yellow.gif);
 }
 
 .iconmedium-socket-red var {
-background-image:url(images/Icon/medium/socket/anim-red.gif);
+background-image:url(/images/Icon/medium/socket/anim-red.gif);
 }
 
 .iconmedium-socket-blue var {
-background-image:url(images/Icon/medium/socket/anim-blue.gif);
+background-image:url(/images/Icon/medium/socket/anim-blue.gif);
 }
 
 .iconmedium-socket-prismatic var {
-background-image:url(images/Icon/medium/socket/anim-prismatic.gif);
+background-image:url(/images/Icon/medium/socket/anim-prismatic.gif);
 }
 
 .iconsmall-socket-meta a,.iconsmall-socket-red a,.iconsmall-socket-yellow a,.iconsmall-socket-blue a,.iconsmall-socket-prismatic a {
-background-image:url(images/Icon/small/hilite/socket1.png);
+background-image:url(/images/Icon/small/hilite/socket1.png);
 }
 
 .iconsmall-socket-meta-empty a,.iconsmall-socket-red-empty a,.iconsmall-socket-yellow-empty a,.iconsmall-socket-blue-empty a,.iconsmall-socket-prismatic-empty a {
-background-image:url(images/Icon/small/hilite/socket0.png);
+background-image:url(/images/Icon/small/hilite/socket0.png);
 }
 
 .iconsmall .glow,.iconmedium .glow,.iconlarge .glow {
@@ -695,35 +699,35 @@ margin:4px 6px;
 }
 
 .iconsmall-premium del {
-background-image:url(images/Icon/small/border/premium.png);
+background-image:url(/images/Icon/small/border/premium.png);
 }
 
 .iconmedium-premium del {
-background-image:url(images/Icon/medium/border/premium.png);
+background-image:url(/images/Icon/medium/border/premium.png);
 }
 
 .iconlarge-premium del {
-background-image:url(images/Icon/large/border/premium.png);
+background-image:url(/images/Icon/large/border/premium.png);
 }
 
 .iconsmall-gold del {
-background-image:url(images/Icon/small/border/gold.png);
+background-image:url(/images/Icon/small/border/gold.png);
 }
 
 .iconmedium-gold del {
-background-image:url(images/Icon/medium/border/gold.png);
+background-image:url(/images/Icon/medium/border/gold.png);
 }
 
 .iconlarge-gold del {
-background-image:url(images/Icon/large/border/gold.png);
+background-image:url(/images/Icon/large/border/gold.png);
 }
 
 .iconmedium-gold-selected del {
-background-image:url(images/Icon/medium/border/gold-selected.png);
+background-image:url(/images/Icon/medium/border/gold-selected.png);
 }
 
 .iconlarge-gold-selected del {
-background-image:url(images/Icon/large/border/gold-selected.png);
+background-image:url(/images/Icon/large/border/gold-selected.png);
 }
 
 .iconmedium-gold-selected a,.iconlarge-gold-selected a {
@@ -732,135 +736,135 @@ cursor:default;
 }
 
 .iconsmall-q0 del {
-background-image:url(images/Icon/small/border/q0.png);
+background-image:url(/images/Icon/small/border/q0.png);
 }
 
 .iconsmall-q1 del {
-background-image:url(images/Icon/small/border/q1.png);
+background-image:url(/images/Icon/small/border/q1.png);
 }
 
 .iconsmall-q2 del {
-background-image:url(images/Icon/small/border/q2.png);
+background-image:url(/images/Icon/small/border/q2.png);
 }
 
 .iconsmall-q3 del {
-background-image:url(images/Icon/small/border/q3.png);
+background-image:url(/images/Icon/small/border/q3.png);
 }
 
 .iconsmall-q4 del {
-background-image:url(images/Icon/small/border/q4.png);
+background-image:url(/images/Icon/small/border/q4.png);
 }
 
 .iconsmall-q5 del {
-background-image:url(images/Icon/small/border/q5.png);
+background-image:url(/images/Icon/small/border/q5.png);
 }
 
 .iconsmall-q6 del {
-background-image:url(images/Icon/small/border/q6.png);
+background-image:url(/images/Icon/small/border/q6.png);
 }
 
 .iconsmall-q7 del {
-background-image:url(images/Icon/small/border/q7.png);
+background-image:url(/images/Icon/small/border/q7.png);
 }
 
 .iconsmall-q8 del {
-background-image:url(images/Icon/small/border/q8.png);
+background-image:url(/images/Icon/small/border/q8.png);
 }
 
 .iconsmall-q9 del {
-background-image:url(images/Icon/small/border/q9.png);
+background-image:url(/images/Icon/small/border/q9.png);
 }
 
 .iconsmall-q10 del {
-background-image:url(images/Icon/small/border/q10.png);
+background-image:url(/images/Icon/small/border/q10.png);
 }
 
 .iconmedium-q0 del {
-background-image:url(images/Icon/medium/border/q0.png);
+background-image:url(/images/Icon/medium/border/q0.png);
 }
 
 .iconmedium-q1 del {
-background-image:url(images/Icon/medium/border/q1.png);
+background-image:url(/images/Icon/medium/border/q1.png);
 }
 
 .iconmedium-q2 del {
-background-image:url(images/Icon/medium/border/q2.png);
+background-image:url(/images/Icon/medium/border/q2.png);
 }
 
 .iconmedium-q3 del {
-background-image:url(images/Icon/medium/border/q3.png);
+background-image:url(/images/Icon/medium/border/q3.png);
 }
 
 .iconmedium-q4 del {
-background-image:url(images/Icon/medium/border/q4.png);
+background-image:url(/images/Icon/medium/border/q4.png);
 }
 
 .iconmedium-q5 del {
-background-image:url(images/Icon/medium/border/q5.png);
+background-image:url(/images/Icon/medium/border/q5.png);
 }
 
 .iconmedium-q6 del {
-background-image:url(images/Icon/medium/border/q6.png);
+background-image:url(/images/Icon/medium/border/q6.png);
 }
 
 .iconmedium-q7 del {
-background-image:url(images/Icon/medium/border/q7.png);
+background-image:url(/images/Icon/medium/border/q7.png);
 }
 
 .iconmedium-q8 del {
-background-image:url(images/Icon/medium/border/q8.png);
+background-image:url(/images/Icon/medium/border/q8.png);
 }
 
 .iconmedium-q9 del {
-background-image:url(images/Icon/medium/border/q9.png);
+background-image:url(/images/Icon/medium/border/q9.png);
 }
 
 .iconmedium-q10 del {
-background-image:url(images/Icon/medium/border/q10.png);
+background-image:url(/images/Icon/medium/border/q10.png);
 }
 
 .iconlarge-q0 del {
-background-image:url(images/Icon/large/border/q0.png);
+background-image:url(/images/Icon/large/border/q0.png);
 }
 
 .iconlarge-q1 del {
-background-image:url(images/Icon/large/border/q1.png);
+background-image:url(/images/Icon/large/border/q1.png);
 }
 
 .iconlarge-q2 del {
-background-image:url(images/Icon/large/border/q2.png);
+background-image:url(/images/Icon/large/border/q2.png);
 }
 
 .iconlarge-q3 del {
-background-image:url(images/Icon/large/border/q3.png);
+background-image:url(/images/Icon/large/border/q3.png);
 }
 
 .iconlarge-q4 del {
-background-image:url(images/Icon/large/border/q4.png);
+background-image:url(/images/Icon/large/border/q4.png);
 }
 
 .iconlarge-q5 del {
-background-image:url(images/Icon/large/border/q5.png);
+background-image:url(/images/Icon/large/border/q5.png);
 }
 
 .iconlarge-q6 del {
-background-image:url(images/Icon/large/border/q6.png);
+background-image:url(/images/Icon/large/border/q6.png);
 }
 
 .iconlarge-q7 del {
-background-image:url(images/Icon/large/border/q7.png);
+background-image:url(/images/Icon/large/border/q7.png);
 }
 
 .iconlarge-q8 del {
-background-image:url(images/Icon/large/border/q8.png);
+background-image:url(/images/Icon/large/border/q8.png);
 }
 
 .iconlarge-q9 del {
-background-image:url(images/Icon/large/border/q9.png);
+background-image:url(/images/Icon/large/border/q9.png);
 }
 
 .iconlarge-q10 del {
-background-image:url(images/Icon/large/border/q10.png);
+background-image:url(/images/Icon/large/border/q10.png);
 }
 
 .icontiny {
@@ -898,123 +902,123 @@ margin-right:4px;
 
 .icon-add {
 padding-left:20px!important;
-background:url(images/icons/add.gif) no-repeat left center;
+background:url(/images/icons/add.gif) no-repeat left center;
 }
 
 .icon-alliance {
 padding-left:12px;
-background:url(images/icons/alliance.gif) left center no-repeat;
+background:url(/images/icons/alliance.gif) left center no-repeat;
 }
 
 .icon-alliance-padded {
 padding-left:18px;
-background:url(images/icons/alliance.gif) 4px center no-repeat;
+background:url(/images/icons/alliance.gif) 4px center no-repeat;
 }
 
 .icon-arrowrightbullet-right {
 padding-right:16px;
-background:url(images/icons/arrow-right-bullet.gif) no-repeat right center;
+background:url(/images/icons/arrow-right-bullet.gif) no-repeat right center;
 }
 
 .icon-bc {
 padding-left:34px;
-background:url(images/icons/bc.gif) left center no-repeat;
+background:url(/images/icons/bc.gif) left center no-repeat;
 }
 
 .icon-bc-right {
 padding-right:34px;
-background:url(images/icons/bc.gif) right center no-repeat;
+background:url(/images/icons/bc.gif) right center no-repeat;
 }
 
 .icon-bell {
 padding-left:21px;
-background:url(images/icons/bell.gif) no-repeat left center;
+background:url(/images/icons/bell.gif) no-repeat left center;
 }
 
 .icon-blizzard {
-background:url(images/icons/blizzard.gif) no-repeat left center;
+background:url(/images/icons/blizzard.gif) no-repeat left center;
 padding-left:26px;
 }
 
 .icon-book {
 padding-left:22px;
-background:url(images/icons/book.gif) no-repeat left center;
+background:url(/images/icons/book.gif) no-repeat left center;
 }
 
 .icon-boss {
 padding-left:15px!important;
-background:url(images/icons/boss.gif) left center no-repeat;
+background:url(/images/icons/boss.gif) left center no-repeat;
 }
 
 .icon-boss-padded {
 padding-left:23px!important;
-background:url(images/icons/boss.gif) 6px center no-repeat;
+background:url(/images/icons/boss.gif) 6px center no-repeat;
 }
 
 .icon-bubble {
 padding-left:22px;
-background:url(images/icons/bubble.gif) left center no-repeat;
+background:url(/images/icons/bubble.gif) left center no-repeat;
 }
 
 .icon-bubble-right {
 padding-right:22px;
-background:url(images/icons/bubble.gif) right center no-repeat;
+background:url(/images/icons/bubble.gif) right center no-repeat;
 }
 
 .icon-cata {
 padding-left:40px;
-background:url(images/icons/cata.gif) no-repeat left center;
+background:url(/images/icons/cata.gif) no-repeat left center;
 }
 
 .icon-cata-right {
 padding-right:40px;
-background:url(images/icons/cata.gif) no-repeat right center;
+background:url(/images/icons/cata.gif) no-repeat right center;
 }
 
 .icon-delete {
 padding-left:19px;
-background:url(images/icons/delete.gif) no-repeat left center;
+background:url(/images/icons/delete.gif) no-repeat left center;
 }
 
 .icon-edit {
 padding-left:21px;
-background:url(images/icons/edit.gif) no-repeat left center;
+background:url(/images/icons/edit.gif) no-repeat left center;
 }
 
 .icon-email {
 padding-left:21px;
-background:url(images/icons/email.gif) left center no-repeat;
+background:url(/images/icons/email.gif) left center no-repeat;
 }
 
 .icon-facebook {
 padding-left:20px;
-background:url(images/icons/facebook.gif) left center no-repeat;
+background:url(/images/icons/facebook.gif) left center no-repeat;
 }
 
 .icon-ffa {
 padding-left:13px;
-background:url(images/icons/ffa.gif) left center no-repeat;
+background:url(/images/icons/ffa.gif) left center no-repeat;
 }
 
 .icon-help {
 padding-left:19px!important;
-background:url(images/icons/help.gif) left center no-repeat;
+background:url(/images/icons/help.gif) left center no-repeat;
 }
 
 .icon-heroic {
 padding-left:19px;
-background:url(images/icons/heroic.gif) no-repeat;
+background:url(/images/icons/heroic.gif) no-repeat;
 height:16px;
 }
 
 .icon-horde {
 padding-left:18px;
-background:url(images/icons/horde.gif) left center no-repeat;
+background:url(/images/icons/horde.gif) left center no-repeat;
 }
 
 .icon-instance1,.icon-instance2,.icon-instance3,.icon-instance4,.icon-instance5,.icon-instance7,.icon-instance8 {
 padding-left:19px;
-background:url(images/icons/instance.gif) no-repeat;
+background:url(/images/icons/instance.gif) no-repeat;
 }
 
 .icon-instance1 {
@@ -1038,88 +1042,88 @@ background-position:-734px center;
 }
 
 .icon-link {
-background:url(images/icons/link.gif) no-repeat left center;
+background:url(/images/icons/link.gif) no-repeat left center;
 padding-left:19px;
 }
 
 .icon-lock {
 padding-left:21px;
-background:url(images/icons/locked.gif) no-repeat left center;
+background:url(/images/icons/locked.gif) no-repeat left center;
 }
 
 .icon-poll {
 padding-left:21px;
-background:url(images/icons/poll.png) no-repeat 1px center;
+background:url(/images/icons/poll.png) no-repeat 1px center;
 }
 
 .icon-print {
 padding-left:21px;
-background:url(images/icons/print.gif) left center no-repeat;
+background:url(/images/icons/print.gif) left center no-repeat;
 }
 
 .icon-refresh {
 padding-left:21px;
-background:url(images/icons/refresh.gif) no-repeat left center;
+background:url(/images/icons/refresh.gif) no-repeat left center;
 }
 
 .icon-report {
 padding-left:16px!important;
-background:url(images/icons/report.gif) 3px center no-repeat;
+background:url(/images/icons/report.gif) 3px center no-repeat;
 }
 
 .icon-return {
 padding-left:21px;
-background:url(images/icons/return.gif) no-repeat left center;
+background:url(/images/icons/return.gif) no-repeat left center;
 }
 
 .icon-rss {
 padding-left:18px;
-background:url(images/icons/rss.gif) no-repeat left center;
+background:url(/images/icons/rss.gif) no-repeat left center;
 }
 
 .icon-save {
 padding-left:21px;
-background:url(images/icons/save.gif) no-repeat left center;
+background:url(/images/icons/save.gif) no-repeat left center;
 }
 
 .icon-sticky {
 padding-left:21px;
-background:url(images/icons/sticky.gif) no-repeat left center;
+background:url(/images/icons/sticky.gif) no-repeat left center;
 }
 
 .icon-twitter {
 padding-left:20px;
-background:url(images/icons/twitter.gif) left center no-repeat;
+background:url(/images/icons/twitter.gif) left center no-repeat;
 }
 
 .icon-unlock {
 padding-left:21px;
-background:url(images/icons/unlocked.gif) no-repeat left center;
+background:url(/images/icons/unlocked.gif) no-repeat left center;
 }
 
 .icon-wotlk {
 padding-left:41px;
-background:url(images/icons/wotlk.gif) left center no-repeat;
+background:url(/images/icons/wotlk.gif) left center no-repeat;
 }
 
 .icon-wotlk-right {
 padding-right:41px;
-background:url(images/icons/wotlk.gif) right center no-repeat;
+background:url(/images/icons/wotlk.gif) right center no-repeat;
 }
 
 .icon-wowhead {
 padding-left:19px;
-background:url(images/icons/favicon.gif) left center no-repeat;
+background:url(/images/icons/favicon.gif) left center no-repeat;
 }
 
 .icon-male {
 padding-left:19px;
-background:url(images/icons/male.png) left center no-repeat;
+background:url(/images/icons/male.png) left center no-repeat;
 }
 
 .icon-female {
 padding-left:19px;
-background:url(images/icons/female.png) left center no-repeat;
+background:url(/images/icons/female.png) left center no-repeat;
 }
 
 .icontab th,.icontab td {
@@ -1146,7 +1150,7 @@ width:1px;
 }
 
 html.ie6 .menu .menu-outer,html.ie6 .home-featuredbox-links a {
-background:url(images/deprecated/pixel.gif) no-repeat;
+background:url(/images/deprecated/pixel.gif) no-repeat;
 }
 
 .lightbox-outer {
@@ -1216,7 +1220,7 @@ padding:3px 3px 2px 2px;
 display:block;
 width:12px;
 height:12px;
-background:url(images/Listview/quicksearch-cancel.gif) no-repeat;
+background:url(/images/Listview/quicksearch-cancel.gif) no-repeat;
 }
 
 .listview-quicksearch a:hover span {
@@ -1230,7 +1234,7 @@ right:2px;
 top:2px;
 width:13px;
 height:13px;
-background:url(images/Listview/quicksearch.gif) no-repeat;
+background:url(/images/Listview/quicksearch.gif) no-repeat;
 }
 
 .listview-quicksearch input {
@@ -1247,12 +1251,12 @@ margin:0;
 .listview-withselected {
 clear:left;
 padding-left:33px;
-background:url(images/Listview/withselected.gif) 11px 6px no-repeat;
+background:url(/images/Listview/withselected.gif) 11px 6px no-repeat;
 }
 
 .listview-withselected2 {
 padding-left:33px;
-background:url(images/Listview/withselected.gif) 11px -35px no-repeat;
+background:url(/images/Listview/withselected.gif) 11px -35px no-repeat;
 }
 
 .listview-nav {
@@ -1362,12 +1366,12 @@ padding-left:3px;
 
 .sortasc {
 padding-right:15px!important;
-background:url(images/Listview/sort-asc.gif) no-repeat right center;
+background:url(/images/Listview/sort-asc.gif) no-repeat right center;
 }
 
 .sortdesc {
 padding-right:15px!important;
-background:url(images/Listview/sort-desc.gif) no-repeat right center;
+background:url(/images/Listview/sort-desc.gif) no-repeat right center;
 }
 
 td.checked .listview-cb:hover {
@@ -1419,7 +1423,7 @@ padding:0 4px;
 
 .live-search a:hover i {
 padding-right:18px;
-background-image:url(images/LiveSearch/arrow.gif);
+background-image:url(/images/LiveSearch/arrow.gif);
 background-position:right center;
 background-repeat:no-repeat;
 }
@@ -1435,25 +1439,25 @@ background-repeat:no-repeat;
 }
 
 div.live-search-icon div {
-background-image:url(images/Icon/small/border/default.png);
+background-image:url(/images/Icon/small/border/default.png);
 background-position:left center;
 background-repeat:no-repeat;
 }
 
 div.live-search-icon-boss {
-background-image:url(images/icons/boss.gif);
+background-image:url(/images/icons/boss.gif);
 background-position:8px center;
 background-repeat:no-repeat;
 }
 
 div.live-search-icon-quest-alliance {
-background-image:url(images/icons/alliance.gif);
+background-image:url(/images/icons/alliance.gif);
 background-position:9px 5px;
 background-repeat:no-repeat;
 }
 
 div.live-search-icon-quest-horde {
-background-image:url(images/icons/horde.gif);
+background-image:url(/images/icons/horde.gif);
 background-position:6px 5px;
 background-repeat:no-repeat;
 }
@@ -1478,35 +1482,35 @@ width:11px;
 height:11px;
 left:-5px;
 top:-5px;
-background:url(images/Mapper/pin-yellow.png) no-repeat;
+background:url(/images/Mapper/pin-yellow.png) no-repeat;
 display:block;
 }
 
 .mapper-pin,.mapper-pin-1,.mapper-pin-2,.mapper-pin-3,.mapper-pin-4 {
 padding-left:13px;
-background-image:url(images/Mapper/pin-yellow.png);
+background-image:url(/images/Mapper/pin-yellow.png);
 background-repeat:no-repeat;
 background-position:0 50%;
 }
 
 .mapper-pin-1,.mapper .pin-1 a {
-background-image:url(images/Mapper/pin-green.png);
+background-image:url(/images/Mapper/pin-green.png);
 }
 
 .mapper-pin-2,.mapper .pin-2 a {
-background-image:url(images/Mapper/pin-red.png);
+background-image:url(/images/Mapper/pin-red.png);
 }
 
 .mapper-pin-3,.mapper .pin-3 a {
-background-image:url(images/Mapper/pin-blue.png);
+background-image:url(/images/Mapper/pin-blue.png);
 }
 
 .mapper-pin-4,.mapper .pin-4 a {
-background-image:url(images/Mapper/pin-purple.png);
+background-image:url(/images/Mapper/pin-purple.png);
 }
 
 .mapper .pin-start a {
-background-image:url(images/Mapper/quest-start.png);
+background-image:url(/images/Mapper/quest-start.png);
 width:9px;
 height:17px;
 left:-4px;
@@ -1515,7 +1519,7 @@ z-index:5;
 }
 
 .mapper .pin-end a {
-background-image:url(images/Mapper/quest-end.png);
+background-image:url(/images/Mapper/quest-end.png);
 width:12px;
 height:18px;
 left:-6px;
@@ -1524,7 +1528,7 @@ z-index:5;
 }
 
 .mapper .pin-startend a {
-background-image:url(images/Mapper/quest-startend.png);
+background-image:url(/images/Mapper/quest-startend.png);
 width:19px;
 height:18px;
 left:-9px;
@@ -1565,6 +1569,12 @@ padding:4px 8px;
 
 .mapper-legend-pin {
 margin:0 5px;
+}
+
+div.mapviewer-screen {
+background-color:#000;
+position:relative;
+text-align:center;
 }
 
 div.mapviewer-screen a.mapviewer-cover {
@@ -1617,7 +1627,7 @@ padding-right:20px;
 }
 
 .menu a span.hassubmenu {
-background:url(images/Menu/arrow-right.gif) right center no-repeat;
+background:url(/images/Menu/arrow-right.gif) right center no-repeat;
 }
 
 .menu a.open,.menu a:hover {
@@ -1638,7 +1648,7 @@ border-bottom:1px solid #101010;
 }
 
 .menu a.checked {
-background-image:url(images/Menu/check.gif);
+background-image:url(/images/Menu/check.gif);
 background-position:9px center;
 background-repeat:no-repeat;
 }
@@ -1669,7 +1679,7 @@ padding:3px 10px;
 
 span.menu-buttons span.hassubmenu {
 padding-right:13px;
-background:url(images/Menu/arrow-down.gif) right center no-repeat;
+background:url(/images/Menu/arrow-down.gif) right center no-repeat;
 }
 
 div.modelviewer-screen {
@@ -1718,7 +1728,7 @@ font-size:18px;
 line-height:1.5em;
 z-index:10000;
 padding-top:70px;
-background:url(images/logos/medium.gif) center top no-repeat;
+background:url(/images/logos/medium.gif) center top no-repeat;
 }
 
 #noscript-text b {
@@ -1763,7 +1773,7 @@ top:20px;
 border:0;
 width:160px;
 height:68px;
-background:url(images/logos/header.gif) no-repeat;
+background:url(/images/logos/header.gif) no-repeat;
 }
 
 .header .ad-leaderboard {
@@ -1842,7 +1852,7 @@ text-decoration:none;
 text-transform:uppercase;
 color:#FFCD55;
 cursor:pointer;
-background:url(images/header/tabs.gif) left 0 no-repeat;
+background:url(/images/header/tabs.gif) left 0 no-repeat;
 }
 
 .toptabs a:hover,.toptabs a.open {
@@ -1873,7 +1883,7 @@ font-size:16px;
 .toptabs a span {
 display:block;
 padding-right:10px;
-background:url(images/header/tabs.gif) right 0 no-repeat;
+background:url(/images/header/tabs.gif) right 0 no-repeat;
 height:32px;
 }
 
@@ -1901,13 +1911,13 @@ display:block;
 position:absolute;
 right:3px;
 top:2px;
-background:url(images/header/search.gif) 2px 2px no-repeat;
+background:url(/images/header/search.gif) 2px 2px no-repeat;
 }
 
 .topbar-search input {
 font-size:13px;
 border:1px solid #adadad;
-background:#FFF url(images/ui/form/input-textbox-bg.gif) repeat-x;
+background:#FFF url(/images/ui/form/input-textbox-bg.gif) repeat-x;
 outline:0;
 width:250px;
 -webkit-border-radius:3px;
@@ -1942,13 +1952,13 @@ padding:10px;
 .breadcrumb {
 cursor:default;
 font-size:15px;
-background:url(images/logos/favicon.png) left center no-repeat;
+background:url(/images/logos/favicon.png) left center no-repeat;
 padding:5px 0 5px 20px;
 }
 
 span.breadcrumb-arrow {
 padding-right:17px;
-background:url(images/Menu/arrow-right.gif) right center no-repeat;
+background:url(/images/Menu/arrow-right.gif) right center no-repeat;
 }
 
 span.breadcrumb-ellipsis {
@@ -1968,7 +1978,7 @@ color:#666;
 
 a.footer-copy-zam {
 padding-left:26px;
-background:url(images/footer/zam.gif) no-repeat left 2px;
+background:url(/images/footer/zam.gif) no-repeat left 2px;
 }
 
 a.header-expandsite {
@@ -1976,7 +1986,7 @@ position:absolute;
 display:block;
 left:1px;
 top:114px;
-background:url(images/header/expandsite.gif) no-repeat;
+background:url(/images/header/expandsite.gif) no-repeat;
 width:8px;
 height:38px;
 z-index:10;
@@ -1993,13 +2003,13 @@ top:78px;
 }
 
 body.premium-logo .home-logo {
-background-image:url(images/logos/special/premium/home.jpg);
+background-image:url(/images/logos/special/premium/home.jpg);
 width:261px;
 height:139px;
 }
 
 body.premium-logo a#header-logo {
-background-image:url(images/logos/special/premium/header.gif);
+background-image:url(/images/logos/special/premium/header.gif);
 width:179px;
 height:96px;
 top:5px;
@@ -2071,6 +2081,13 @@ font-weight:700;
 div.screenshotviewer {
 background-color:#303030;
 padding:10px 10px 0;
+}
+
+div.screenshotviewer-screen {
+background-color:#000;
+position:relative;
+text-align:center;
+font-size:0;
 }
 
 div.screenshotviewer-screen a {
@@ -2150,14 +2167,14 @@ z-index:10;
 }
 
 .slider-x .handle {
-background:url(images/ui/misc/slider.gif) no-repeat top left;
+background:url(/images/ui/misc/slider.gif) no-repeat top left;
 cursor:e-resize;
 height:22px;
 width:9px;
 }
 
 .slider-y .handle {
-background:url(images/ui/misc/slider.gif) no-repeat top right;
+background:url(/images/ui/misc/slider.gif) no-repeat top right;
 cursor:n-resize;
 height:9px;
 width:22px;
@@ -2219,7 +2236,7 @@ display:block;
 height:29px;
 text-decoration:none;
 white-space:nowrap;
-background:#303030 url(images/Tabs/corner-tr.gif) no-repeat top right;
+background:#303030 url(/images/Tabs/corner-tr.gif) no-repeat top right;
 border-bottom:1px solid #282828;
 }
 
@@ -2246,7 +2263,7 @@ top:0;
 width:100%;
 text-align:center;
 line-height:30px;
-background:url(images/Tabs/corner-tl.gif) top left no-repeat;
+background:url(/images/Tabs/corner-tl.gif) top left no-repeat;
 }
 
 .tabs-container {
@@ -2435,12 +2452,22 @@ margin-left:0;
 margin-right:10px;
 }
 
-.text .minibox h3 {
+.text .minibox h2 {
+font-size:15px;
+border:none;
+font-weight:700;
 margin:0 0 5px;
 }
 
-.text .minibox h3,.text .minibox h3 b,.text .minibox h3 a {
-color:#FFF!important;
+.text .minibox h3,.text .minibox h3 a:link,.text .minibox h3 a:visited {
+color:#9d9d9d!important;
+font-size:11px;
+font-weight:400;
+margin:0;
+}
+
+.text .minibox h3 img {
+vertical-align:middle;
 }
 
 .text sup,.text sub {
@@ -2456,7 +2483,7 @@ margin-bottom:0!important;
 }
 
 .disclosure-on,.disclosure-off {
-background:url(images/ui/misc/arrow-disclosure.gif) no-repeat left center;
+background:url(/images/ui/misc/arrow-disclosure.gif) no-repeat left center;
 padding-left:15px;
 }
 
@@ -2480,7 +2507,7 @@ line-height:21px;
 color:#FFD100;
 font-weight:700;
 font-size:11px;
-background:url(images/ui/button/wow-red.gif) left 0 no-repeat;
+background:url(/images/ui/button/wow-red.gif) left 0 no-repeat;
 padding-left:13px;
 white-space:nowrap;
 outline:0;
@@ -2506,7 +2533,7 @@ a.button-red em {
 display:block;
 font-style:normal;
 padding-right:13px;
-background:url(images/ui/button/wow-red.gif) right 0 no-repeat;
+background:url(/images/ui/button/wow-red.gif) right 0 no-repeat;
 }
 
 a.button-red b {
@@ -2555,7 +2582,7 @@ display:block;
 float:left;
 height:66px;
 margin-right:30px;
-background:url(images/ui/button/big-blue.gif) no-repeat;
+background:url(/images/ui/button/big-blue.gif) no-repeat;
 color:#FFF;
 white-space:nowrap;
 text-decoration:none;
@@ -2596,7 +2623,7 @@ a.button-bigblue b {
 position:absolute;
 top:0;
 right:-13px;
-background:url(images/ui/button/big-blue.gif) no-repeat right 0;
+background:url(/images/ui/button/big-blue.gif) no-repeat right 0;
 width:13px;
 height:66px;
 }
@@ -2619,7 +2646,7 @@ text-decoration:underline;
 
 .linklist a.hassubmenu {
 padding-right:13px;
-background:url(images/Menu/arrow-down-ffcd55.gif) right center no-repeat;
+background:url(/images/Menu/arrow-down-ffcd55.gif) right center no-repeat;
 }
 
 .indicator {
@@ -2766,7 +2793,7 @@ margin:0;
 }
 
 #inputbox-error {
-color:#c33;
+color:#f33;
 font-weight:700;
 font-size:14px;
 padding-bottom:10px;
@@ -2972,7 +2999,7 @@ margin-right:2px;
 .toolbar img {
 width:16px;
 height:16px;
-background:url(images/ui/misc/toolbar.png) no-repeat;
+background:url(/images/ui/misc/toolbar.png) no-repeat;
 }
 
 .toolbar img.toolbar-b {
@@ -3068,7 +3095,7 @@ margin:0 6px;
 .pages .gotopage {
 margin-right:6px;
 cursor:pointer;
-background:url(images/icons/pages.gif) no-repeat left center;
+background:url(/images/icons/pages.gif) no-repeat left center;
 padding:0 9px;
 }
 
@@ -3107,7 +3134,7 @@ small,.comment-edit-modes,.comment-edit-body,.listview-mode-default .small {
 font-size:11px;
 }
 
-a:hover,a.open,.tabs li a.selected div,.tabs li a:hover div,.tabs li a.selected b,.tabs li a:hover b,.text b,.indicator:hover .indicator-mode a span,.indicator-mode a.selected,.indicator-mode a.selected span,.infobox li div {
+a:hover,a.open,.tabs li a.selected div,.tabs li a:hover div,.tabs li a.selected b,.tabs li a:hover b,.text b,.indicator:hover .indicator-mode a span,.indicator-mode a.selected,.indicator-mode a.selected span,.infobox li div,#inputbox-error b {
 color:#FFF;
 }
 
@@ -3119,7 +3146,7 @@ background-color:#242424;
 font-weight:700;
 }
 
-.comment-header var a.q0:hover,.comment-rating b a:hover,.listview-mode-default tbody a:hover,.mapper .glow a:hover,span.menu-buttons a:hover,.text .minibox h3 a:hover,.text h1 a.header-link:hover,.text h2 a.header-link:hover,a.disclosure-on:hover,a.disclosure-off:hover,a.button-bigblue:hover ins,.infobox th a:hover {
+.comment-header var a.q0:hover,.comment-rating b a:hover,.listview-mode-default tbody a:hover,.mapper .glow a:hover,span.menu-buttons a:hover,.text .minibox h2 a:hover,.text .minibox h3 a:link,.text .minibox h3 a:visited,.text h1 a.header-link:hover,.text h2 a.header-link:hover,a.disclosure-on:hover,a.disclosure-off:hover,a.button-bigblue:hover ins,.infobox th a:hover {
 text-decoration:underline;
 }
 
@@ -3127,13 +3154,9 @@ text-decoration:underline;
 color:#FFD100;
 }
 
-.comment-rating span a:hover,.text .minibox h3 a,.text h1 a.header-link,.text h2 a.header-link {
+.comment-rating span a:hover,.text .minibox h2 a:link,.text .minibox h2 a:visited,.text h1 a.header-link,.text h2 a.header-link {
 color:#FFF;
 text-decoration:none;
-}
-
-.comment-lastedit a,.text .minibox small,.minibox small a {
-color:#9d9d9d;
 }
 
 .comment-links a,.text h3 small,.infobox th small {
@@ -3273,12 +3296,6 @@ font-size:13px;
 padding:10px 10px 0;
 }
 
-div.mapviewer-screen,div.screenshotviewer-screen {
-background-color:#000;
-position:relative;
-text-align:center;
-}
-
 div.mapviewer-screen a.mapviewer-cover:hover span,div.screenshotviewer-screen a:hover span {
 display:block;
 }
@@ -3295,5 +3312,9 @@ cursor:default;
 
 a.screenshotviewer-prev span,a:active.button-red-disabled span {
 left:0;
+}
+
+.text .minibox h2,.text .minibox h2 b,.text .minibox h2 a:link,.text .minibox h2 a:visited,.text .minibox h3 a:hover {
+color:#FFF!important;
 }
 

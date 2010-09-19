@@ -12,7 +12,7 @@ class TermTestPage extends GenericPage
 
 	public function finalize()
 	{
-		$contents = file_get_contents('./js/LocalizedMenu.js');
+		$contents = file_get_contents('./js/LocalizedStatic.js');
 
 		$contents = preg_replace_callback(array('/( |\\[)(".*?[^\\\\]")/u','/( |\\[)(\'.*?[^\\\\]\')/u'),
 			array(__CLASS__, 'Callback'),

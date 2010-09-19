@@ -54,25 +54,37 @@ class User
 		{
 			$this->username	= $query['username'];
 			$this->password	= strtolower($query['sha_pass_hash']);
-			$this->name		= $query['name'];
 			$this->email	= $query['email'];
-
 			$this->lastip	= $query['last_ip'];
 			$this->lastlogin= $query['last_login'];
 			$this->joindate	= $query['joindate'];
 			$this->isLocked = $query['locked'] == 1;
 			$this->nPB		= $query['pb'];
 
-			$this->roles	= $query['role'];
-
-			$this->character_guid	= $query['character'];
+			$this->roles	= intval($query['role']);
+			$this->character_guid	= intval($query['character']);
 			$this->character_name	= $query['character_name'];
-			$this->update_time		= $query['update_time'];
+			$this->update_time		= intval($query['update_time']);
+			$this->webFlags	= intval($query['flags']);
+			$this->ban		= intval($query['ban']);
+			$this->mute		= intval($query['mute']);
+			$this->name		= $query['name'];
 
-			$this->webFlags	= $query['flags'];
-
-			$this->ban		= $query['ban'];
-			$this->mute		= $query['mute'];
+			if ($query['ban'] == null)
+			{
+				DB::Realm()->Query('
+						INSERT INTO account_aowow_extend (id,name,role,mute,ban,description,flags)
+						VALUES (?,?,?,?,?,?,?)
+					',
+					$this->id,
+					$this->name = ucfirst(strtolower($this->username)),
+					$this->roles,
+					0,
+					0,
+					'',
+					0
+				);
+			}
 		}
 	}
 

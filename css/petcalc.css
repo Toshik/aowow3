@@ -46,6 +46,14 @@ height:554px!important;
 margin-left:0;
 }
 
+#pc-itself .mastery {
+background:url(/images/TalentCalc/pet-tree-glow.png);
+}
+
+#pc-itself p.mastery {
+background:url(/images/TalentCalc/summary-glow.png) repeat scroll center 64px transparent;
+}
+
 #pc-classes .iconmedium-gold-selected,#pc-classes.choose .iconmedium {
 opacity:1;
 filter:alpha(opacity=100);
