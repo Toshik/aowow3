@@ -1,18 +1,18 @@
 <?php
 
-class TermTestPage
+class TermTestPage extends GenericPage
 {
 	public static function Callback($matches)	
 	{
 		$term = DB::World()->SelectCell('SELECT textid FROM ?_terms WHERE content_loc0 = BINARY '.$matches[2]);
-		if (!$term)
-			echo 'cannot find term for: '.$matches[2].'<br />'."\n";
+		/*if (!$term)
+			echo 'cannot find term for: '.$matches[2].'<br />'."\n";*/
 		return $term ? $matches[1].'"{term:'.$term.'}"' : $matches[0];
 	}
 
-	public function __construct()
+	public function finalize()
 	{
-		$contents = file_get_contents('./js/LangTalentCalc.js');
+		$contents = file_get_contents('./js/LocalizedMenu.js');
 
 		$contents = preg_replace_callback(array('/( |\\[)(".*?[^\\\\]")/u','/( |\\[)(\'.*?[^\\\\]\')/u'),
 			array(__CLASS__, 'Callback'),

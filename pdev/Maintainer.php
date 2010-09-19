@@ -18,6 +18,23 @@ class Maintainer
 			unlink('./cache/lock');
 	}
 
+	static function BuildMenuTree($arr, $locale)
+	{
+		$result = '';
+		foreach ($arr as $id => $item)
+		{
+			$tmp = array();
+			$tmp[] = is_numeric($id) ? $id : '';
+			$tmp[] = '"'.jsEscape($item['names'][$locale]).'"';
+			$tmp[] = isset($item['url']) ? '"'.jsEscape($item['url']).'"' : '';
+			$tmp[] = $item['children'] ? '['.self::BuildMenuTree($item['children'], $locale).']' : '';
+			$tmp[] = isset($item['icon']) ? '{tinyIcon:"'.jsEscape($item['icon']).'"}' : '';
+
+			$result .= '['.rtrim(implode(',', $tmp), ',').'],';
+		}
+		return rtrim($result, ',');
+	}
+
 	public static function BuildPHPFiles()
 	{
 		global $_LOCALIZEDTERMS;
@@ -84,7 +101,6 @@ class Maintainer
 		{
 			$ids[] = $row['Id'].' => '.$row['side'];
 			self::$systemRaces[$row['Id']] = $row['nameSystem'];
-			// TODO: make them lower in the database
 			$data .= "\t".'\'RACE_'.strtoupper($row['nameSystem']).'\' => '.$row['Id'].','."\n";
 
 			foreach(Main::$locales as $loc)
@@ -101,7 +117,6 @@ class Maintainer
 		{
 			$ids[] = $row['Id'];
 			self::$systemClasses[$row['Id']] = $row['nameSystem'];
-			// TODO: make them lower in the database
 			$data .= "\t".'\'CLASS_'.strtoupper($row['nameSystem']).'\' => '.$row['Id'].','."\n";
 
 			foreach(Main::$locales as $loc)
@@ -220,14 +235,59 @@ class Maintainer
 				$pet_food_types[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		// TODO: reuse pet_family table for other needs
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_pet_family WHERE petType >= 0');
+		global $_LOCALIZEDTERMS;
+		$pet_types = array(
+			array(
+				'term' => 'ferocity',
+				'icon' => strtolower('Ability_Druid_Swipe'),
+			),
+			array(
+				'term' => 'tenacity',
+				'icon' => strtolower('Ability_Hunter_Pet_Bear'),
+			),
+			array(
+				'term' => 'cunning',
+				'icon' => strtolower('Ability_Hunter_CombatExperience'),
+			),
+		);
+
+		$result = DB::World()->Select('
+				SELECT Id, '.AllLocales().', petType, iconname
+				FROM ?_pet_family
+				WHERE petType >= 0
+				ORDER BY petType ASC, name_loc0 ASC
+			'
+		);
 		$pet_families = array();
+		$pet_calc_tree = array();
+		$c_type = -1;
+		$talentCalcIdString = '0zMcmVokRsaqbdrfwihuGINALpTjnyxtgevElBCDFHJKOPQSUWXYZ123456789';
 		foreach($result as $row)
 		{
 			$pet_families[$row['Id']] = array();
+
+			if ($c_type != $row['petType'])
+			{
+				$c_type = $row['petType'];
+				$pet_calc_tree['type'.$c_type] = array(
+					'names' => array(),
+					'children' => array(),
+					'icon' => $pet_types[$c_type]['icon']
+				);
+
+				foreach (Main::$locales as $loc)
+					$pet_calc_tree['type'.$c_type]['names'][$loc] = T($pet_types[$c_type]['term'], $loc);
+			}
+
+			$pet_calc_tree[$row['Id']] = array(
+				'names' => array(),
+				'children' => array(),
+				'icon' => $row['iconname'],
+				'url' => '?petcalc#'.$talentCalcIdString{floor($row['Id'] / 10)}.$talentCalcIdString{floor($row['Id'] % 10) * 2},
+			);
+
 			foreach(Main::$locales as $loc)
-				$pet_families[$row['Id']][$loc] = $row['name_loc'.$loc];
+				$pet_calc_tree[$row['Id']]['names'][$loc] = $pet_families[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
 		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_item_class');
@@ -307,13 +367,46 @@ class Maintainer
 		foreach($faction_categories as $id => $null)
 			$faction_categories[$id] = &$factions[$id];
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_achievement_category');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().', parent FROM ?_achievement_category ORDER BY `order` ASC');
 		$achievement_category = array();
+		$achievement_category_tree = array();
+		$statistic_category_tree = array();
+		$common_category_tree = array();
 		foreach($result as $row)
 		{
 			$achievement_category[$row['Id']] = array();
+
+			switch ($row['parent'])
+			{
+				case -1:
+					$tree = &$achievement_category_tree;
+					break;
+				case 1:
+					$tree = &$statistic_category_tree;
+					break;
+				default:
+					$tree = &$common_category_tree;
+					break;
+			}
+
+			$tree[$row['Id']] = array(
+				'names' => array(),
+				'parent' => $row['parent'],
+				'children' => array(),
+			);
+
 			foreach(Main::$locales as $loc)
-				$achievement_category[$row['Id']][$loc] = $row['name_loc'.$loc];
+				$tree[$row['Id']]['names'][$loc] = $achievement_category[$row['Id']][$loc] = $row['name_loc'.$loc];
+		}
+
+		foreach ($common_category_tree as $id => $item)
+		{
+			if (isset($achievement_category_tree[$item['parent']]))
+				$achievement_category_tree[$item['parent']]['children'][$id] = $item;
+			elseif (isset($statistic_category_tree[$item['parent']]))
+				$statistic_category_tree[$item['parent']]['children'][$id] = $item;
+			else
+				echo 'Parent not found for achievement category '.$item['names'][0]."\n<br/>";
 		}
 
 		unset($result);
@@ -431,18 +524,18 @@ class Maintainer
 			// mn_classes
 			$tmp = array();
 			foreach(WoW::$classes as $id)
-				$tmp[] = '['.$id.', "'.T('class_'.$id).'",,,{className: "c'.$id.'",tinyIcon:"class_'.self::$systemClasses[$id].'"}]';
+				$tmp[] = '['.$id.', "'.T('class_'.$id, $loc).'",,,{className: "c'.$id.'",tinyIcon:"class_'.self::$systemClasses[$id].'"}]';
 			$files[$loc] .= 'var mn_classes=['.implode(',', $tmp).'];';
 
 			// mn_races
 			$tmp = $tmp2 = array();
 			foreach(WoW::$races as $id => $side)
-				$tmp[$side][] = '['.$id.', "'.T('race_'.$id).'",,,{className: "r'.$id.'",tinyIcon:"race_'.self::$systemRaces[$id].'_female"}]';
+				$tmp[$side][] = '['.$id.', "'.T('race_'.$id, $loc).'",,,{tinyIcon:"race_'.self::$systemRaces[$id].'_female"}]';
 
 			foreach ($tmp as $side => $races)
 			{
 				// put side label in the beginning of $races
-				array_unshift($races, '[,"'.T(WoW::$sides[$side]).'",,,{tinyIcon:"side_'.WoW::$sides[$side].'"}]');
+				array_unshift($races, '[,"'.T(WoW::$sides[$side], $loc).'",,,{tinyIcon:"side_'.WoW::$sides[$side].'"}]');
 				// merge two arrays
 				$tmp2 = array_merge($tmp2, $races);
 			}
@@ -470,8 +563,16 @@ class Maintainer
 			}
 			$files[$loc] .= 'var mn_pets=['.implode(',', $tmp).'];';
 
+			// mn_achievements
+			$files[$loc] .= 'var mn_achievements=['.self::BuildMenuTree($achievement_category_tree, $loc).'];';
+			// mn_statistics
+			$files[$loc] .= 'var mn_statistics=['.self::BuildMenuTree($statistic_category_tree, $loc).'];';
+
+			// mn_petCalc
+			$files[$loc] .= 'var mn_petCalc=['.self::BuildMenuTree($pet_calc_tree, $loc).'];';
+
 			// main menu file
-			$files[$loc] .= file_get_contents('./js/LocalizedMenu.js');
+			$files[$loc] .= str_replace('", "/', '", "?', file_get_contents('./js/LocalizedMenu.js'));
 
 			// LANG
 
@@ -559,6 +660,8 @@ class Maintainer
 	{
 		if($process_content)
 			$script = self::ProcessContent($script, $locale);
+
+		return $script;
 
 		$packer = new JavaScriptPacker($script, 'None', true, false);
 		return $packer->pack();

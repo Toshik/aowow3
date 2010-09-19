@@ -9,7 +9,7 @@ class Main
 {
 	private static $pageMap = array(
 		'admin'		=> array(
-			'terms'		=> 'AdminTermsPage',
+			'terms'		=> 'TermTestPage',
 		),
 		INDEX_ID	=> array(
 			INDEX_ID	=> 'MainPage',

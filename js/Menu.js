@@ -671,9 +671,6 @@ Menu.fixUrls(mn_statistics, "/statistics=", {
 Menu.fixUrls(mn_titles, "/titles=");
 Menu.fixUrls(mn_zones, "/zones=");
 $(document).ready(function () {
-	if (Locale.getId() == LOCALE_ENUS) {
-		return
-	}
 	Menu.sort(mn_classes);
 	Menu.sort(mn_database);
 	Menu.sortSubmenus(mn_forums, [

@@ -1,271 +1,271 @@
 var mn_items = [
-	[2, "Weapons", , [
-		[, "One-Handed", "/items=2?filter=ty=15:13:0:4:7"],
-		[15, "Daggers"],
-		[13, "Fist Weapons"],
-		[0, "One-Handed Axes"],
-		[4, "One-Handed Maces"],
-		[7, "One-Handed Swords"],
-		[, "Two-Handed", "/items=2?filter=ty=6:10:1:5:8"],
-		[6, "Polearms"],
-		[10, "Staves"],
-		[1, "Two-Handed Axes"],
-		[5, "Two-Handed Maces"],
-		[8, "Two-Handed Swords"],
-		[, "Ranged", "/items=2?filter=ty=2:18:3:16:19"],
-		[2, "Bows"],
-		[18, "Crossbows"],
-		[3, "Guns"],
-		[16, "Thrown"],
-		[19, "Wands"],
-		[, "Other", "/items=2?filter=ty=20:14"],
-		[20, "Fishing Poles"],
-		[14, "Miscellaneous"]]],
-	[4, "Armor", , [
-		[, "Types", "/items=4?filter=ty=1:2:3:4"],
-		[1, "Cloth", , [
-			[5, "Chest", "/items=4.1?filter=sl=5"],
-			[8, "Feet", "/items=4.1?filter=sl=8"],
-			[10, "Hands", "/items=4.1?filter=sl=10"],
-			[1, "Head", "/items=4.1?filter=sl=1"],
-			[7, "Legs", "/items=4.1?filter=sl=7"],
-			[3, "Shoulder", "/items=4.1?filter=sl=3"],
-			[6, "Waist", "/items=4.1?filter=sl=6"],
-			[9, "Wrist", "/items=4.1?filter=sl=9"]]],
-		[2, "Leather", , [
-			[5, "Chest", "/items=4.2?filter=sl=5"],
-			[8, "Feet", "/items=4.2?filter=sl=8"],
-			[10, "Hands", "/items=4.2?filter=sl=10"],
-			[1, "Head", "/items=4.2?filter=sl=1"],
-			[7, "Legs", "/items=4.2?filter=sl=7"],
-			[3, "Shoulder", "/items=4.2?filter=sl=3"],
-			[6, "Waist", "/items=4.2?filter=sl=6"],
-			[9, "Wrist", "/items=4.2?filter=sl=9"]]],
-		[3, "Mail", , [
-			[5, "Chest", "/items=4.3?filter=sl=5"],
-			[8, "Feet", "/items=4.3?filter=sl=8"],
-			[10, "Hands", "/items=4.3?filter=sl=10"],
-			[1, "Head", "/items=4.3?filter=sl=1"],
-			[7, "Legs", "/items=4.3?filter=sl=7"],
-			[3, "Shoulder", "/items=4.3?filter=sl=3"],
-			[6, "Waist", "/items=4.3?filter=sl=6"],
-			[9, "Wrist", "/items=4.3?filter=sl=9"]]],
-		[4, "Plate", , [
-			[5, "Chest", "/items=4.4?filter=sl=5"],
-			[8, "Feet", "/items=4.4?filter=sl=8"],
-			[10, "Hands", "/items=4.4?filter=sl=10"],
-			[1, "Head", "/items=4.4?filter=sl=1"],
-			[7, "Legs", "/items=4.4?filter=sl=7"],
-			[3, "Shoulder", "/items=4.4?filter=sl=3"],
-			[6, "Waist", "/items=4.4?filter=sl=6"],
-			[9, "Wrist", "/items=4.4?filter=sl=9"]]],
-		[, "Jewelry", "/items=4?filter=ty=-3:-2:-4"],
-		[-3, "Amulets"],
-		[-2, "Rings"],
-		[-4, "Trinkets"],
-		[, "Relics", "/items=4?filter=ty=8:7:9:10"],
-		[8, "Idols"],
-		[7, "Librams"],
-		[10, "Sigils"],
-		[9, "Totems"],
-		[, "Other", "/items=4?filter=ty=-6:-5:-7:6:-8:0"],
-		[-6, "Cloaks"],
-		[-5, "Off-hand Frills"],
-		[6, "Shields"],
-		[-8, "Shirts"],
-		[-7, "Tabards"],
-		[0, "Miscellaneous"]]],
-	[1, "Containers", , [
-		[0, "Bags"],
-		[3, "Enchanting Bags"],
-		[4, "Engineering Bags"],
-		[5, "Gem Bags"],
-		[2, "Herb Bags"],
-		[8, "Inscription Bags"],
-		[7, "Leatherworking Bags"],
-		[6, "Mining Bags"],
-		[1, "Soul Bags"]]],
-	[0, "Consumables", , [
-		[7, "Bandages"],
-		[0, "Consumables"],
-		[2, "Elixirs", , [
-			[1, "Battle"],
-			[2, "Guardian"]]],
-		[3, "Flasks"],
-		[5, "Food & Drinks"],
-		[6, "Item Enhancements (Permanent)"],
-		[-3, "Item Enhancements (Temporary)"],
-		[1, "Potions"],
-		[4, "Scrolls"],
-		[8, "Other"]]],
-	[16, "Glyphs", , [
+	[2, "{term:weapons}", , [
+		[, "{term:onehanded}", "/items=2?filter=ty=15:13:0:4:7"],
+		[15, "{term:daggers}"],
+		[13, "{term:fistweapons}"],
+		[0, "{term:onehandedaxes}"],
+		[4, "{term:onehandedmaces}"],
+		[7, "{term:onehandedswords}"],
+		[, "{term:twohanded}", "/items=2?filter=ty=6:10:1:5:8"],
+		[6, "{term:polearms}"],
+		[10, "{term:staves}"],
+		[1, "{term:twohandedaxes}"],
+		[5, "{term:twohandedmaces}"],
+		[8, "{term:twohandedswords}"],
+		[, "{term:ranged}", "/items=2?filter=ty=2:18:3:16:19"],
+		[2, "{term:bows}"],
+		[18, "{term:crossbows}"],
+		[3, "{term:guns}"],
+		[16, "{term:thrown}"],
+		[19, "{term:wands}"],
+		[, "{term:other}", "/items=2?filter=ty=20:14"],
+		[20, "{term:fishingpoles}"],
+		[14, "{term:miscellaneous}"]]],
+	[4, "{term:armor}", , [
+		[, "{term:types}", "/items=4?filter=ty=1:2:3:4"],
+		[1, "{term:cloth}", , [
+			[5, "{term:chest}", "/items=4.1?filter=sl=5"],
+			[8, "{term:feet}", "/items=4.1?filter=sl=8"],
+			[10, "{term:hands}", "/items=4.1?filter=sl=10"],
+			[1, "{term:head}", "/items=4.1?filter=sl=1"],
+			[7, "{term:legs}", "/items=4.1?filter=sl=7"],
+			[3, "{term:shoulder}", "/items=4.1?filter=sl=3"],
+			[6, "{term:waist}", "/items=4.1?filter=sl=6"],
+			[9, "{term:wrist}", "/items=4.1?filter=sl=9"]]],
+		[2, "{term:leather}", , [
+			[5, "{term:chest}", "/items=4.2?filter=sl=5"],
+			[8, "{term:feet}", "/items=4.2?filter=sl=8"],
+			[10, "{term:hands}", "/items=4.2?filter=sl=10"],
+			[1, "{term:head}", "/items=4.2?filter=sl=1"],
+			[7, "{term:legs}", "/items=4.2?filter=sl=7"],
+			[3, "{term:shoulder}", "/items=4.2?filter=sl=3"],
+			[6, "{term:waist}", "/items=4.2?filter=sl=6"],
+			[9, "{term:wrist}", "/items=4.2?filter=sl=9"]]],
+		[3, "{term:mail}", , [
+			[5, "{term:chest}", "/items=4.3?filter=sl=5"],
+			[8, "{term:feet}", "/items=4.3?filter=sl=8"],
+			[10, "{term:hands}", "/items=4.3?filter=sl=10"],
+			[1, "{term:head}", "/items=4.3?filter=sl=1"],
+			[7, "{term:legs}", "/items=4.3?filter=sl=7"],
+			[3, "{term:shoulder}", "/items=4.3?filter=sl=3"],
+			[6, "{term:waist}", "/items=4.3?filter=sl=6"],
+			[9, "{term:wrist}", "/items=4.3?filter=sl=9"]]],
+		[4, "{term:plate}", , [
+			[5, "{term:chest}", "/items=4.4?filter=sl=5"],
+			[8, "{term:feet}", "/items=4.4?filter=sl=8"],
+			[10, "{term:hands}", "/items=4.4?filter=sl=10"],
+			[1, "{term:head}", "/items=4.4?filter=sl=1"],
+			[7, "{term:legs}", "/items=4.4?filter=sl=7"],
+			[3, "{term:shoulder}", "/items=4.4?filter=sl=3"],
+			[6, "{term:waist}", "/items=4.4?filter=sl=6"],
+			[9, "{term:wrist}", "/items=4.4?filter=sl=9"]]],
+		[, "{term:jewelry}", "/items=4?filter=ty=-3:-2:-4"],
+		[-3, "{term:amulets}"],
+		[-2, "{term:rings}"],
+		[-4, "{term:trinkets}"],
+		[, "{term:relics}", "/items=4?filter=ty=8:7:9:10"],
+		[8, "{term:idols}"],
+		[7, "{term:librams}"],
+		[10, "{term:sigils}"],
+		[9, "{term:totems}"],
+		[, "{term:other}", "/items=4?filter=ty=-6:-5:-7:6:-8:0"],
+		[-6, "{term:cloaks}"],
+		[-5, "{term:offhandfrills}"],
+		[6, "{term:shields}"],
+		[-8, "{term:shirts}"],
+		[-7, "{term:tabards}"],
+		[0, "{term:miscellaneous}"]]],
+	[1, "{term:containers}", , [
+		[0, "{term:bags}"],
+		[3, "{term:enchantingbags}"],
+		[4, "{term:engineeringbags}"],
+		[5, "{term:gembags}"],
+		[2, "{term:herbbags}"],
+		[8, "{term:inscriptionbags}"],
+		[7, "{term:leatherworkingbags}"],
+		[6, "{term:miningbags}"],
+		[1, "{term:soulbags}"]]],
+	[0, "{term:consumables}", , [
+		[7, "{term:bandages}"],
+		[0, "{term:consumables}"],
+		[2, "{term:elixirs}", , [
+			[1, "{term:battle}"],
+			[2, "{term:guardian}"]]],
+		[3, "{term:flasks}"],
+		[5, "{term:foodanddrinks}"],
+		[6, "{term:itemenhancementspermanent}"],
+		[-3, "{term:itemenhancementstemporary}"],
+		[1, "{term:potions}"],
+		[4, "{term:scrolls}"],
+		[8, "{term:other}"]]],
+	[16, "{term:glyphs}", , [
 		[6, "{term:class_6}", , [
-			[1, "Major", "/items=16.6?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.6?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.6?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.6?filter=cr=132;crs=2;crv=0"]], {
 			className: "c6",
 			tinyIcon: "class_deathknight"
 		}],
 		[11, "{term:class_11}", , [
-			[1, "Major", "/items=16.11?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.11?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.11?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.11?filter=cr=132;crs=2;crv=0"]], {
 			className: "c11",
 			tinyIcon: "class_druid"
 		}],
 		[3, "{term:class_3}", , [
-			[1, "Major", "/items=16.3?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.3?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.3?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.3?filter=cr=132;crs=2;crv=0"]], {
 			className: "c3",
 			tinyIcon: "class_hunter"
 		}],
 		[8, "{term:class_8}", , [
-			[1, "Major", "/items=16.8?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.8?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.8?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.8?filter=cr=132;crs=2;crv=0"]], {
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
 		[2, "{term:class_2}", , [
-			[1, "Major", "/items=16.2?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.2?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.2?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.2?filter=cr=132;crs=2;crv=0"]], {
 			className: "c2",
 			tinyIcon: "class_paladin"
 		}],
 		[5, "{term:class_5}", , [
-			[1, "Major", "/items=16.5?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.5?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.5?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.5?filter=cr=132;crs=2;crv=0"]], {
 			className: "c5",
 			tinyIcon: "class_priest"
 		}],
 		[4, "{term:class_4}", , [
-			[1, "Major", "/items=16.4?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.4?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.4?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.4?filter=cr=132;crs=2;crv=0"]], {
 			className: "c4",
 			tinyIcon: "class_rogue"
 		}],
 		[7, "{term:class_7}", , [
-			[1, "Major", "/items=16.7?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.7?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.7?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.7?filter=cr=132;crs=2;crv=0"]], {
 			className: "c7",
 			tinyIcon: "class_shaman"
 		}],
 		[9, "{term:class_9}", , [
-			[1, "Major", "/items=16.9?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.9?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.9?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.9?filter=cr=132;crs=2;crv=0"]], {
 			className: "c9",
 			tinyIcon: "class_warlock"
 		}],
 		[1, "{term:class_1}", , [
-			[1, "Major", "/items=16.1?filter=cr=132;crs=1;crv=0"],
-			[2, "Minor", "/items=16.1?filter=cr=132;crs=2;crv=0"]], {
+			[1, "{term:glyph_major}", "/items=16.1?filter=cr=132;crs=1;crv=0"],
+			[2, "{term:glyph_minor}", "/items=16.1?filter=cr=132;crs=2;crv=0"]], {
 			className: "c1",
 			tinyIcon: "class_warrior"
 		}]]],
-	[7, "Trade Goods", , [
-		[14, "Armor Enchantments"],
-		[5, "Cloth"],
-		[3, "Devices"],
-		[10, "Elemental"],
-		[12, "Enchanting"],
-		[2, "Explosives"],
-		[9, "Herbs"],
-		[4, "Jewelcrafting"],
-		[6, "Leather"],
-		[13, "Materials"],
-		[8, "Meat"],
-		[7, "Metal & Stone"],
-		[1, "Parts"],
-		[15, "Weapon Enchantments"],
-		[11, "Other"]]],
-	[6, "Projectiles", , [
-		[2, "Arrows"],
-		[3, "Bullets"]]],
-	[11, "Quivers", , [
-		[3, "Ammo Pouches"],
-		[2, "Quivers"]]],
-	[9, "Recipes", , [
-		[0, "Books"],
-		[6, "Alchemy", , , {
+	[7, "{term:tradegoods}", , [
+		[14, "{term:armorenchantments}"],
+		[5, "{term:cloth}"],
+		[3, "{term:devices}"],
+		[10, "{term:elemental}"],
+		[12, "{term:profession_enchanting}"],
+		[2, "{term:explosives}"],
+		[9, "{term:herbs}"],
+		[4, "{term:profession_jewelcrafting}"],
+		[6, "{term:leather}"],
+		[13, "{term:materials}"],
+		[8, "{term:meat}"],
+		[7, "{term:metalandstone}"],
+		[1, "{term:parts}"],
+		[15, "{term:weaponenchantments}"],
+		[11, "{term:other}"]]],
+	[6, "{term:projectiles}", , [
+		[2, "{term:arrows}"],
+		[3, "{term:bullets}"]]],
+	[11, "{term:quivers}", , [
+		[3, "{term:ammopouches}"],
+		[2, "{term:quivers}"]]],
+	[9, "{term:recipes}", , [
+		[0, "{term:books}"],
+		[6, "{term:profession_alchemy}", , , {
 			tinyIcon: "trade_alchemy"
 		}],
-		[4, "Blacksmithing", , , {
+		[4, "{term:profession_blacksmithing}", , , {
 			tinyIcon: "trade_blacksmithing"
 		}],
-		[5, "Cooking", , , {
+		[5, "{term:profession_cooking}", , , {
 			tinyIcon: "inv_misc_food_15"
 		}],
-		[8, "Enchanting", , , {
+		[8, "{term:profession_enchanting}", , , {
 			tinyIcon: "trade_engraving"
 		}],
-		[3, "Engineering", , , {
+		[3, "{term:profession_engineering}", , , {
 			tinyIcon: "trade_engineering"
 		}],
-		[7, "First Aid", , , {
+		[7, "{term:profession_firstaid}", , , {
 			tinyIcon: "spell_holy_sealofsacrifice"
 		}],
-		[9, "Fishing", , , {
+		[9, "{term:profession_fishing}", , , {
 			tinyIcon: "trade_fishing"
 		}],
-		[11, "Inscription", , , {
+		[11, "{term:profession_inscription}", , , {
 			tinyIcon: "inv_inscription_tradeskill01"
 		}],
-		[10, "Jewelcrafting", , , {
+		[10, "{term:profession_jewelcrafting}", , , {
 			tinyIcon: "inv_misc_gem_01"
 		}],
-		[1, "Leatherworking", , , {
+		[1, "{term:profession_leatherworking}", , , {
 			tinyIcon: "inv_misc_armorkit_17"
 		}],
-		[2, "Tailoring", , , {
+		[2, "{term:profession_tailoring}", , , {
 			tinyIcon: "trade_tailoring"
 		}]]],
-	[3, "Gems", , [
-		[, "Colors"],
-		[6, "Meta", , , {
+	[3, "{term:gems}", , [
+		[, "{term:colors}"],
+		[6, "{term:meta}", , , {
 			className: "gem1"
 		}],
-		[0, "Red", , , {
+		[0, "{term:red}", , , {
 			className: "gem2"
 		}],
-		[1, "Blue", , , {
+		[1, "{term:blue}", , , {
 			className: "gem8"
 		}],
-		[2, "Yellow", , , {
+		[2, "{term:yellow}", , , {
 			className: "gem4"
 		}],
-		[3, "Purple", , , {
+		[3, "{term:purple}", , , {
 			className: "gem10"
 		}],
-		[4, "Green", , , {
+		[4, "{term:green}", , , {
 			className: "gem12"
 		}],
-		[5, "Orange", , , {
+		[5, "{term:orange}", , , {
 			className: "gem6"
 		}],
-		[8, "Prismatic", , , {
+		[8, "{term:prismatic}", , , {
 			className: "gem14"
 		}],
-		[, "Other"],
-		[7, "Simple"]]],
-	[15, "Miscellaneous", , [
-		[-2, "Armor Tokens"],
-		[3, "Holiday"],
-		[0, "Junk"],
-		[1, "Reagents"],
-		[5, "Mounts"],
-		[-7, "Flying Mounts"],
-		[-6, "Combat Pets"],
-		[2, "Companions"],
-		[4, "Other"]]],
-	[10, "Currency"],
-	[12, "Quest"],
-	[13, "Keys"]];
+		[, "{term:other}"],
+		[7, "{term:simple}"]]],
+	[15, "{term:miscellaneous}", , [
+		[-2, "{term:armortokens}"],
+		[3, "{term:holiday}"],
+		[0, "{term:junk}"],
+		[1, "{term:reagents}"],
+		[5, "{term:mounts}"],
+		[-7, "{term:flyingmounts}"],
+		[-6, "{term:combatpets}"],
+		[2, "{term:companions}"],
+		[4, "{term:other}"]]],
+	[10, "{term:currency}"],
+	[12, "{term:quest}"],
+	[13, "{term:keys}"]];
 var mn_objects = [
-	[9, "Books"],
-	[3, "Containers"],
-	[-5, "Footlockers"],
-	[-3, "Herbs"],
-	[-4, "Mineral Veins"],
-	[-2, "Quest"]];
+	[9, "{term:books}"],
+	[3, "{term:containers}"],
+	[-5, "{term:footlockers}"],
+	[-3, "{term:herbs}"],
+	[-4, "{term:mineralveins}"],
+	[-2, "{term:quest}"]];
 var mn_quests = [
-	[, "Continents"],
+	[, "{term:continents}"],
 	[0, "Eastern Kingdoms", , [
 		[36, "Alterac Mountains"],
 		[2839, "Alterac Valley"],
@@ -320,7 +320,7 @@ var mn_quests = [
 		[357, "Feralas"],
 		[493, "Moonglade"],
 		[215, "Mulgore"],
-		[1637, "Orgrimmar"],
+		[1637, "{term:orgrimmar}"],
 		[1377, "Silithus"],
 		[406, "Stonetalon Mountains"],
 		[440, "Tanaris"],
@@ -353,7 +353,7 @@ var mn_quests = [
 		[3537, "Borean Tundra"],
 		[4024, "Coldarra"],
 		[4395, "Dalaran"],
-		[4613, "Dalaran City"],
+		[4613, "{term:dalarancity}"],
 		[65, "Dragonblight"],
 		[394, "Grizzly Hills"],
 		[495, "Howling Fjord"],
@@ -362,16 +362,16 @@ var mn_quests = [
 		[67, "The Storm Peaks"],
 		[4197, "Wintergrasp"],
 		[66, "Zul'Drak"]]],
-	[, "Other"],
-	[6, "Battlegrounds", , [
+	[, "{term:other}"],
+	[6, "{term:battlegrounds}", , [
 		[2597, "Alterac Valley"],
 		[3358, "Arathi Basin"],
-		[-25, "Battlegrounds"],
+		[-25, "{term:battlegrounds}"],
 		[3820, "Eye of the Storm"],
 		[4710, "Isle of Conquest"],
 		[4384, "Strand of the Ancients"],
 		[3277, "Warsong Gulch"]]],
-	[4, "Classes", , [
+	[4, "{term:classes}", , [
 		[-372, "{term:class_6}"],
 		[-263, "{term:class_11}"],
 		[-261, "{term:class_3}"],
@@ -382,7 +382,7 @@ var mn_quests = [
 		[-82, "{term:class_7}"],
 		[-61, "{term:class_9}"],
 		[-81, "{term:class_1}"]]],
-	[2, "Dungeons", , [
+	[2, "{term:dungeons}", , [
 		[4494, "Ahn'kahet: The Old Kingdom"],
 		[3790, "Auchenai Crypts"],
 		[4277, "Azjol-Nerub"],
@@ -420,7 +420,7 @@ var mn_quests = [
 		[4809, "The Forge of Souls"],
 		[3849, "The Mechanar"],
 		[4265, "The Nexus"],
-		[4228, "The Oculus"],
+		[4228, "{term:theoculus}"],
 		[3714, "The Shattered Halls"],
 		[3717, "The Slave Pens"],
 		[3715, "The Steamvault"],
@@ -432,19 +432,19 @@ var mn_quests = [
 		[206, "Utgarde Keep"],
 		[1196, "Utgarde Pinnacle"],
 		[718, "Wailing Caverns"]]],
-	[5, "Professions", , [
-		[-181, "Alchemy"],
-		[-121, "Blacksmithing"],
-		[-304, "Cooking"],
-		[-201, "Engineering"],
-		[-324, "First Aid"],
-		[-101, "Fishing"],
-		[-24, "Herbalism"],
-		[-371, "Inscription"],
-		[-373, "Jewelcrafting"],
-		[-182, "Leatherworking"],
-		[-264, "Tailoring"]]],
-	[3, "Raids", , [
+	[5, "{term:professions}", , [
+		[-181, "{term:profession_alchemy}"],
+		[-121, "{term:profession_blacksmithing}"],
+		[-304, "{term:profession_cooking}"],
+		[-201, "{term:profession_engineering}"],
+		[-324, "{term:profession_firstaid}"],
+		[-101, "{term:profession_fishing}"],
+		[-24, "{term:herbalism}"],
+		[-371, "{term:profession_inscription}"],
+		[-373, "{term:profession_jewelcrafting}"],
+		[-182, "{term:profession_leatherworking}"],
+		[-264, "{term:profession_tailoring}"]]],
+	[3, "{term:raids}", , [
 		[2677, "Blackwing Lair"],
 		[3606, "Hyjal Summit"],
 		[4812, "Icecrown Citadel"],
@@ -465,101 +465,102 @@ var mn_quests = [
 		[4273, "Ulduar"],
 		[3805, "Zul'Aman"],
 		[1977, "Zul'Gurub"]]],
-	[9, "World Events", , [
+	[9, "{term:worldevents}", , [
 		[-370, "Brewfest"],
 		[-1002, "Children's Week"],
-		[-364, "Darkmoon Faire"],
-		[-1007, "Day of the Dead"],
+		[-364, "{term:darkmoonfaire}"],
+		[-1007, "{term:dayofthedead}"],
 		[-1003, "Hallow's End"],
-		[-1005, "Harvest Festival"],
+		[-1005, "{term:harvestfestival}"],
 		[-1004, "Love is in the Air"],
 		[-366, "Lunar Festival"],
 		[-369, "Midsummer"],
-		[-1006, "New Year's Eve"],
+		[-1006, "{term:newyearseve}"],
 		[-1008, "Pilgrim's Bounty"],
 		[-374, "Noblegarden"],
 		[-1001, "Winter Veil"]]],
-	[7, "Miscellaneous", , [
-		[-365, "Ahn'Qiraj War Effort"],
-		[-1010, "Dungeon Finder"],
-		[-1, "Epic"],
-		[-344, "Legendary"],
-		[-367, "Reputation"],
-		[-368, "Scourge Invasion"],
+	[7, "{term:miscellaneous}", , [
+		[-365, "{term:ahnqirajwareffort}"],
+		[-1010, "{term:dungeonfinder}"],
+		[-1, "{term:epic}"],
+		[-344, "{term:legendary}"],
+		[-367, "{term:reputation}"],
+		[-368, "{term:scourgeinvasion}"],
 		[-241, "Tournament"]]],
-	[-2, "Uncategorized"]];
+	[-2, "{term:uncategorized}"]];
 var mn_titles = [
-	[0, "General"],
-	[4, "Quests"],
-	[1, "Player vs. Player"],
-	[3, "Dungeons & Raids"],
-	[5, "Professions"],
-	[2, "Reputation"],
-	[6, "World Events"]];
+	[0, "{term:general}"],
+	[4, "{term:quests}"],
+	[1, "{term:playervsplayer_stc}"],
+	[3, "{term:dungeonsandraids}"],
+	[5, "{term:professions}"],
+	[2, "{term:reputation}"],
+	[6, "{term:worldevents}"]];
 var mn_skills = [
-	[, "Professions", "/skills=11"],
-	[171, "Alchemy", "/skill=171", , {
+	[, "{term:professions}", "/skills=11"],
+	[171, "{term:profession_alchemy}", "/skill=171", , {
 		tinyIcon: "trade_alchemy"
 	}],
-	[164, "Blacksmithing", "/skill=164", , {
+	[164, "{term:profession_blacksmithing}", "/skill=164", , {
 		tinyIcon: "trade_blacksmithing"
 	}],
-	[333, "Enchanting", "/skill=333", , {
+	[333, "{term:profession_enchanting}", "/skill=333", , {
 		tinyIcon: "trade_engraving"
 	}],
-	[202, "Engineering", "/skill=202", , {
+	[202, "{term:profession_engineering}", "/skill=202", , {
 		tinyIcon: "trade_engineering"
 	}],
-	[182, "Herbalism", "/skill=182", , {
+	[182, "{term:herbalism}", "/skill=182", , {
 		tinyIcon: "spell_nature_naturetouchgrow"
 	}],
-	[773, "Inscription", "/skill=773", , {
+	[773, "{term:profession_inscription}", "/skill=773", , {
 		tinyIcon: "inv_inscription_tradeskill01"
 	}],
-	[755, "Jewelcrafting", "/skill=755", , {
+	[755, "{term:profession_jewelcrafting}", "/skill=755", , {
 		tinyIcon: "inv_misc_gem_01"
 	}],
-	[165, "Leatherworking", "/skill=165", , {
+	[165, "{term:profession_leatherworking}", "/skill=165", , {
 		tinyIcon: "inv_misc_armorkit_17"
 	}],
-	[186, "Mining", "/skill=186", , {
+	[186, "{term:mining}", "/skill=186", , {
 		tinyIcon: "trade_mining"
 	}],
-	[393, "Skinning", "/skill=393", , {
+	[393, "{term:skinning}", "/skill=393", , {
 		tinyIcon: "inv_misc_pelt_wolf_01"
 	}],
-	[197, "Tailoring", "/skill=197", , {
+	[197, "{term:profession_tailoring}", "/skill=197", , {
 		tinyIcon: "trade_tailoring"
 	}],
-	[, "Secondary Skills", "/skills=9"],
-	[185, "Cooking", "/skill=185", , {
+	[, "{term:secondaryskills}", "/skills=9"],
+	[185, "{term:profession_cooking}", "/skill=185", , {
 		tinyIcon: "inv_misc_food_15"
 	}],
-	[129, "First Aid", "/skill=129", , {
+	[129, "{term:profession_firstaid}", "/skill=129", , {
 		tinyIcon: "spell_holy_sealofsacrifice"
 	}],
-	[356, "Fishing", "/skill=356", , {
+	[356, "{term:profession_fishing}", "/skill=356", , {
 		tinyIcon: "trade_fishing"
 	}],
 	[762, "Riding", "/skill=762", , {
 		tinyIcon: "spell_nature_swiftness"
 	}],
-	[, "Other"],
-	[8, "Armor Proficiencies", "/skills=8"],
-	[10, "Languages", "/skills=10"],
-	[-4, "Racial Traits", "/skills=-4"],
-	[6, "Weapon Skills", "/skills=6"]];
+	[, "{term:other}"],
+	[8, "{term:armorproficiencies}", "/skills=8"],
+	[10, "{term:languages}", "/skills=10"],
+	[-4, "{term:racialtraits}", "/skills=-4"],
+	[6, "{term:weaponskills}", "/skills=6"]];
+// need fix
 var mn_spells = [
-	[, "Abilities & Talents"],
-	[7, "Abilities", , [
+	[, "{term:abilitiesandtalents}"],
+	[7, "{term:abilities}", , [
 		[6, "{term:class_6}", , [
-			[770, "Blood", , , {
+			[770, "{term:blood}", , , {
 				tinyIcon: "Spell_Deathknight_BloodPresence"
 			}],
-			[771, "Frost", , , {
+			[771, "{term:frost}", , , {
 				tinyIcon: "Spell_Deathknight_FrostPresence"
 			}],
-			[772, "Unholy", , , {
+			[772, "{term:unholy}", , , {
 				tinyIcon: "Spell_Deathknight_UnholyPresence"
 			}],
 			[776, "Runeforging"]], {
@@ -593,20 +594,20 @@ var mn_spells = [
 			tinyIcon: "class_hunter"
 		}],
 		[8, "{term:class_8}", , [
-			[237, "Arcane", , , {
+			[237, "{term:arcane}", , , {
 				tinyIcon: "Spell_Holy_MagicalSentry"
 			}],
-			[8, "Fire", , , {
+			[8, "{term:fire}", , , {
 				tinyIcon: "Spell_Fire_FireBolt02"
 			}],
-			[6, "Frost", , , {
+			[6, "{term:frost}", , , {
 				tinyIcon: "Spell_Frost_FrostBolt02"
 			}]], {
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
 		[2, "{term:class_2}", , [
-			[594, "Holy", , , {
+			[594, "{term:holy}", , , {
 				tinyIcon: "Spell_Holy_HolyBolt"
 			}],
 			[267, "Protection", , , {
@@ -622,7 +623,7 @@ var mn_spells = [
 			[613, "Discipline", , , {
 				tinyIcon: "Spell_Holy_WordFortitude"
 			}],
-			[56, "Holy", , , {
+			[56, "{term:holy}", , , {
 				tinyIcon: "Spell_Holy_GuardianSpirit"
 			}],
 			[78, "Shadow Magic", , , {
@@ -686,15 +687,15 @@ var mn_spells = [
 			className: "c1",
 			tinyIcon: "class_warrior"
 		}]]],
-	[-2, "Talents", , [
+	[-2, "{term:talents}", , [
 		[6, "{term:class_6}", , [
-			[770, "Blood", , , {
+			[770, "{term:blood}", , , {
 				tinyIcon: "Spell_Deathknight_BloodPresence"
 			}],
-			[771, "Frost", , , {
+			[771, "{term:frost}", , , {
 				tinyIcon: "Spell_Deathknight_FrostPresence"
 			}],
-			[772, "Unholy", , , {
+			[772, "{term:unholy}", , , {
 				tinyIcon: "Spell_Deathknight_UnholyPresence"
 			}]], {
 			className: "c6",
@@ -727,20 +728,20 @@ var mn_spells = [
 			tinyIcon: "class_hunter"
 		}],
 		[8, "{term:class_8}", , [
-			[237, "Arcane", , , {
+			[237, "{term:arcane}", , , {
 				tinyIcon: "Spell_Holy_MagicalSentry"
 			}],
-			[8, "Fire", , , {
+			[8, "{term:fire}", , , {
 				tinyIcon: "Spell_Fire_FireBolt02"
 			}],
-			[6, "Frost", , , {
+			[6, "{term:frost}", , , {
 				tinyIcon: "Spell_Frost_FrostBolt02"
 			}]], {
 			className: "c8",
 			tinyIcon: "class_mage"
 		}],
 		[2, "{term:class_2}", , [
-			[594, "Holy", , , {
+			[594, "{term:holy}", , , {
 				tinyIcon: "Spell_Holy_HolyBolt"
 			}],
 			[267, "Protection", , , {
@@ -756,7 +757,7 @@ var mn_spells = [
 			[613, "Discipline", , , {
 				tinyIcon: "Spell_Holy_WordFortitude"
 			}],
-			[56, "Holy", , , {
+			[56, "{term:holy}", , , {
 				tinyIcon: "Spell_Holy_GuardianSpirit"
 			}],
 			[78, "Shadow Magic", , , {
@@ -817,11 +818,11 @@ var mn_spells = [
 			className: "c1",
 			tinyIcon: "class_warrior"
 		}]]],
-	[-3, "Pet Abilities", , [
+	[-3, "{term:petabilities}", , [
 		[, "{term:class_6}"],
 		[782, "Ghoul"],
 		[, "{term:class_3}"],
-		[270, "Generic"],
+		[270, "{term:generic}"],
 		[653, "Bat"],
 		[210, "Bear"],
 		[655, "Bird of Prey"],
@@ -860,104 +861,106 @@ var mn_spells = [
 		[188, "Imp"],
 		[205, "Succubus"],
 		[204, "Voidwalker"]]],
-	[-7, "Pet Talents", , [
-		[411, "Cunning", , , {
+	[-7, "{term:pettalents}", , [
+		[411, "{term:cunning}", , , {
 			tinyIcon: "Ability_Hunter_CombatExperience"
 		}],
-		[410, "Ferocity", , , {
+		[410, "{term:ferocity}", , , {
 			tinyIcon: "Ability_Druid_Swipe"
 		}],
-		[409, "Tenacity", , , {
+		[409, "{term:tenacity}", , , {
 			tinyIcon: "Ability_Hunter_Pet_Bear"
 		}]]],
-	[-8, "NPC Abilities"],
-	[, "Professions & Skills"],
-	[11, "Professions", , [
-		[171, "Alchemy", , , {
+	[-8, "{term:npcabilities}"],
+	[, "{term:professionsandskills}"],
+	[11, "{term:professions}", , [
+		[171, "{term:profession_alchemy}", , , {
 			tinyIcon: "trade_alchemy"
 		}],
-		[164, "Blacksmithing", , [
-			[9788, "Armorsmithing"],
-			[9787, "Weaponsmithing"],
-			[17041, "Master Axesmithing"],
-			[17040, "Master Hammersmithing"],
-			[17039, "Master Swordsmithing"]], {
+		[164, "{term:profession_blacksmithing}", , [
+			[9788, "{term:armorsmithing}"],
+			[9787, "{term:weaponsmithing}"],
+			[17041, "{term:masteraxesmithing}"],
+			[17040, "{term:masterhammersmithing}"],
+			[17039, "{term:masterswordsmithing}"]], {
 			tinyIcon: "trade_blacksmithing"
 		}],
-		[333, "Enchanting", , , {
+		[333, "{term:profession_enchanting}", , , {
 			tinyIcon: "trade_engraving"
 		}],
-		[202, "Engineering", , [
-			[20219, "Gnomish Engineering"],
-			[20222, "Goblin Engineering"]], {
+		[202, "{term:profession_engineering}", , [
+			[20219, "{term:gnomishengineering}"],
+			[20222, "{term:goblinengineering}"]], {
 			tinyIcon: "trade_engineering"
 		}],
-		[182, "Herbalism", , , {
+		[182, "{term:herbalism}", , , {
 			tinyIcon: "spell_nature_naturetouchgrow"
 		}],
-		[773, "Inscription", , , {
+		[773, "{term:profession_inscription}", , , {
 			tinyIcon: "inv_inscription_tradeskill01"
 		}],
-		[755, "Jewelcrafting", , , {
+		[755, "{term:profession_jewelcrafting}", , , {
 			tinyIcon: "inv_misc_gem_01"
 		}],
-		[165, "Leatherworking", , [
-			[10656, "Dragonscale Leatherworking"],
-			[10658, "Elemental Leatherworking"],
-			[10660, "Tribal Leatherworking"]], {
+		[165, "{term:profession_leatherworking}", , [
+			[10656, "{term:dragonscaleleatherworking}"],
+			[10658, "{term:elementalleatherworking}"],
+			[10660, "{term:triballeatherworking}"]], {
 			tinyIcon: "inv_misc_armorkit_17"
 		}],
-		[186, "Mining", , , {
+		[186, "{term:mining}", , , {
 			tinyIcon: "trade_mining"
 		}],
-		[393, "Skinning", , , {
+		[393, "{term:skinning}", , , {
 			tinyIcon: "inv_misc_pelt_wolf_01"
 		}],
-		[197, "Tailoring", , [
-			[26798, "Mooncloth Tailoring"],
-			[26801, "Shadoweave Tailoring"],
-			[26797, "Spellfire Tailoring"]], {
+		[197, "{term:profession_tailoring}", , [
+			[26798, "{term:moonclothtailoring}"],
+			[26801, "{term:shadoweavetailoring}"],
+			[26797, "{term:spellfiretailoring}"]], {
 			tinyIcon: "trade_tailoring"
 		}]]],
-	[9, "Secondary Skills", , [
-		[185, "Cooking", , , {
+	[9, "{term:secondaryskills}", , [
+		[185, "{term:profession_cooking}", , , {
 			tinyIcon: "inv_misc_food_15"
 		}],
-		[129, "First Aid", , , {
+		[129, "{term:profession_firstaid}", , , {
 			tinyIcon: "spell_holy_sealofsacrifice"
 		}],
-		[356, "Fishing", , , {
+		[356, "{term:profession_fishing}", , , {
 			tinyIcon: "trade_fishing"
 		}],
 		[762, "Riding", , , {
 			tinyIcon: "spell_nature_swiftness"
 		}]]],
-	[, "Other"],
-	[8, "Armor Proficiencies"],
-	[-6, "Companions"],
-	[-9, "GM Abilities"],
-	[10, "Languages"],
-	[-5, "Mounts"],
-	[-4, "Racial Traits"],
-	[6, "Weapon Skills"],
-	[0, "Uncategorized"]];
+	[, "{term:other}"],
+	[8, "{term:armorproficiencies}"],
+	[-6, "{term:companions}"],
+	[-9, "{term:gmabilities}"],
+	[10, "{term:languages}"],
+	[-5, "{term:mounts}"],
+	[-4, "{term:racialtraits}"],
+	[6, "{term:weaponskills}"],
+	[0, "{term:uncategorized}"]];
+// need fix
 var mn_zones = [
-	[, "Continents"],
+	[, "{term:continents}"],
 	[0, "Eastern Kingdoms"],
 	[1, "Kalimdor"],
 	[8, "Outland"],
 	[10, "Northrend"],
-	[, "Other"],
-	[9, "Arenas"],
-	[6, "Battlegrounds"],
-	[2, "Dungeons", , [
+	[, "{term:other}"],
+	[9, "{term:arenas}"],
+	[6, "{term:battlegrounds}"],
+	[2, "{term:dungeons}", , [
 		[0, "Classic"],
-		[1, "The Burning Crusade"],
-		[2, "Wrath of the Lich King"]]],
-	[3, "Raids", , [
+		[1, "{term:theburningcrusade}"],
+		[2, "{term:wrathofthelichking}"]]],
+	[3, "{term:raids}", , [
 		[0, "Classic"],
-		[1, "The Burning Crusade"],
-		[2, "Wrath of the Lich King"]]]];
+		[1, "{term:theburningcrusade}"],
+		[2, "{term:wrathofthelichking}"]]]];
+// need fix
 var mn_factions = [
 	[1118, "Classic", , [
 		[469, "{term:alliance}"],
@@ -965,100 +968,13 @@ var mn_factions = [
 		[67, "{term:horde}"],
 		[892, "Horde Forces"],
 		[169, "Steamwheedle Cartel"]]],
-	[980, "The Burning Crusade", , [
+	[980, "{term:theburningcrusade}", , [
 		[936, "Shattrath City"]]],
-	[1097, "Wrath of the Lich King", , [
+	[1097, "{term:wrathofthelichking}", , [
 		[1037, "Alliance Vanguard"],
 		[1052, "Horde Expedition"],
 		[1117, "Sholazar Basin"]]],
-	[0, "Other"]];
-var mn_achievements = [
-	[92, "General"],
-	[96, "Quests", , [
-		[14861, "Classic"],
-		[14862, "The Burning Crusade"],
-		[14863, "Wrath of the Lich King"]]],
-	[97, "Exploration", , [
-		[14777, "Eastern Kingdoms"],
-		[14778, "Kalimdor"],
-		[14779, "Outland"],
-		[14780, "Northrend"]]],
-	[95, "Player vs. Player", , [
-		[165, "Arena"],
-		[14801, "Alterac Valley"],
-		[14802, "Arathi Basin"],
-		[14803, "Eye of the Storm"],
-		[14804, "Warsong Gulch"],
-		[14881, "Strand of the Ancients"],
-		[14901, "Wintergrasp"],
-		[15003, "Isle of Conquest"]]],
-	[168, "Dungeons & Raids", , [
-		[14808, "Classic"],
-		[14805, "The Burning Crusade"],
-		[14806, "Lich King Dungeon"],
-		[14921, "Lich King Heroic"],
-		[14922, "Lich King 10-Player Raid"],
-		[14923, "Lich King 25-Player Raid"],
-		[14961, "Secrets of Ulduar 10-Player Raid"],
-		[14962, "Secrets of Ulduar 25-Player Raid"],
-		[15001, "Call of the Crusade 10-Player Raid"],
-		[15002, "Call of the Crusade 25-Player Raid"],
-		[15041, "Fall of the Lich King 10-Player Raid"],
-		[15042, "Fall of the Lich King 25-Player Raid"]]],
-	[169, "Professions", , [
-		[170, "Cooking"],
-		[171, "Fishing"],
-		[172, "First Aid"]]],
-	[201, "Reputation", , [
-		[14864, "Classic"],
-		[14865, "The Burning Crusade"],
-		[14866, "Wrath of the Lich King"]]],
-	[155, "World Events", , [
-		[160, "Lunar Festival"],
-		[187, "Love is in the Air"],
-		[159, "Noblegarden"],
-		[163, "Children's Week"],
-		[161, "Midsummer"],
-		[162, "Brewfest"],
-		[158, "Hallow's End"],
-		[14981, "Pilgrim's Bounty"],
-		[156, "Winter Veil"],
-		[14941, "Argent Tournament"]]],
-	[81, "Feats of Strength"]];
-var mn_statistics = [
-	[130, "Character", , [
-		[140, "Wealth"],
-		[145, "Consumables"],
-		[147, "Reputation"],
-		[191, "Gear"]]],
-	[141, "Combat"],
-	[128, "Kills", , [
-		[135, "Creatures"],
-		[136, "Honorable Kills"],
-		[137, "Killing Blows"]]],
-	[122, "Deaths", , [
-		[123, "Arenas"],
-		[124, "Battlegrounds"],
-		[125, "Dungeons"],
-		[126, "World"],
-		[127, "Resurrection"]]],
-	[133, "Quests"],
-	[14807, "Dungeons & Raids", , [
-		[14821, "Classic"],
-		[14822, "The Burning Crusade"],
-		[14823, "Wrath of the Lich King"],
-		[14963, "Secrets of Ulduar"],
-		[15021, "Call of the Crusade"],
-		[15062, "Fall of the Lich King"]]],
-	[132, "Skills", , [
-		[178, "Secondary Skills"],
-		[173, "Professions"]]],
-	[134, "Travel"],
-	[131, "Social"],
-	[21, "Player vs. Player", , [
-		[152, "Rated Arenas"],
-		[153, "Battlegrounds"],
-		[154, "World"]]]];
+	[0, "{term:other}"]];
 var mn_talentCalc = [
 	[6, "{term:class_6}", "/talent#j", , {
 		className: "c6",
@@ -1100,147 +1016,41 @@ var mn_talentCalc = [
 		className: "c1",
 		tinyIcon: "class_warrior"
 	}]];
-var mn_petCalc = [
-	[, "Cunning", , , {
-		tinyIcon: "Ability_Hunter_CombatExperience"
-	}],
-	[24, "Bat", "/petcalc#MR", , {
-		tinyIcon: "Ability_Hunter_Pet_Bat"
-	}],
-	[26, "Bird of Prey", "/petcalc#Mb", , {
-		tinyIcon: "Ability_Hunter_Pet_Owl"
-	}],
-	[38, "Chimaera", "/petcalc#cw", , {
-		tinyIcon: "Ability_Hunter_Pet_Chimera"
-	}],
-	[30, "Dragonhawk", "/petcalc#c0", , {
-		tinyIcon: "Ability_Hunter_Pet_DragonHawk"
-	}],
-	[34, "Nether Ray", "/petcalc#cR", , {
-		tinyIcon: "Ability_Hunter_Pet_NetherRay"
-	}],
-	[31, "Ravager", "/petcalc#cM", , {
-		tinyIcon: "Ability_Hunter_Pet_Ravager"
-	}],
-	[35, "Serpent", "/petcalc#ca", , {
-		tinyIcon: "Spell_Nature_GuardianWard"
-	}],
-	[41, "Silithid", "/petcalc#mM", , {
-		tinyIcon: "Ability_Hunter_Pet_Silithid"
-	}],
-	[3, "Spider", "/petcalc#0o", , {
-		tinyIcon: "Ability_Hunter_Pet_Spider"
-	}],
-	[33, "Sporebat", "/petcalc#co", , {
-		tinyIcon: "Ability_Hunter_Pet_Sporebat"
-	}],
-	[27, "Wind Serpent", "/petcalc#Mr", , {
-		tinyIcon: "Ability_Hunter_Pet_WindSerpent"
-	}],
-	[, "Ferocity", , , {
-		tinyIcon: "Ability_Druid_Swipe"
-	}],
-	[7, "Carrion Bird", "/petcalc#0r", , {
-		tinyIcon: "Ability_Hunter_Pet_Vulture"
-	}],
-	[2, "Cat", "/petcalc#0m", , {
-		tinyIcon: "Ability_Hunter_Pet_Cat"
-	}],
-	[45, "Core Hound", "/petcalc#ma", , {
-		tinyIcon: "Ability_Hunter_Pet_CoreHound"
-	}],
-	[39, "Devilsaur", "/petcalc#ch", , {
-		tinyIcon: "Ability_Hunter_Pet_Devilsaur"
-	}],
-	[25, "Hyena", "/petcalc#Ma", , {
-		tinyIcon: "Ability_Hunter_Pet_Hyena"
-	}],
-	[37, "Moth", "/petcalc#cr", , {
-		tinyIcon: "Ability_Hunter_Pet_Moth"
-	}],
-	[11, "Raptor", "/petcalc#zM", , {
-		tinyIcon: "Ability_Hunter_Pet_Raptor"
-	}],
-	[46, "Spirit Beast", "/petcalc#mb", , {
-		tinyIcon: "Ability_Druid_PrimalPrecision"
-	}],
-	[12, "Tallstrider", "/petcalc#zm", , {
-		tinyIcon: "Ability_Hunter_Pet_TallStrider"
-	}],
-	[44, "Wasp", "/petcalc#mR", , {
-		tinyIcon: "Ability_Hunter_Pet_Wasp"
-	}],
-	[1, "Wolf", "/petcalc#0M", , {
-		tinyIcon: "Ability_Hunter_Pet_Wolf"
-	}],
-	[, "Tenacity", , , {
-		tinyIcon: "Ability_Hunter_Pet_Bear"
-	}],
-	[4, "Bear", "/petcalc#0R", , {
-		tinyIcon: "Ability_Hunter_Pet_Bear"
-	}],
-	[5, "Boar", "/petcalc#0a", , {
-		tinyIcon: "Ability_Hunter_Pet_Boar"
-	}],
-	[8, "Crab", "/petcalc#0w", , {
-		tinyIcon: "Ability_Hunter_Pet_Crab"
-	}],
-	[6, "Crocolisk", "/petcalc#0b", , {
-		tinyIcon: "Ability_Hunter_Pet_Crocolisk"
-	}],
-	[9, "Gorilla", "/petcalc#0h", , {
-		tinyIcon: "Ability_Hunter_Pet_Gorilla"
-	}],
-	[43, "Rhino", "/petcalc#mo", , {
-		tinyIcon: "Ability_Hunter_Pet_Rhino"
-	}],
-	[20, "Scorpid", "/petcalc#M0", , {
-		tinyIcon: "Ability_Hunter_Pet_Scorpid"
-	}],
-	[21, "Turtle", "/petcalc#MM", , {
-		tinyIcon: "Ability_Hunter_Pet_Turtle"
-	}],
-	[32, "Warp Stalker", "/petcalc#cm", , {
-		tinyIcon: "Ability_Hunter_Pet_WarpStalker"
-	}],
-	[42, "Worm", "/petcalc#mm", , {
-		tinyIcon: "Ability_Hunter_Pet_Worm"
-	}]];
 var mn_holidays = [
-	[1, "Holidays", "/events=1"],
-	[2, "Recurring", "/events=2"],
-	[3, "Player vs. Player", "/events=3"]];
+	[1, "{term:holidays}", "/events=1"],
+	[2, "{term:recurring}", "/events=2"],
+	[3, "{term:playervsplayer_stc}", "/events=3"]];
 var mn_database = [
-	[9, "Achievements", "/achievements", mn_achievements],
-	[12, "Classes", "/classes", mn_classes],
-	[7, "Factions", "/factions", mn_factions],
-	[8, "Hunter Pets", "/pets", mn_pets],
-	[2, "Item Sets", "/itemsets", mn_itemSets],
-	[0, "Items", "/items", mn_items],
-	[4, "NPCs", "/npcs", mn_npcs],
-	[5, "Objects", "/objects", mn_objects],
-	[14, "Professions & Skills", "/skills", mn_skills],
-	[3, "Quests", "/quests", mn_quests],
-	[13, "Races", "/races", mn_races],
-	[1, "Spells", "/spells", mn_spells],
-	[15, "Statistics", "/statistics", mn_statistics],
-	[10, "Titles", "/titles", mn_titles],
-	[11, "World Events", "/events", mn_holidays],
-	[6, "Zones", "/zones", mn_zones]];
+	[9, "{term:achievements}", "/achievements", mn_achievements],
+	[12, "{term:classes}", "/classes", mn_classes],
+	[7, "{term:factions}", "/factions", mn_factions],
+	[8, "{term:hunterpets}", "/pets", mn_pets],
+	[2, "{term:itemsets}", "/itemsets", mn_itemSets],
+	[0, "{term:items}", "/items", mn_items],
+	[4, "{term:npcs}", "/npcs", mn_npcs],
+	[5, "{term:objects}", "/objects", mn_objects],
+	[14, "{term:professionsandskills}", "/skills", mn_skills],
+	[3, "{term:quests}", "/quests", mn_quests],
+	[13, "{term:races}", "/races", mn_races],
+	[1, "{term:spells}", "/spells", mn_spells],
+	[15, "{term:statistics}", "/statistics", mn_statistics],
+	[10, "{term:titles}", "/titles", mn_titles],
+	[11, "{term:worldevents}", "/events", mn_holidays],
+	[6, "{term:zones}", "/zones", mn_zones]];
 var mn_tools = [
-	[0, "Talent Calculator", "/talent", mn_talentCalc],
-	[2, "Hunter Pet Calculator", "/petcalc", mn_petCalc],
-	[3, "Item Comparison", "/compare"],
-	[5, "Profiler", "/profiles"],
-	[1, "Maps", "/maps"],
-	[, "Other"],
-	[6, "Guides", "", [
-		[, "Expansions"],
-		["cataclysm", "Cataclysm", "/guide=cataclysm"],
-		["wotlk", "Wrath of the Lich King", "/guide=wotlk"],
-		[, "Patches"],
+	[0, "{term:talentcalculator}", "/talent", mn_talentCalc],
+	[2, "{term:hunterpetcalculator}", "/petcalc", mn_petCalc],
+	[3, "{term:itemcomparison}", "/compare"],
+	[5, "{term:profiler}", "/profiles"],
+	[1, "{term:maps}", "/maps"],
+	[, "{term:other}"],
+	[6, "{term:guides}", "", [
+		[, "{term:expansions}"],
+		["cataclysm", "{term:cataclysm}", "/guide=cataclysm"],
+		["wotlk", "{term:wrathofthelichking}", "/guide=wotlk"],
+		[, "{term:patches}"],
 		["3.3", "3.3: Fall of the Lich King", "/guide=3.3"],
-		[, "World Events"],
+		[, "{term:worldevents}"],
 		["midsummer-fire-festival", "Midsummer Fire Festival", "/guide=midsummer-fire-festival"],
 		["childrens-week", "Children's Week", "/guide=childrens-week"],
 		["noblegarden", "Noblegarden", "/guide=noblegarden"],
@@ -1248,10 +1058,10 @@ var mn_tools = [
 		["love-is-in-the-air", "Love is in the Air", "/guide=love-is-in-the-air"],
 		["winter-veil", "Winter Veil", "/guide=winter-veil"],
 		["pilgrims-bounty", "Pilgrim's Bounty", "/guide=pilgrims-bounty"]]],
-	[4, "Patch Notes", "", [
-		[, "Cataclysm"],
-		[16, "Beta", "/patchnotes=cataclysm"],
-		[, "Wrath of the Lich King"],
+	[4, "{term:patchnotes}", "", [
+		[, "{term:cataclysm}"],
+		[16, "{term:beta}", "/patchnotes=cataclysm"],
+		[, "{term:wrathofthelichking}"],
 		[15, "3.3.5", "/patchnotes=3.3.5"],
 		[14, "3.3.3", "/patchnotes=3.3.3"],
 		[13, "3.3.2", "/patchnotes=3.3.2"],
@@ -1265,42 +1075,42 @@ var mn_tools = [
 		[6, "3.0.8", "/patchnotes=3.0.8"],
 		[7, "3.0.3", "/patchnotes=3.0.3"],
 		[8, "3.0.2", "/patchnotes=3.0.2"],
-		[, "The Burning Crusade"],
+		[, "{term:theburningcrusade}"],
 		[9, "2.4.3", "/patchnotes=2.4.3"],
 		[10, "2.4.2", "/patchnotes=2.4.2"],
 		[11, "2.4.0", "/patchnotes=2.4.0"]]],
-	[8, "Utilities", , [
-		[, "Database"],
-		[0, "Latest Additions", "/latest-additions"],
-		[2, "Latest Comments", "/latest-comments"],
-		[3, "Latest Screenshots", "/latest-screenshots"],
-		[11, "Latest Videos", "/latest-videos"],
-		[9, "New Items in Patch", , [
+	[8, "{term:utilities}", , [
+		[, "{term:database}"],
+		[0, "{term:latestadditions}", "/latest-additions"],
+		[2, "{term:latestcomments}", "/latest-comments"],
+		[3, "{term:latestscreenshots}", "/latest-screenshots"],
+		[11, "{term:latestvideos}", "/latest-videos"],
+		[9, "{term:newitemsinpatch}", , [
 			[30300, "3.3", "/items?filter=cr=82;crs=0;crv=3.3;gb=2"],
 			[30200, "3.2", "/items?filter=cr=82;crs=0;crv=3.2;gb=2"],
 			[30100, "3.1", "/items?filter=cr=82;crs=0;crv=3.1;gb=2"]]],
-		[4, "Random Page", "/random"],
-		[5, "Unrated Comments", "/unrated-comments"],
-		[, "Forums"],
-		[6, "Latest Replies", "/latest-replies"],
-		[7, "Latest Topics", "/latest-topics"],
-		[8, "Unanswered Topics", "/unanswered-topics"],
-		[, "Blog"],
-		[10, "Latest Comments", "/latest-blog-comments", null, {
-			breadcrumb: "Latest Blog Comments"
+		[4, "{term:randompage}", "/random"],
+		[5, "{term:unratedcomments}", "/unrated-comments"],
+		[, "{term:forums}"],
+		[6, "{term:latestreplies}", "/latest-replies"],
+		[7, "{term:latesttopics}", "/latest-topics"],
+		[8, "{term:unansweredtopics}", "/unanswered-topics"],
+		[, "{term:blog}"],
+		[10, "{term:latestcomments}", "/latest-blog-comments", null, {
+			breadcrumb: "{term:latestblogreplies}"
 		}]]]];
 var mn_forums = [
-	[, "World of Warcraft"],
-	[0, "WoW General", , , {
+	[, "{term:worldofwarcraft}"],
+	[0, "{term:wowgeneral}", , , {
 		icon: "images/forums/icons/general.png"
 	}],
-	[16, "WoW Help", , , {
+	[16, "{term:wowhelp}", , , {
 		icon: "images/forums/icons/wowhelp.png"
 	}],
-	[21, "Cataclysm", , , {
+	[21, "{term:cataclysm}", , , {
 		icon: "images/forums/icons/cata.png"
 	}],
-	[-2, "Classes", "", [
+	[-2, "{term:classes}", "", [
 		[18, "{term:class_6}", , , {
 			className: "c6",
 			tinyIcon: "class_deathknight"
@@ -1343,44 +1153,44 @@ var mn_forums = [
 		}]], {
 		icon: "images/forums/icons/classes.png"
 	}],
-	[14, "Dungeons & Raids", , , {
+	[14, "{term:dungeonsandraids}", , , {
 		icon: "images/forums/icons/raids.png"
 	}],
-	[15, "PvP", , , {
+	[15, "{term:pvp}", , , {
 		icon: "images/forums/icons/pvp.png"
 	}],
-	[13, "Professions", , , {
+	[13, "{term:professions}", , , {
 		icon: "images/forums/icons/professions.png"
 	}],
-	[12, "UI & Macros", , , {
+	[12, "{term:uiandmacros}", , , {
 		icon: "images/forums/icons/ui.png"
 	}],
-	[19, "Lore & Roleplaying", , , {
+	[19, "{term:loreandroleplaying}", , , {
 		icon: "images/forums/icons/lore.png"
 	}],
-	[17, "Guild Recruitment", , , {
+	[17, "{term:guildrecruitment}", , , {
 		icon: "images/forums/icons/recruitment.png"
 	}],
-	[20, "Theorycrafting", , , {
+	[20, "{term:theorycrafting}", , , {
 		icon: "images/forums/icons/theorycrafting.png"
 	}],
-	[, "Other"],
-	[1, "Wowhead Feedback", , , {
+	[, "{term:other}"],
+	[1, "{term:wowheadfeedback}", , , {
 		icon: "images/forums/icons/feedback.png"
 	}],
-	[22, "WoW Official Magazine", , , {
+	[22, "{term:wowmagazine}", , , {
 		icon: "images/forums/icons/magazine.png"
 	}],
-	[23, "StarCraft II", , , {
+	[23, "{term:starcraft2}", , , {
 		icon: "images/forums/icons/sc2.png"
 	}],
-	[24, "Diablo III", , , {
+	[24, "{term:diablo3}", , , {
 		icon: "images/forums/icons/diablo3.png"
 	}],
-	[2, "Off-Topic", , , {
+	[2, "{term:offtopic}", , , {
 		icon: "images/forums/icons/offtopic.png"
 	}],
-	[, "Private"],
+	[, "{term:private}"],
 	[1337, "Wowhead Dev", null, null, {
 		requiredAccess: 50,
 		icon: "images/forums/icons/dev.png"
@@ -1394,43 +1204,43 @@ var mn_forums = [
 		icon: "images/forums/icons/test.png"
 	}]];
 var mn_community = [
-	[3, "Forums", "/forums", mn_forums],
-	[7, "News / Blog", "/blog"],
-	[1, "Contests", "/contests"],
-	[4, "IRC Channel", "/irc"],
-	[, "Social"],
-	[6, "Facebook Page", "http://facebook.com/Wowhead", null, {
+	[3, "{term:forums}", "/forums", mn_forums],
+	[7, "{term:newsorblog}", "/blog"],
+	[1, "{term:contests}", "/contests"],
+	[4, "{term:ircchannel}", "/irc"],
+	[, "{term:social}"],
+	[6, "{term:facebookpage}", "http://facebook.com/Wowhead", null, {
 		icon: "images/icons/facebook.gif"
 	}],
-	[5, "Twitter Page", "http://twitter.com/Wowhead", null, {
+	[5, "{term:twitterpage}", "http://twitter.com/Wowhead", null, {
 		icon: "images/icons/twitter.gif"
 	}]];
 var mn_more = [
-	[, "All About Wowhead"],
-	[0, "About Us & Contact", "/aboutus"],
-	[14, "Advertise", "/advertise"],
-	[3, "FAQ", "/faq"],
-	[13, "Help", , [
-		[0, "Commenting and You", "/help=commenting-and-you"],
-		[5, "Item Comparison", "/help=item-comparison"],
-		[1, "Model Viewer", "/help=modelviewer"],
-		[6, "Profiler", "/help=profiler"],
-		[2, "Screenshots: Tips & Tricks", "/help=screenshots-tips-tricks"],
-		[3, "Stat Weighting", "/help=stat-weighting"],
-		[4, "Talent Calculator", "/help=talent-calculator"]]],
-	[12, "Job Opportunities", "/jobs"],
-	[4, "Premium Subscription", "/premium"],
-	[8, "Search Plugins", "/searchplugins"],
-	[15, "Site Logos", "/logos"],
-	[7, "What's New", "/whats-new"],
-	[2, "Wowhead Client", "/client"],
-	[, "Goodies for Your Site"],
-	[16, "Search Box", "/searchbox"],
-	[10, "Tooltips", "/tooltips"],
-	[, "Even More"],
-	[99, "LMWHTFY", "http://www.lmwhtfy.com"],
-	[4, "Wowhead Store", "http://store.wowhead.com/"],
-	[5, "Network Sites", , [
+	[, "{term:allaboutwowhead}"],
+	[0, "{term:aboutusandcontact}", "/aboutus"],
+	[14, "{term:advertise}", "/advertise"],
+	[3, "{term:faq}", "/faq"],
+	[13, "{term:help}", , [
+		[0, "{term:commentingandyou}", "/help=commenting-and-you"],
+		[5, "{term:itemcomparison}", "/help=item-comparison"],
+		[1, "{term:modelviewer}", "/help=modelviewer"],
+		[6, "{term:profiler}", "/help=profiler"],
+		[2, "{term:screenshotstipsandtricks}", "/help=screenshots-tips-tricks"],
+		[3, "{term:statweighting}", "/help=stat-weighting"],
+		[4, "{term:talentcalculator}", "/help=talent-calculator"]]],
+	[12, "{term:jobopportunities}", "/jobs"],
+	[4, "{term:premiumsubscription}", "/premium"],
+	[8, "{term:searchplugins}", "/searchplugins"],
+	[15, "{term:sitelogos}", "/logos"],
+	[7, "{term:whatsnew}", "/whats-new"],
+	[2, "{term:wowheadclient}", "/client"],
+	[, "{term:goodiesforyoursite}"],
+	[16, "{term:searchbox}", "/searchbox"],
+	[10, "{term:tooltips}", "/tooltips"],
+	[, "{term:evenmore}"],
+	[99, "{term:lmwhtfy}", "http://www.lmwhtfy.com"],
+	[4, "{term:wowheadstore}", "http://store.wowhead.com/"],
+	[5, "{term:networksites}", , [
 		[99, "ZAM", "http://www.zam.com/", [
 			[99, "Aion", "http://aion.zam.com"],
 			[99, "Dark Age of Camelot", "http://camelot.allakhazam.com"],
@@ -1445,19 +1255,19 @@ var mn_more = [
 			[99, "Lord of the Rings Online", "http://lotro.allakhazam.com"],
 			[99, "Star Wars Galaxies", "http://swg.allakhazam.com"],
 			[99, "Warhammer Online", "http://war.allakhazam.com"],
-			[99, "World of Warcraft", "http://wow.allakhazam.com"]]],
+			[99, "{term:worldofwarcraft}", "http://wow.allakhazam.com"]]],
 		[99, "MMOUI", "http://www.mmoui.com/", [
 			[99, "EverQuest", "http://www.eqinterface.com"],
 			[99, "EverQuest II", "http://www.eq2interface.com"],
 			[99, "Lord of the Rings Online", "http://www.lotrointerface.com"],
 			[99, "Vanguard: Saga of Heroes", "http://www.vginterface.com"],
 			[99, "Warhammer Online", "http://war.mmoui.com"],
-			[99, "World of Warcraft", "http://www.wowinterface.com"]]],
+			[99, "{term:worldofwarcraft}", "http://www.wowinterface.com"]]],
 		[99, "Online Gaming Radio", "http://www.onlinegamingradio.com/"],
 		[99, "TankSpot", "http://www.tankspot.com/"],
 		[99, "Thottbot", "http://www.thottbot.com/"]]]];
 var mn_path = [
-	[0, "Database", , mn_database],
-	[1, "Tools", , mn_tools],
-	[3, "Community", , mn_community],
-	[2, "More", , mn_more]];
+	[0, "{term:database}", , mn_database],
+	[1, "{term:tools}", , mn_tools],
+	[3, "{term:community}", , mn_community],
+	[2, "{term:more}", , mn_more]];

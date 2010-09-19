@@ -2,9 +2,14 @@
 
 class Error404Page extends GenericPage
 {
-	public function __construct()
+	protected function __create()
 	{
-		echo __CLASS__.' constructed!';
+		parent::__create();
+	}
+
+	public function finalize()
+	{
+		echo '404';
 	}
 }
 
