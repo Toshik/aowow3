@@ -29,16 +29,27 @@ class Main
 	);
 	
 	public static $roles = array(
-		U_MODERATOR			=> 'role_moderator',
-		U_GAMEMASTER		=> 'role_gamemaster',
-		U_ADMINISTRATOR		=> 'role_administrator',
-		U_DEVELOPER			=> 'role_developer',
-		U_TESTER			=> 'role_tester',
-		U_VIP				=> 'role_vip',
+		U_MODERATOR			=> 'moderator',
+		U_GAMEMASTER		=> 'gamemaster',
+		U_ADMINISTRATOR		=> 'administrator',
+		U_DEVELOPER			=> 'developer',
+		U_TESTER			=> 'tester',
+		U_VIP				=> 'vip',
+	);
+
+	public static $gmlevels = array(
+		0 => 'player',
+		1 => 'moderator',
+		2 => 'gamemaster',
+		3 => 'administrator',
+		4 => 'administrator',
 	);
 
 	public static $locale;
 	public static $lang;
+	/**
+	 * @var User
+	 */
 	public static $user = NULL;
 	public static $page = NULL;
 	
@@ -46,7 +57,7 @@ class Main
 
 	public static function Handle($query)
 	{
-		$version = file_exists('./version') ? intval(file_get_contents('./version')) : 0;
+		$version = file_exists('./cache/version') ? intval(file_get_contents('./cache/version')) : 0;
 
 		if(!defined('VERSION') || $version != VERSION)
 		{
@@ -149,7 +160,7 @@ class Main
 
 			if ($special_roles)
 			{
-				$roles = $pageName::GetRequiredRoleMask();
+				$roles = call_user_func(array($pageName, 'GetRequiredRoleMask'));
 				if (!self::$user->HasRoles($roles))
 					self::page_404();
 			}
