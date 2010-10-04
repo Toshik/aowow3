@@ -1,0 +1,14 @@
+/* AJAX LOADING ICON ON THE LEFT */
+.ajax_loading
+{
+padding-left:18px!important;
+background:left center no-repeat;
+background-image:url(../images/icons/ajax.gif);
+}
+/* fix bug with tables in tab-switch with BOTH listviews and tabbed-contents - FUCK poe */
+.listview .tabbed-contents table {
+width:auto!important;
+}
+/* generic colors */
+.success { color:#3c3!important; }
+.failure { color:#c33!important; }

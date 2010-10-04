@@ -26,8 +26,7 @@ class MainPage extends GenericPage implements ICacheable_File
 		$selected = trim($lines[rand(0, count($lines)-1)]);
 		$this->oneliner->setContents($selected);
 
-		$this->setTitle($this->titles[rand(0, count($this->titles)-1)]);
-		$this->full_title = WEBSITE_NAME.': '.$this->title;
+		$this->title = WEBSITE_NAME.': '.$this->titles[rand(0, count($this->titles)-1)];
 
 		$this->display('main');
 	}
@@ -47,9 +46,9 @@ class MainPage extends GenericPage implements ICacheable_File
 	}
 
 	static function GetCacheLifeTime() { return 30*DAY; }
-	function GetCacheHash($id) { return 0; }
-	static function GetCacheFolder() { return 'static'; }
-	static function GetCacheFileName() { return 'mainpage'; }
+	static function GetCacheFolder() { return FILECACHE_PAGES; }
+	static function GetCacheType() { return FILECACHE_PAGES_MAIN; }
+	function GetCacheId() { return 0; }
 }
 
 ?>

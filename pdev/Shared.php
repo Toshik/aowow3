@@ -52,6 +52,11 @@ function jsEscape($text)
 	return strtr($text, array('\\'=>'\\\\',"'"=>"\\'",'"'=>'\\"',"\r"=>'\\r',"\n"=>'\\n','</'=>'<\/'));
 }
 
+function sqlEscape($text)
+{
+	return strtr($text, array('%' => '\%', '_' => '\_')); 
+}
+
 function jsTime($time = 0)
 {
 	if(!$time) $time = time();
@@ -66,6 +71,12 @@ function endsWith($source, $with)
 	return false;
 }
 
+function startsWith($source, $with)
+{
+	if (substr($source, 0, strlen($with)) == $with)
+		return true;
+	return false;
+}
 
 function implements_interface($class, $interface)
 {
@@ -134,7 +145,7 @@ function Get($getType, $key, $from = 'GET')
 
 	$arr = $GLOBALS['_'.$from];
 
-	if(!isset($arr[$key]) || $arr[$key] == '')
+	if(!isset($arr[$key]) || ($arr[$key] == '' && $getType != GET_BOOL))
 		return $defaults[$getType];
 
 	$var = $arr[$key];

@@ -22,7 +22,7 @@ enum(array( // UserRoles
 enum(array( // UserGroups
 	'U_GROUP_ANY'		=> 0,
 	'U_GROUP_ALL'		=> 0xFF,
-	'U_GROUP_STAFFERS'	=> U_MODERATOR | U_GAMEMASTER | U_ADMINISTRATOR | U_DEVELOPER | U_EDITOR,
+	'U_GROUP_STAFFERS'	=> U_MODERATOR | U_GAMEMASTER | U_ADMINISTRATOR | U_DEVELOPER,
 	'U_GROUP_SUPREME'	=> U_ADMINISTRATOR | U_DEVELOPER,
 ));
 
@@ -64,6 +64,14 @@ enum(array( // Genders
 	'MALE'		=> 0,
 	'FEMALE'	=> 1,
 	'NO_GENDER'	=> 2,
+));
+
+enum(array(
+	'TAB_DATABASE'		=> 0,
+	'TAB_TOOLS'			=> 1,
+	'TAB_BUGTRACKER'	=> 2,
+	'TAB_MORE'			=> 3,
+	'TAB_STAFF'			=> 4,
 ));
 
 define('NUM_TALENT_TABS', 3);

@@ -5,11 +5,10 @@ require_once('includes/DbSimple/Generic.php');
 require_once('includes/DbSimple/Mysql.php');
 
 enum(array(
-	'DB_CHARACTERS',
-	'DB_WORLD',
-	'DB_REALM',
-	'DB_LIVEWORLD',
-	'DB_LOGS'
+	'DB_WORLD'		=> 0,
+	'DB_REALM'		=> 1,
+	'DB_LOGS'		=> 2,
+	'DB_CHARACTERS' => 3,
 ));
 
 class DB
@@ -54,6 +53,7 @@ class DB
 		echo "DB ERROR:<br /><br />\n\n<pre>";
 		print_r($data);
 		echo "</pre>";
+		exit;
 	}
 
 	public static function GetDB($idx) { return self::$interfaceCache[$idx]; }
@@ -66,19 +66,44 @@ class DB
 		return self::GetDB($idx);
 	}
 
-	public static function Characters()		{ return self::SafeGetDB(DB_CHARACTERS); }
+	/**
+	 * @static
+	 * @return DbSimple_Mysql
+	 */
+	public static function Characters($realm_id)
+	{
+		if (!isset(self::$optionsCache[DB_CHARACTERS+$realm_id-1]))
+		{
+			echo 'Connection info not found for live database of realm #'.$realm_id.' ("'.WoW::$realms[$realm_id].'"). Aborted.';
+			exit;
+		}
+
+		return self::SafeGetDB(DB_CHARACTERS+$realm_id-1);
+	}
+
+	/**
+	 * @static
+	 * @return DbSimple_Mysql
+	 */
 	public static function Realm()			{ return self::SafeGetDB(DB_REALM); }
+	/**
+	 * @static
+	 * @return DbSimple_Mysql
+	 */
 	public static function World()			{ return self::SafeGetDB(DB_WORLD); }
-	public static function LiveWorld()		{ return self::SafeGetDB(DB_LIVEWORLD); }
+	/**
+	 * @static
+	 * @return DbSimple_Mysql
+	 */
 	public static function Logs()			{ return self::SafeGetDB(DB_LOGS); }
 
 	public static function load()
 	{
-		self::$optionsCache[DB_CHARACTERS]	= (object)DBConfig::$characters;
 		self::$optionsCache[DB_WORLD]		= (object)DBConfig::$world;
 		self::$optionsCache[DB_REALM]		= (object)DBConfig::$realm;
-		self::$optionsCache[DB_LIVEWORLD]	= (object)DBConfig::$liveworld;
 		self::$optionsCache[DB_LOGS]		= (object)DBConfig::$log;
+		foreach (DBConfig::$characters as $realm_id => $connection_info)
+			self::$optionsCache[DB_CHARACTERS+$realm_id-1] = (object)$connection_info;
 	}
 }
 

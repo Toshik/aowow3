@@ -80,26 +80,10 @@ class MarkupText implements ICacheable_Database
 	function setFlag($to) { $this->flags |= $to; }
 	function hasFlag($flag) { return ($this->flags & $flag) != 0; }
 
-	private static $store = array(); 
-	public static function Get($id)
-	{
-		if (isset(self::$store[$id]))
-			return self::$store[$id];
-
-		if ($cache = Cache::GetCurrent($id))
-			return $cache->object;
-			
-		$result = DB::World()->SelectRow('SELECT id, content, flags FROM ?_markup2_texts WHERE id = ?d', $id);
-
-		if($result)
-			return new MarkupText($result['id'], $result['content'], $result['flags']);
-
-		return null;
-	}
-
-	function GetCacheHash($id) { return Cache::CreateHash(0, $id); }
 	static function GetCacheLifeTime() { return 30*DAY; }
-	static function GetCacheTablePostfix() { return 'texts'; }
+	static function GetCacheTable() { return CACHE_TEXTS; }
+	static function GetCacheType() { return CACHE_TEXTS_MARKUPTEXT; }
+	function GetCacheId() { return $this->id; }
 
 	function __sleep()
 	{
@@ -125,11 +109,11 @@ class MarkupText implements ICacheable_Database
 
 	function __create($id)
 	{
+		$this->id = $id;
 		$result = DB::World()->SelectRow('SELECT id, content, flags FROM ?_markup2_texts WHERE id = ?d', $id);
 
 		if($result)
 		{
-			$this->id = $result['id'];
 			$this->contents = $result['content'];
 			$this->flags = $result['flags'];
 		}

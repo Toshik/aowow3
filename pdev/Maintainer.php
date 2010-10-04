@@ -1,5 +1,9 @@
 <?php
 
+// pre-load maximum classes
+require_once('pdev/AdminEnums.php');
+require_once('pdev/User.php');
+
 class Maintainer
 {
 	// cached data
@@ -125,6 +129,14 @@ class Maintainer
 		$data .= '));'."\n";
 		$data .= 'WoW::$classes = array('.implode(', ', $ids).');'."\n\n";
 
+		$realms = DB::Realm()->Select('SELECT id, name FROM realmlist');
+		$data .= 'WoW::$realms = array(';
+		foreach ($realms as $row)
+		{
+			$data .= $row['id'].'=>\''.jsEscape($row['name']).'\',';
+		}
+		$data .= ');'."\n\n";
+
 		$data .= '?>';
 		file_put_contents('./cache/generated.php', $data);
 	}
@@ -136,12 +148,17 @@ class Maintainer
 		self::BuildLocalizedJs();
 		self::BuildSingleJs('CLIENTFILE_HOME_JS', 'home');
 		self::BuildSingleJs('CLIENTFILE_BASIC_JS', 'basic');
+		self::BuildSingleJs('CLIENTFILE_STAFF_JS', 'staff');
+		self::BuildSingleJs('CLIENTFILE_ADMIN_JS', 'admin');
+		self::BuildSingleJs('CLIENTFILE_PROFILE_JS', 'profile');
 
 		self::BuildSingleCss('CLIENTFILE_BASIC_CSS', 'basic');
 		self::BuildSingleCss('CLIENTFILE_HOME_CSS', 'home');
-		self::BuildSingleCss('CLIENTFILE_GLOBAL_CSS', 'global');
+		self::BuildSingleCss('CLIENTFILE_GLOBAL_CSS', 'global', 'custom');
+		self::BuildSingleCss('CLIENTFILE_STAFF_CSS', 'staff');
+		self::BuildSingleCss('CLIENTFILE_ADMIN_CSS', 'admin');
 		foreach(Main::$locales as $loc)
-			self::BuildSingleCss('CLIENTFILE_LOCALE_'.$loc.'_CSS', 'locale', $loc);
+			self::BuildSingleCss('CLIENTFILE_LOCALE_'.$loc.'_CSS', $loc, 'locale');
 	}
 	
 	private static function BuildGlobalJs()
@@ -164,6 +181,18 @@ class Maintainer
 		foreach (self::$systemClasses as $id => $name)
 			$tmp[] = $id.':"'.$name.'"';
 		$data .= 'var g_file_classes={'.implode(',', $tmp).'};';
+
+		// g_realms
+		$tmp = array();
+		foreach (WoW::$realms as $id => $name)
+			$tmp[] = $id.':"'.jsEscape($name).'"';
+		$data .= 'var g_realms={'.implode(',', $tmp).'};';
+
+		// g_race2side
+		$tmp = array();
+		foreach (WoW::$races as $id => $side)
+			$tmp[] = $id.':'.$side;
+		$data .= 'var g_race2side={'.implode(',', $tmp).'};';
 
 		$data .= file_get_contents('./js/Defines.js');
 		$data .= file_get_contents('./js/Util.js');
@@ -194,6 +223,7 @@ class Maintainer
 		//$data .= file_get_contents('./js/UrlShortener.js');
 		//$data .= file_get_contents('./js/VideoViewer.js');
 		$data .= file_get_contents('./js/PatchVersion.js');
+		$data .= file_get_contents('./js/custom.js');
 
 		$contents = self::ProcessJs($data, true);
 
@@ -216,7 +246,7 @@ class Maintainer
 
 	private static function BuildLocalizedJs()
 	{
-		$result = DB::World()->Select('SELECT classId, '.AllLocales().', petType, icon, `order` FROM ?_talent_tab');
+		$result = DB::World()->Select('SELECT classId, '.AllLocales().', petType, icon, `order` FROM ?_talent_tabs');
 		$talent_tabs = array();
 		foreach($result as $row)
 		{
@@ -226,7 +256,7 @@ class Maintainer
 				$talent_tabs[$row['classId']][$orderOrPetType][$loc] = $row['name_loc'.$loc];
 		}
 		
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_pet_food');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_pet_foods');
 		$pet_food_types = array();
 		foreach($result as $row)
 		{
@@ -253,7 +283,7 @@ class Maintainer
 
 		$result = DB::World()->Select('
 				SELECT Id, '.AllLocales().', petType, iconname
-				FROM ?_pet_family
+				FROM ?_pet_families
 				WHERE petType >= 0
 				ORDER BY petType ASC, name_loc0 ASC
 			'
@@ -290,7 +320,7 @@ class Maintainer
 				$pet_calc_tree[$row['Id']]['names'][$loc] = $pet_families[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_item_class');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_item_classes');
 		$item_classes = array();
 		foreach($result as $row)
 		{
@@ -299,7 +329,7 @@ class Maintainer
 				$item_classes[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_creature_type');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_creature_types');
 		$creature_types = array();
 		foreach($result as $row)
 		{
@@ -308,7 +338,7 @@ class Maintainer
 				$creature_types[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_quest_info');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_quest_infos');
 		$quest_info = array();
 		foreach($result as $row)
 		{
@@ -317,7 +347,7 @@ class Maintainer
 				$quest_info[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_areatable');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_area_table');
 		$area_table = array();
 		foreach($result as $row)
 		{
@@ -326,7 +356,7 @@ class Maintainer
 				$area_table[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_quest_sort');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_quest_sorts');
 		$quest_sort = array();
 		foreach($result as $row)
 		{
@@ -335,7 +365,7 @@ class Maintainer
 				$quest_sort[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_spell_school');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_spell_schools');
 		$schools = array();
 		foreach($result as $row)
 		{
@@ -344,7 +374,7 @@ class Maintainer
 				$schools[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_skill_line');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().' FROM ?_skill_lines');
 		$skill_line = array();
 		foreach($result as $row)
 		{
@@ -353,7 +383,7 @@ class Maintainer
 				$skill_line[$row['Id']][$loc] = $row['name_loc'.$loc];
 		}
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().', parent FROM ?_faction');
+		$result = DB::World()->Select('SELECT factionId AS Id, '.AllLocales().', team AS parent FROM ?_factions');
 		$factions = array();
 		$faction_categories = array();
 		foreach($result as $row)
@@ -367,7 +397,7 @@ class Maintainer
 		foreach($faction_categories as $id => $null)
 			$faction_categories[$id] = &$factions[$id];
 
-		$result = DB::World()->Select('SELECT Id, '.AllLocales().', parent FROM ?_achievement_category ORDER BY `order` ASC');
+		$result = DB::World()->Select('SELECT Id, '.AllLocales().', parent FROM ?_achievement_categories ORDER BY `order` ASC');
 		$achievement_category = array();
 		$achievement_category_tree = array();
 		$statistic_category_tree = array();
@@ -414,7 +444,12 @@ class Maintainer
 		$files = array();
 		foreach(Main::$locales as $loc)
 		{
-			$files[$loc] .= file_get_contents('./js/LocalizedStatic.js');
+			$files[$loc] = file_get_contents('./js/LocalizedStatic.js');
+
+			$tmp = array();
+			foreach(Main::$gmlevels as $id => $term)
+				$tmp[] = $id.':"'.jsEscape(T($term, $loc)).'"';
+			$files[$loc] .= 'var g_gmlevels={'.implode(',', $tmp).'};';
 
 			// g_item_classes
 			$tmp = array();
@@ -442,7 +477,7 @@ class Maintainer
 
 			// g_chr_specs
 			$files[$loc] .= 'var g_chr_specs={';
-			$files[$loc] .= '0:"'.jsEscape(T('talents_hybrid')).'",';
+			$files[$loc] .= '0:"'.jsEscape(T('talents_hybrid', $loc)).'",';
 
 			foreach(WoW::$classes as $classId)
 			{
@@ -454,7 +489,7 @@ class Maintainer
 				$files[$loc] .= '"],';
 			}
 
-			$files[$loc] .= '"-1":"'.jsEscape(T('talents_untalented')).'"';
+			$files[$loc] .= '"-1":"'.jsEscape(T('talents_untalented', $loc)).'"';
 			$files[$loc] .= '};';
 
 			// g_pet_types
@@ -510,7 +545,7 @@ class Maintainer
 			// g_faction_categories
 			$tmp = array();
 			foreach($faction_categories as $id => $names)
-				$tmp[] = $id.':"'.jsEscape($names != null ? $names[$loc] : T('other')).'"';
+				$tmp[] = $id.':"'.jsEscape($names != null ? $names[$loc] : T('other', $loc)).'"';
 			$files[$loc] .= 'var g_faction_categories={'.implode(',', $tmp).'};';
 
 			// g_achievement_categories
@@ -545,7 +580,7 @@ class Maintainer
 			$tmp = array();
 			$tmp[] = '[, "'.T('byclass', $loc).'"]';
 			foreach(WoW::$classes as $id)
-				$tmp[] = '['.$id.', "'.T('class_'.$id).'",,,{className: "c'.$id.'",tinyIcon:"class_'.self::$systemClasses[$id].'"}]';
+				$tmp[] = '['.$id.', "'.T('class_'.$id, $loc).'",,,{className: "c'.$id.'",tinyIcon:"class_'.self::$systemClasses[$id].'"}]';
 			$files[$loc] .= 'var mn_itemSets=['.implode(',', $tmp).'];';
 
 			// mn_npcs
@@ -558,7 +593,7 @@ class Maintainer
 			$tmp = array();
 			foreach($talent_tabs[0] as $id => $names)
 			{
-				$talent_tabs[0][$id]['iconname'] = DB::World()->SelectCell('SELECT icon FROM ?_spell_icon WHERE id = ?d', $names['icon']);
+				$talent_tabs[0][$id]['iconname'] = DB::World()->SelectCell('SELECT icon FROM ?_spell_icons WHERE id = ?d', $names['icon']);
 				$tmp[] = '['.$id.',"'.jsEscape($names[$loc]).'",,,{tinyIcon:"'.$talent_tabs[0][$id]['iconname'].'"}]';
 			}
 			$files[$loc] .= 'var mn_pets=['.implode(',', $tmp).'];';
@@ -608,27 +643,49 @@ class Maintainer
 		}
 	}
 
-	private static function BuildSingleJs($contant_name, $file_name, $locale = false)
+	private static function BuildSingleJs()
 	{
+		$args = func_get_args();
+		$contant_name = $args[0];
+		$locale = false;
+		$i = 0;
+		if (is_numeric($args[$i]))
+			$locale = $args[$i++];
+		$files = array_slice($args, $i);
+
 		global $_CONFIG;
 
 		if (defined($contant_name) && file_exists($a = './cache/'.constant($contant_name).'.js'))
 			unlink($a);
 
-		$contents = self::ProcessJs(file_get_contents('./js/'.$file_name.'.js'), true, $locale);
+		$contents = '';
+		foreach ($files as $file_name)
+			$contents .= self::ProcessJs(file_get_contents('./js/'.$file_name.'.js'), true, $locale);
+
 		$md5 = md5($contents);
 		$_CONFIG[$contant_name] = $md5;
 		file_put_contents('./cache/'.$md5.'.js', $contents);
 	}
 
-	private static function BuildSingleCss($contant_name, $file_name, $locale = false)
+	private static function BuildSingleCss()
 	{
+		$args = func_get_args();
+		$contant_name = $args[0];
+		$locale = false;
+		$i = 0;
+		if (is_numeric($args[$i]))
+			$locale = $args[$i++];
+		$files = array_slice($args, $i);
+
 		global $_CONFIG;
 
 		if (defined($contant_name) && file_exists($a = './cache/'.constant($contant_name).'.js'))
 			unlink($a);
 
-		$contents = self::ProcessContent(file_get_contents('./css/'.$file_name.'.css'), $locale);
+		$contents = '';
+		foreach ($files as $file_name)
+			$contents .= self::ProcessContent(file_get_contents('./css/'.$file_name.'.css'), $locale);
+
 		// ...
 		$contents = strtr($contents, array(
 			"\r" => '',
@@ -651,7 +708,12 @@ class Maintainer
 		$content = str_replace('{lang}', Main::$languages[intval($locale)], $content);
 		$content = str_replace('{locale}', intval($locale), $content);
 
+		// images/ -> ../images/ 
 		$content = preg_replace('/("|\'|\()images\//i', '$1../images/', $content);
+		$content = str_replace('url(/', 'url(../', $content);
+
+		// admin= -> admin&
+		$content = str_replace('admin=', 'admin&', $content);
 
 		return $content;
 	}
@@ -661,7 +723,8 @@ class Maintainer
 		if($process_content)
 			$script = self::ProcessContent($script, $locale);
 
-		return $script;
+		// Uncomment to remove compression
+		//return $script;
 
 		$packer = new JavaScriptPacker($script, 'None', true, false);
 		return $packer->pack();

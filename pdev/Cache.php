@@ -1,9 +1,40 @@
 <?php
 
+enum(array( // Database Cache
+	// aowow_cache_texts
+	'CACHE_TEXTS'				=> 0,
+	'CACHE_TEXTS_MARKUPTEXT'	=> 0,
+	'CACHE_TEXTS_MARKUPARTICLE'	=> 1,
+	'CACHE_TEXTS_TEXTSET'		=> 2,
+
+	// aowow_cache_admin
+	'CACHE_ADMIN'							=> 1,
+	'CACHE_ADMIN_PAGEBANNED'				=> 0,
+	'CACHE_ADMIN_STATS_BATTLEFIELDS'		=> 1,
+	'CACHE_ADMIN_STATS_CHATS'				=> 2,
+	'CACHE_ADMIN_STATS_POPULATION'			=> 3,
+	'CACHE_ADMIN_STATS_OVERVIEW'			=> 4,
+	'CACHE_ADMIN_STATS_WORLD_OVERVIEW' 		=> 5,
+	'CACHE_ADMIN_STATS_POPULATION_TIMELINE'	=> 6,
+));
+
+enum(array( // File Cache
+	// cache/pages
+	'FILECACHE_PAGES'		=> 0,
+	'FILECACHE_PAGES_MAIN'	=> 1,
+
+	// cache/data
+	'FILECACHE_DATA'			=> 1,
+	'FILECACHE_DATA_SCALESTATS'	=> 0,
+	//'FILECACHE_DATA_'			=> 1,
+));
+
 interface ICacheable
 {
-	function GetCacheHash($id);
 	static function GetCacheLifeTime();
+	static function GetCacheType();
+	function GetCacheId();
+
 	function __create($id);
 	function __wakeup();
 	function __sleep();
@@ -11,12 +42,11 @@ interface ICacheable
 
 interface ICacheable_Database extends ICacheable
 {
-	static function GetCacheTablePostfix();
+	static function GetCacheTable();
 }
 
 interface ICacheable_File extends ICacheable
 {
-	static function GetCacheFileName();
 	static function GetCacheFolder();
 }
 
@@ -27,10 +57,18 @@ interface ICacheable_FileOutput extends ICacheable_File
 
 class Cache
 {
+	static $cache_tables = array(
+		CACHE_TEXTS		=> 'texts',
+		CACHE_ADMIN		=> 'admin',
+	);
+	static $cache_folders = array(
+		FILECACHE_PAGES		=> 'pages',
+		FILECACHE_DATA		=> 'data',
+	);
 	static $loaded_objects = array();
 	static $total_objects = 0;
 
-	static function Get($objectName, $id = false)
+	static function Get($objectName, $id = 0)
 	{
 		$data = self::GetCacheData($objectName, $id);
 
@@ -44,11 +82,11 @@ class Cache
 		if (is_callable(array($obj, '__create'), true))
 			$obj->__create($id);
 
-		self::Set($obj, $objectName, id);
+		self::Set($obj, $objectName, $id);
 
 		return $obj;
 	}
-	static function GetCacheData($objectName, $id = false)
+	static function GetCacheData($objectName, $id = 0)
 	{
 		if (!implements_interface($objectName, 'ICacheable'))
 			return null;
@@ -58,12 +96,12 @@ class Cache
 		if (isset(self::$loaded_objects[$objectName]) && isset(self::$loaded_objects[$objectName][$id]))
 			return self::$loaded_objects[$objectName][$id];
 		
-		$lifetime = $objectName::GetCacheLifeTime();
-		$hash = $objectName::GetCacheHash($id);
+		$lifetime = call_user_func(array($objectName, 'GetCacheLifeTime'));
+		$hash = self::CreateHash(call_user_func(array($objectName, 'GetCacheType')), $id);
 
 		if (implements_interface($objectName, 'ICacheable_Database'))
 		{
-			$postfix = $objectName::GetCacheTablePostfix();
+			$postfix = self::$cache_tables[call_user_func(array($objectName, 'GetCacheTable'))];
 
 			$cache_row = DB::World()->SelectRow('
 					SELECT version, created, serialization
@@ -82,9 +120,10 @@ class Cache
 				return null;
 			}
 
+			$t = microtime(true);
 			$cache_data = new CachedObject(
 				$cache_row['version'],
-				unserialize($cache_row['serialization']),
+				unserialize(gzinflate($cache_row['serialization'])),
 				$cache_row['created']
 			);
 		}
@@ -92,13 +131,12 @@ class Cache
 		{
 			$isOutput = implements_interface($objectName, 'ICacheable_FileOutput');
 
-			$filename = $objectName::GetCacheFileName();
-			$folder = $objectName::GetCacheFolder();
+			$folder = self::$cache_folders[call_user_func(array($objectName, 'GetCacheFolder'))];
 
-			if (!file_exists($filename = './cache/'.$folder.'/'.$filename.'-'.$hash.'.awc'))
+			if (!file_exists($filename = './cache/'.$folder.'/'.$hash.'.awc'))
 				return null;
 
-			$cache_data = unserialize(file_get_contents($filename));
+			$cache_data = unserialize(gzinflate(file_get_contents($filename)));
 
 			if ($cache_data->timestamp + $lifetime < time()
 				|| $cache_data->version != VERSION)
@@ -109,9 +147,12 @@ class Cache
 			}
 
 			if ($isOutput)
-				exit($cache_data->object);
+			{
+				echo $cache_data->object;
+				exit;
+			}
 		}
-		
+
 		if (!isset(self::$loaded_objects[$objectName]))
 			self::$loaded_objects[$objectName] = array();
 
@@ -134,47 +175,46 @@ class Cache
 		if (!implements_interface($name, 'ICacheable'))
 			return;
 
-		$hash = $name::GetCacheHash($id);
+		$hash = self::CreateHash(call_user_func(array($name, 'GetCacheType')), $id);
 
 		if (implements_interface($name, 'ICacheable_Database'))
 		{
-			$postfix = $name::GetCacheTablePostfix();
+			$postfix = self::$cache_tables[call_user_func(array($name, 'GetCacheTable'))];
 
 			DB::World()->Query('
 					REPLACE INTO ?_cache_'.$postfix.' (hash, version, created, serialization)
 					VALUES (?, ?, ?, ?)
 				',
-				$hash, VERSION, time(), serialize($obj)
+				$hash, VERSION, time(), gzdeflate(serialize($obj))
 			);
 		}
 		else if (implements_interface($name, 'ICacheable_File'))
 		{
-			$filename = $name::GetCacheFileName();
-			$folder = $name::GetCacheFolder();
+			$folder = self::$cache_folders[call_user_func(array($name, 'GetCacheFolder'))];
 
 			if (!file_exists($dir = './cache/'.$folder))
 				mkdir($dir);
 
-			if (file_exists($filename = $dir.'/'.$filename.'-'.$hash.'.awc'))
+			if (file_exists($filename = $dir.'/'.$hash.'.awc'))
 				unlink($filename);
 
 			if (implements_interface($name, 'ICacheable_FileOutput'))
 				$obj = $obj->GetOutput();
 
-			file_put_contents($filename, serialize(new CachedObject(VERSION, $obj, time())));
+			file_put_contents($filename, gzdeflate(serialize(new CachedObject(VERSION, $obj, time()))));
 		}
 	}
 
-	static function Update($obj, $name, $id = false)
+	static function Update($obj, $name, $id = 0)
 	{
 		if (!implements_interface($name, 'ICacheable'))
 			return false;
 
-		$hash = $name::GetCacheHash($id);
+		$hash = self::CreateHash(call_user_func(array($name, 'GetCacheType')), $id);
 
 		if (implements_interface($name, 'ICacheable_Database'))
 		{
-			$postfix = $name::GetCacheTablePostfix();
+			$postfix = self::$cache_tables[call_user_func(array($name, 'GetCacheTable'))];
 
 			$version = DB::World()->SelectCell('SELECT version FROM ?_cache_'.$postfix.' WHERE hash = ?', $hash);
 			if (!$version || $version != VERSION)
@@ -183,7 +223,7 @@ class Cache
 						REPLACE INTO ?_cache_'.$postfix.' (hash, version, created, serialization)
 						VALUES (?, ?, ?, ?)
 					',
-					$hash, VERSION, time(), serialize($obj)
+					$hash, VERSION, time(), gzdeflate(serialize($obj))
 				);
 			}
 			else
@@ -193,29 +233,28 @@ class Cache
 						SET serialization = ?
 						WHERE hash = ?
 					',
-					serialize($obj),
+					gzdeflate(serialize($obj)),
 					$hash
 				);
 			}
 		}
 		else if (implements_interface($name, 'ICacheable_File'))
 		{
-			$filename = $name::GetCacheFileName();
-			$folder = $name::GetCacheFolder();
+			$folder = self::$cache_folders[call_user_func(array($name, 'GetCacheFolder'))];
 
-			if (file_exists($filename = './cache/'.$folder.'/'.$filename.'-'.$hash.'.awc'))
+			if (file_exists($filename = './cache/'.$folder.'/'.$hash.'.awc'))
 			{
-				$cache_data = unserialize(file_get_contents($filename));
+				$cache_data = unserialize(gzinflate(file_get_contents($filename)));
 				$cache_data->object = $obj;
 			}
 			else
 				$cache_data = new CachedObject(VERSION, $obj, time());
 
-			file_put_contents($filename, serialize($cache_data));
+			file_put_contents($filename, gzdeflate(serialize($cache_data)));
 		}
 	}
 
-	static function SetCurrent($id = false)
+	static function SetCurrent($id = 0)
 	{
 		$trace = debug_backtrace();
 		$name = $trace[1]['class'];
@@ -236,15 +275,15 @@ class Cache
 
 	// 6 bits for type - max 63
 	// 25 bits for id - max 33,554,431
-	static function CreateHash($type, $id = false)
+	static function CreateHash($type = 0, $id = 0)
 	{
-		if ($id === false)
+		if ($id > 0x1FFFFFF)
 		{
-			$id = $type;
-			$type = 0;
+			echo 'Cache: id overflow!';
+			exit;
 		}
 
-		return ($type << 25) | ($id & 0x1FFFFFF);
+		return ($type << 25) | $id;
 	}
 }
 
