@@ -648,7 +648,7 @@ class Maintainer
 		$args = func_get_args();
 		$contant_name = $args[0];
 		$locale = false;
-		$i = 0;
+		$i = 1;
 		if (is_numeric($args[$i]))
 			$locale = $args[$i++];
 		$files = array_slice($args, $i);
@@ -672,7 +672,7 @@ class Maintainer
 		$args = func_get_args();
 		$contant_name = $args[0];
 		$locale = false;
-		$i = 0;
+		$i = 1;
 		if (is_numeric($args[$i]))
 			$locale = $args[$i++];
 		$files = array_slice($args, $i);
