@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-<!-- Cached Objects: <?php echo Cache::$total_objects; ?> -->
 <head>
 
 <?php $this->brick('head.php'); ?>
 
-<style type="text/css">body{background:black;}</style>
-
+<style type="text/css">
+body{background:black;}
 </head>
 
 <body class="home">
 
+	<div class="pad2"></div>
+
 	<div class="home-wrapper">
-		<h1><?php echo htmlspecialchars($this->full_title); ?></h1>
+
+		<h1><?php echo htmlspecialchars($this->title); ?></h1>
 
 		<div class="home-logo" id="home-logo"></div>
 		<div class="home-search" id="home-search"><form method="GET" action="?"><input type="text" name="q" /></form></div>
@@ -34,6 +36,8 @@
 PageTemplate.set({pageName: 'home'});
 PageTemplate.init();
 </script>
+
+<?php /* if($this->user && $this->user->HasRoles(U_GROUP_STAFFERS)) $this->brick('footer_staff.php'); */ ?>
 
 <?php $this->brick('noscript.php'); ?>
 

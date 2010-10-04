@@ -1,3 +1,14 @@
+<?php
+if (implements_interface($this, 'ITemplate'))
+{
+	echo '<script type="text/javascript">';
+	echo 'PageTemplate.set({pageName: "'.jsEscape($this->GetTemplateName()).'", activeTab: '.
+		$this->GetActiveTab().', breadcrumb: '.$this->GetPath().'});';
+	echo 'PageTemplate.init();';
+	echo '</script>';
+}
+?>
+
 <?php $this->brick('footer_links.php'); ?>
 
 </div><?php /* wrapper */ ?>

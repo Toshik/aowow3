@@ -5,27 +5,32 @@ interface INotUserSensitive
 {
 }
 
-/** Indicates that the current page have special role restrictions. INotUserSensitive must not  */
+/** Indicates that the current page have special role restrictions. */
 interface IRestrictedPage
 {
 	static function GetRequiredRoleMask();
+}
+
+interface IIPRestrictedPage
+{
+	static function ValidateIP($ip);
+}
+
+interface ITemplate
+{
+	static function GetTemplateName();
+	function GetActiveTab();
+	function GetPath();
 }
 
 abstract class GenericPage
 {
 	var $js = array();
 	var $css = array();
-
-	var $path = '';
-	var $tab = -1;
-	var $contentTypeId = 0;
-	var $pageTypeId = 0;
-
+	
+	protected $title_tree = array();
 	var $title = '';
-	var $full_title = '';
 	var $icon = '';
-
-	var $finalized;
 
 	// DYNAMIC DATA
 	var $locale;
@@ -36,27 +41,31 @@ abstract class GenericPage
 	/****************** METHODS ******************/
 
 	// TITLE
-	public function setTitle($title)
+	public final function addTitleTreeElement($element)
 	{
-		$this->title = $title;
-		$this->full_title = (empty($title) ? '' : $title.' - ').WEBSITE_NAME;
+		array_unshift($this->title_tree, $element);
+		$this->generateTitle();
+	}
+
+	public final function generateTitle()
+	{
+		$this->title = implode(' - ', $this->title_tree);
 	}
 
 	// DISPLAYERS
-	abstract public function finalize();
+	public abstract function finalize();
 
-	public function display($name)
+	public final function display($name)
 	{
-		$this->finalized = true;
 		include('phtml/'.$name.'.php');
 	}
-	public function brick($name)
+	public final function brick($name)
 	{
 		include('phtml/bricks/'.$name);
 	}
 
 	// CLIENT FILES
-	public function addJS($name, $unshift = false)
+	public final function addJS($name, $unshift = false)
 	{
 		if(!in_array($name, $this->js))
 		{
@@ -66,7 +75,7 @@ abstract class GenericPage
 				$this->js[] = $name;
 		}
 	}
-	public function addCSS($name, $unshift = false)
+	public final function addCSS($name, $unshift = false)
 	{
 		if(!in_array($name, $this->css))
 		{
@@ -79,10 +88,11 @@ abstract class GenericPage
 
 	function __create()
 	{
+		$this->addTitleTreeElement(WEBSITE_NAME);
 		$this->initDynamicData();
 	}
 
-	function initDynamicData()
+	private final function initDynamicData()
 	{
 		$this->locale = Main::$locale;
 		$this->lang = Main::$lang;
@@ -106,17 +116,89 @@ abstract class GenericPage
 		return array(
 			'js',
 			'css',
-			'path',
-			'tab',
-			'title',
-			'full_title',
+			'title_tree',
 			'icon'
 		);
 	}
 
 	function __wakeup()
 	{
+		$this->generateTitle();
 		$this->initDynamicData();
+	}
+
+	// BRICK GENERATION
+
+	public final function CreateTabs($id = false, $lv = false)
+	{
+		$hash = ($id === false) ? substr(md5(rand()), 6) : $id;
+
+		if ($id === false)
+			echo '<div id="'.$hash.'"></div>';
+
+		if ($lv)
+			echo '<div id="lv-'.$hash.'" class="listview">';
+
+		echo '<script type="text/javascript">';
+		echo 'var TB'.$hash.' = new Tabs({parent: ge("'.$hash.'")});';
+
+		return 'TB'.$hash;
+	}
+
+	public final function FlushTabs($name)
+	{
+		echo $name.'.flush();</script>';
+	}
+
+	public final function CreateSingleListview($params, $data, $extraCols = array(), $hiddenCols = array(), $additional_vars = array())
+	{
+		if (!$params['id'])
+			$params['id'] = substr(md5(rand()), 8);
+
+		if ($params['parent'])
+			unset($params['parent']);
+
+		echo '<div id="lv-'.$params['id'].'" class="listview"></div><script type="text/javascript">';
+		$this->CreateListviewJs($params, $data, $extraCols, $hiddenCols, $additional_vars);
+		echo '</script>';
+	}
+
+	public final function CreateListviewJs($params, $data, $extraCols = array(), $hiddenCols = array(), $additional_vars = array())
+	{
+		$x = 'new Listview({';
+
+		if ($params['template'])
+			$x .= 'template:"'.$params['template'].'",';
+
+		if ($params['id'])
+			$x .= 'id:"'.$params['id'].'",';
+
+		if ($params['name'])
+			$x .= 'name:'.$params['name'].',';
+
+		if ($params['parent'])
+			$x .= 'parent:"'.$params['parent'].'",';
+
+		if ($params['tabs'])
+			$x .= 'tabs:'.$params['tabs'].',';
+
+		if ($params['note'])
+			$x .= 'note:'.$params['note'].',';
+
+		if ($extraCols)
+			$x .= 'extraCols:['.implode(',', $extraCols).'],';
+
+		if ($hiddenCols)
+			$x .= 'hiddenCols:'.json_encode($hiddenCols).',';
+
+		foreach ($additional_vars as $key => $value)
+			$x .= $key.':'.$value.',';
+
+		$x .= 'data:'.(is_string($data) ? $data : json_encode($data));
+
+		$x .= '});';
+
+		echo $x;
 	}
 }
 

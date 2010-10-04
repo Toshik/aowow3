@@ -1,4 +1,4 @@
-<title><?php echo htmlspecialchars($this->full_title); ?></title>
+<title><?php echo htmlspecialchars($this->title); ?></title>
 
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -10,6 +10,13 @@
 
 	foreach($this->js as $js)
 		echo '<script src="cache/'.$js .'.js"  type="text/javascript"></script>'."\n";
+
+
+	if($this->user && $this->user->HasRoles(U_GROUP_STAFFERS))
+	{
+		echo '<script src="cache/'.CLIENTFILE_STAFF_JS.'.js"  type="text/javascript"></script>'."\n";
+		echo '<link  href="cache/'.CLIENTFILE_STAFF_CSS.'.css" type="text/css" rel="stylesheet" />'."\n";
+	}
 ?>
 
 <?php /*
