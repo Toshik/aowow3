@@ -13,11 +13,14 @@ class DBConfig
 
 	// Characters Database
 	public static $characters = array(
-		'host'	=> 'localhost',
-		'user'	=> 'root',
-		'pass'	=> '',
-		'db'	=> 'characters',
-		'prefix'=> '',
+		// 1 is realmid
+		1 => array(
+			'host'	=> 'localhost',
+			'user'	=> 'root',
+			'pass'	=> '',
+			'db'	=> 'characters',
+			'prefix'=> '',
+		),
 	);
 
 	// Realm Database
@@ -31,15 +34,6 @@ class DBConfig
 
 	// Logs & Activity Database
 	public static $log = array(
-		'host'	=> 'localhost',
-		'user'	=> 'root',
-		'pass'	=> '',
-		'db'	=> 'mangos',
-		'prefix'=> '',
-	);
-
-	// Live World Database - the one used directly by the server
-	public static $liveworld = array(
 		'host'	=> 'localhost',
 		'user'	=> 'root',
 		'pass'	=> '',
